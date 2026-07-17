@@ -1,0 +1,91 @@
+# Inside automations.yaml
+
+# ============================================================================
+# AUTOMATION SCALING NOTE (eg. LD02, LD03, ...):
+# To add additional hardware nodes back into your tracking alerts:
+# 1. Copy the entire 'LD01: Landslide Status Monitoring Alerts' block below.
+# 2. Paste it as a new automation rule.
+# 3. Update the 'id' string to a new unique identifier.
+# 4. Global Find & Replace: Change all instances of "LD01", "ld01", and 
+#    "landslide_01" inside your triggers, conditions, actions, and templates 
+#    to your target node index (e.g., "LD02", "ld02", "landslide_02").
+# ============================================================================
+
+- id: '1781292117000'
+  alias: 'LD01: Landslide Status Monitoring Alerts'
+  description: Dispatches high-priority pushes when Node 01 changes alert states or misses check-ins
+  triggers:
+  - trigger: state
+    entity_id: binary_sensor.ld01_landslide_alert_status
+    from: 'off'
+    to: 'on'
+    id: landslide_tripped
+  - trigger: state
+    entity_id: binary_sensor.ld01_landslide_alert_status
+    from: 'on'
+    to: 'off'
+    id: landslide_cleared
+  - trigger: numeric_state
+    entity_id: sensor.ld01_time_since_last_check_in
+    above: 1440
+    id: node_offline
+  conditions:
+  - condition: template
+    value_template: '{{ trigger.from_state is not none and trigger.to_state is not
+      none and trigger.from_state.state not in [''unknown'', ''unavailable''] and
+      trigger.to_state.state not in [''unknown'', ''unavailable''] }}'
+  actions:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: landslide_tripped
+      sequence:
+      - action: notify.mobile_app_your_phone_name
+        data:
+          title: ' ⚠️ LD01 LANDSLIDE WARNING'
+          message: "{% set hw_status = states('sensor.landslide_01_system_status')
+            | lower %} {% if hw_status == 'alert' %}\n  CRITICAL: LD01 detected
+            ground acceleration.\n  {% elif hw_status == 'timed' %}\n  WARNING:
+            LD01 detected SLOW STRUCTURAL CREEP.\n  {% elif hw_status == 'tripped'
+            %}\n  WARNING: LD01 TRIPWIRE broken, check wire.\n  {% endif %}\n"
+    - conditions:
+      - condition: trigger
+        id: landslide_cleared
+      sequence:
+      - action: notify.mobile_app_your_phone_name
+        data:
+          title: ' ✅ LD01 Status Normal'
+          message: LD01 has returned to NORMAL mode.
+    - conditions:
+      - condition: trigger
+        id: node_offline
+      sequence:
+      - action: notify.mobile_app_your_phone_name
+        data:
+          title: "🛑 LD01 NODE OFFLINE"
+          message: '{% set minutes = states(''sensor.ld01_time_since_last_check_in'')
+            | int(0) %} Critical: LD01 has failed to check in for over {{ minutes
+            }} minutes ({% if minutes >= 60 %}{{ (minutes / 60) | round(1) }} hours{%
+            else %}{{ minutes }} mins{% endif %}).'
+  mode: queued
+  max: 10
+
+- id: '1784314158737'
+  alias: Heavy Rain
+  description: 'Triggers priority notification if rain thresholds risk landslide activity'
+  triggers:
+  - trigger: numeric_state
+    entity_id:
+    - sensor.gw3000b_rain_rate_piezo
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+    above: 20
+  conditions: []
+  actions:
+  - action: notify.mobile_app_your_phone_name
+    data:
+      title: "🌧️ WARNING! Heavy Rain"
+      message: "Landslide conditions likely!"
+  mode: queued

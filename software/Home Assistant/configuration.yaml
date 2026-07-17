@@ -1,0 +1,55 @@
+# Inside configuration.yaml
+
+# Loads default set of integrations. Do not remove.
+default_config:
+  
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1  # Allows the local Tailscale Add-on container to pass traffic
+  
+##########################################################
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes/
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+template: !include templates.yaml
+#compensation: !include compensations.yaml
+#zone: !include zones.yaml
+
+recorder:
+  purge_keep_days: 30 #set to number of days HA keeps all entity data
+
+# ============================================================================
+# AUTOMATION SCALING NOTE (LD02 - LD10):
+# To add additional hardware nodes back into your tracking velocities:
+# 1. Copy the entire 'NODE 01 VELOCITY MATRIX' sensor block below.
+# 2. Paste it right underneath within the 'sensor:' block.
+# 3. Global Find & Replace inside the new block: Change all instances of 
+#    "LD01", "ld01", and "landslide_01" to your target node index 
+#    (e.g., "LD02", "ld02", "landslide_02").
+# ============================================================================
+
+sensor:
+  # ----------------------------------------------------------------------------
+  # NODE 01 VELOCITY MATRIX (UNLOCKED VIA UNIQUE IDs)
+  # ----------------------------------------------------------------------------
+  - platform: derivative
+    source: sensor.landslide_01_angle_x
+    name: "LD01 X-Angle Velocity"
+    unique_id: "ld01_vel_x"
+    round: 2
+    unit_time: s
+    time_window: "00:05:00"
+
+  - platform: derivative
+    source: sensor.landslide_01_angle_y
+    name: "LD01 Y-Angle Velocity"
+    unique_id: "ld01_vel_y"
+    round: 2
+    unit_time: s
+    time_window: "00:05:00"

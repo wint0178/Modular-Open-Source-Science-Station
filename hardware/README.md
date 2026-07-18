@@ -13,12 +13,13 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | ESP32-WROOM-32E or SAMD21 (Must support external RTC GPIO interrupts) | $4.00 - $6.00 |
-| **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | LIS3DH or MPU6050 breakout board | $2.00 - $4.00 |
-| **LoRaWAN Transceiver** | Handles long-range telemetry modulation through rugged topography. | RFM95W (915 MHz / 868 MHz) or SX1262 | $5.00 - $8.00 |
+| **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $4.00 - $6.00 |
+| **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $2.00 - $4.00 |
 | **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See KiCad files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $2.00 |
-| **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) or LiFePO4 cells | $4.00 - $6.00 |
+| **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $4.00 - $6.00 |
 | **Solar Harvesting** | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 - $5.00 |
+| **Humidity Sensor** | Detects water in enclosure. | DHT22 breakout board | $5.00 - $10.00 |
+| **Solar Charger** | Manages solar power and battery charging. | CN3065 solar charge board | $5.00 - $10.00 |
 | **Enclosure** | Ruggedized environmental protection box. | IP67/IP68 weatherproof junction box with cable glands | $5.00 - $10.00 |
 
 ### 2. Meteorological Subsystem (Per Site)

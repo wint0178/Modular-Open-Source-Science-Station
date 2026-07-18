@@ -15,7 +15,7 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 |---|---|---|---|
 | **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $4.00 - $6.00 |
 | **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $2.00 - $4.00 |
-| **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See KiCad files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $2.00 |
+| **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See gerber files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $2.00 |
 | **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $4.00 - $6.00 |
 | **Solar Harvesting** | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 - $5.00 |
 | **Humidity Sensor** | Detects water in enclosure. | DHT22 breakout board | $5.00 - $10.00 |

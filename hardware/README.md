@@ -36,7 +36,7 @@ The edge-computing collection facility that runs the vector evaluation code and 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
 | **Edge Server Platform** | Dedicated machine executing the central operations stack. | Raspberry Pi 4/5 (4GB+), Home Assistant Green, or Mini PC | $35.00 - $80.00 |
-| **Storage Infrastructure** | High-write endurance platform storage for database protection. | High-Endurance MicroSD card (64GB+) or M.2 NVMe SSD | $15.00 - $30.00 |
+| **Storage Infrastructure** | High-write endurance platform storage for database protection. | High-Endurance MicroSD card (32GB+) or M.2 NVMe SSD | $15.00 - $30.00 |
 | **LoRaWAN Gateway** | Acts as the local network concentrator to intercept WOILD node signals. | RAKWireless RAK7246 / RAK7289 or similar multichannnel gateway | $70.00 - $120.00 |
 
 ---

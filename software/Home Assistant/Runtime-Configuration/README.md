@@ -40,7 +40,6 @@ graph LR
     subgraph Emergency Action Layer
         NodeG -->|Threshold Breach Trigger| NodeH[Automated Alerts<br>HA Companion App Push]
     end
----
 
 ## 🛠️ Step-by-Step Implementation
 

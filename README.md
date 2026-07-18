@@ -5,14 +5,14 @@ a localized LoRaWAN mesh alongside EcoWitt meteorological sensors, the system
 aggregates real-time microclimate data, barometric pressure, and physical 
 movement tracking. 
 
-At the core of the MOSSS physical tracking infrastructure is the WOILD 
-(Wireless Sensor Network for Real-Time Landslide Detection) subsystem—an 
-open-source hardware and telemetry framework specifically engineered to monitor 
-slope stability and ground acceleration. 
+At the core of the MOSSS physical tracking infrastructure is the Wake on 
+Interrupt Landslide Detector (WOILD) subsystem—an open-source hardware and 
+telemetry framework specifically engineered to monitor slope stability and 
+ground acceleration. 
 
 All data streams converge on a centrally located, local Home Assistant Core 
 gateway, which orchestrates automated mobile alerts via custom vector 
-deviation matrices and seamlessly bridges the network into broader smart 
+deviation matrices and bridges the network into broader commercial smart 
 integrations.
 <img src="./ss-topology-image.png" />
 

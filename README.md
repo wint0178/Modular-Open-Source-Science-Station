@@ -19,3 +19,17 @@ All data streams converge on a centrally located, local Home Assistant Core gate
 1. **Telemetry Collection:** Solar-powered LoRa nodes monitor environmental metrics and structural movement on the hillsides.
 2. **Backhaul:** Data is pushed via LoRaWAN to the SenseCAP gateway (integrated with TTN), while weather data routes through the EcoWitt gateway.
 3. **Processing & Action:** Home Assistant Core ingests all streams, handles local logic to control smart infrastructure in the valley, and pushes automated alerts to mobile clients.
+
+## ⚖️ Credits and Disclaimers
+
+### Project Credits
+* **System Design & Architecture:** Developed by [Your Name/Username].
+* **Firmware & Core Logic:** Built on the WOILD v1.1.3 framework.
+
+### AI Transparency & Media Disclosure
+* **Documentation & Asset Assistance:** Portions of the configuration optimization, code documentation, and README organization were refined with the assistance of large language models (Gemini/ChatGPT).
+* **Visual Imagery:** Conceptual diagrams, branding icons, or repository header graphics were generated using AI imaging tools with human-directed engineering prompts. These assets are intended purely for illustrative, conceptual, and repository-visual enhancement purposes.
+
+### Academic Citation Note
+If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:
+> [Insert your pending paper title / citation placeholder here once submitted/published]

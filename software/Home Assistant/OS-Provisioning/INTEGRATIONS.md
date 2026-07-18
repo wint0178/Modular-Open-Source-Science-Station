@@ -2,7 +2,7 @@
 
 This document details the software application layer, community integrations, and network translators deployed within the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming environmental RF data into local vector matrices and safety alerts.
 
-![Descriptive Alt Text For Accessibility](./images/HA-Dessrumbes.png)
+![Descriptive Alt Text For Accessibility](/images/HA-Dessrumbes.png)
 ---
 
 ## ☁️ Remote Access & Network Architecture (Optional Fail-Safes)

@@ -83,4 +83,4 @@ Because the gateway needs to compute vector matrices locally without internet de
 ## 🧭 Next Step
 Once you have landed on your fresh home assistant dashboard and created your main owner account, advance to user provisioning and system networking:
 
-👉 **Proceed to Stage 2:** [Go to 2-OS-Provisioning](../OS-Provisioning/)
+👉 **Proceed to Stage 2:** [Go to OS-Provisioning](../OS-Provisioning/)

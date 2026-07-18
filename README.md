@@ -23,7 +23,7 @@ All data streams converge on a centrally located, local Home Assistant Core gate
 ## ⚖️ Credits and Disclaimers
 
 ### Project Credits
-* **System Design & Architecture:** Developed by [Your Name/Username].
+* **System Design & Architecture:** Developed by Brandon J. Winters, Ph.D.
 * **Firmware & Core Logic:** Built on the WOILD v1.1.3 framework.
 
 ### AI Transparency & Media Disclosure
@@ -32,4 +32,3 @@ All data streams converge on a centrally located, local Home Assistant Core gate
 
 ### Academic Citation Note
 If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:
-> [Insert your pending paper title / citation placeholder here once submitted/published]

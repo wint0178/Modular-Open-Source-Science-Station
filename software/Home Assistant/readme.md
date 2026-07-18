@@ -25,4 +25,4 @@ To make deployment structured, repeatable, and secure, the installation and code
 ## 🏃 Getting Started
 To begin provisioning your station gateway hub, move directly to the first folder:
 
-👉 **Begin Stage 1:** [Go to 1-HAOS-Setup](./HAOS-Setup/)
+👉 **Begin Stage 1:** [Go to HAOS-Setup](./HAOS-Setup/)

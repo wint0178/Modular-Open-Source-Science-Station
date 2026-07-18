@@ -57,7 +57,7 @@ Because the gateway needs to compute vector matrices locally without internet de
 </div>
     
 <!-- Native HTML Image Element -->
-<img src="./images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
+<img src="/images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
   </li>
 
   <!-- STEP 4 -->

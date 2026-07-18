@@ -1,4 +1,7 @@
 # Modular and Open-Source Science Station
+> **"Gathering data so stones gather no momentum."**
+
+---
 The Modular and Open-Source Science Station (MOSSS) features a decentralized 
 environmental monitoring network designed for rugged, remote terrain. Utilizing 
 a localized LoRaWAN mesh alongside EcoWitt meteorological sensors, the system 

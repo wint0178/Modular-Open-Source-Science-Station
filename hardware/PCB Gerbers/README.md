@@ -20,48 +20,31 @@ global manufacturers. Popular high-quality options include:
 
 The hardware subsystem is engineered to bridge abstract telemetry logic with resilient environmental deployment. The panel matrix below tracks our complete progression from the baseline circuit traces to our physical field installation array.
 
-<div style="background-color: #1e1e24; padding: 25px; border-radius: 12px; font-family: sans-serif; max-width: 1100px; margin: 20px auto; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
-    <!-- Header Block -->
-    <div style="border-bottom: 2px solid #3a3a42; padding-bottom: 15px; margin-bottom: 20px; text-align: center;">
-        <h2 style="color: #ffffff; margin: 0; font-size: 24px; letter-spacing: 1px;">WOILD Node v4: Technical Hardware Matrix</h2>
-        <p style="color: #a0a0aa; margin: 5px 0 0 0; font-size: 14px;">From Logical Schematic to Physical Field Infrastructure</p>
+<!-- Native HTML Image Elements pointing to the centralized root folder -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    
+    <!-- 1. Schematic -->
+    <div style="background: #ffffff; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">1. Electrical Circuit Logic</div>
+        <img src="/images/v3_circuit.png" alt="Circuit Schematic" style="width: 100%; height: auto; object-fit: contain; max-height: 350px;">
     </div>
 
-    <!-- Main Grid Configuration -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        
-        <!-- Top Left: Circuit Schematic Diagram -->
-        <div style="background: #ffffff; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">1. Electrical Circuit Logic</div>
-            <img src="./images/v3_circuit.png" alt="Circuit Schematic" style="width: 100%; height: auto; object-fit: contain; max-height: 350px;">
-        </div>
-
-        <!-- Top Right: Real-World Field Deployments -->
-        <div style="background: #f4f4f6; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">2. Weatherproof Enclosures Array</div>
-            <img src="./images/boxes.JPG" alt="Physical Deployment Enclosures" style="width: 100%; height: auto; object-fit: contain; max-height: 350px; border-radius: 4px;">
-        </div>
-
-        <!-- Bottom Left: PCB Front Layer Map -->
-        <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">3. PCB Trace Vector (Top Side)</div>
-            <img src="./images/v3_front.png" alt="PCB Front Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
-        </div>
-
-        <!-- Bottom Right: PCB Back Layer Map -->
-        <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">4. PCB Trace Vector (Bottom Side)</div>
-            <img src="./images/v3_back.png" alt="PCB Back Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
-        </div>
-
+    <!-- 2. Enclosures -->
+    <div style="background: #f4f4f6; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-weight: bold; font-size: 13px; color: #1e1e24; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">2. Weatherproof Enclosures Array</div>
+        <img src="/images/boxes.JPG" alt="Physical Deployment Enclosures" style="width: 100%; height: auto; object-fit: contain; max-height: 350px; border-radius: 4px;">
     </div>
 
-    <!-- Footer Specs -->
-    <div style="margin-top: 20px; background: #2a2a35; padding: 12px; border-radius: 6px; display: flex; justify-content: space-around; text-align: center; color: #d4d4d8; font-size: 12px; font-family: sans-serif;">
-        <div><strong>Core MCU:</strong> Heltec WiFi LoRa 32 V3</div>
-        <div><strong>Inertial Sensor:</strong> MPU6050 Accelerometer</div>
-        <div><strong>Microclimate Integration:</strong> DHT22 Base Core</div>
-        <div><strong>Power Subsystem:</strong> TPS61023 5V Boost</div>
+    <!-- 3. PCB Front -->
+    <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">3. PCB Trace Vector (Top Side)</div>
+        <img src="/images/v3_front.png" alt="PCB Front Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
+    </div>
+
+    <!-- 4. PCB Back -->
+    <div style="background: #112233; border: 1px solid #3a3a42; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div style="font-weight: bold; font-size: 13px; color: #52a3ff; margin-bottom: 8px; text-transform: uppercase; font-family: sans-serif;">4. PCB Trace Vector (Bottom Side)</div>
+        <img src="/images/v3_back.png" alt="PCB Back Layer Layout" style="width: 100%; height: auto; object-fit: contain; max-height: 400px;">
     </div>
 </div>
 

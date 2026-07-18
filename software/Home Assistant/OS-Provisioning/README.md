@@ -42,4 +42,4 @@ To ensure operators can monitor landslide tracking grids securely from anywhere 
 Review the full applications setup documentation located inside this folder for specific step-by-step installation instructions for Tailscale, HACS, and cloud sync options:
 
 👉 **Read Application Guide:** [INTEGRATIONS.md](./INTEGRATIONS.md)  
-👉 **Proceed to Stage 3:** [Go to 3-Runtime-Configuration](../Runtime-Configuration/)
+👉 **Proceed to Stage 3:** [Go to Runtime-Configuration](../Runtime-Configuration/)

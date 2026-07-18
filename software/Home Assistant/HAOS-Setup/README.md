@@ -52,12 +52,12 @@ Because the gateway needs to compute vector matrices locally without internet de
     Select your target storage device and click <strong>Next</strong>.<br><br>
     
     <!-- Styled Warning Callout Box -->
-    <div style="background-color: rgba(240, 185, 11, 0.1); border-left: 4px solid #f0b90b; padding: 15px; margin-bottom: 15px; border-radius: 0 6px 6px 0;">
-      <strong style="color: #f0b90b;">⚠️ CRITICAL:</strong> If the imager prompts you to apply OS customization settings (like setting up Wi-Fi or SSH), <strong>select NO</strong>. HAOS manages its own network initialization—applying custom configurations through the imager will corrupt the system container structure. Confirm and write the image.
-    </div>
+<div style="background-color: rgba(240, 185, 11, 0.1); border-left: 4px solid #f0b90b; padding: 15px; margin-bottom: 15px; border-radius: 0 6px 6px 0;">
+<strong style="color: #f0b90b;">⚠️ CRITICAL:</strong> If the imager prompts you to apply OS customization settings (like setting up Wi-Fi or SSH), <strong>select NO</strong>. HAOS manages its own network initialization—applying custom configurations through the imager will corrupt the system container structure. Confirm and write the image.
+</div>
     
     <!-- Native HTML Image Element -->
-    <img src="./images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
+<img src="./images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
   </li>
 
   <!-- STEP 4 -->

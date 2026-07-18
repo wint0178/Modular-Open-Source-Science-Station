@@ -7,6 +7,7 @@ This directory manages the initial physical provisioning and bare-metal OS insta
 ## 📋 Prerequisites & Hardware Checklist
 
 Before beginning, ensure your central hub hardware components match our verified specifications:
+
 *   **Single Board Computer:** Raspberry Pi 4 or Raspberry Pi 5 (Minimum 4GB RAM recommended).
 *   **Power Supply:** Official Raspberry Pi USB-C power supply (15W for Pi 4, 27W for Pi 5) to prevent undervoltage failures.
 *   **Storage:** A 32GB high-endurance microSD card (UHS Speed Class 3 / V30 or better rated for continuous write cycles) or an external USB 3.0 SSD.
@@ -18,30 +19,60 @@ Before beginning, ensure your central hub hardware components match our verified
 
 Because the gateway needs to compute vector matrices locally without internet dependence, we utilize the bare-metal **Home Assistant Operating System (HAOS)**.
 
-<Sequence>
-{/* Reason: Misordering these setup steps will result in a failed headless boot or network mismatch. */}
-  <Step subtitle="Requires Mac, Windows, or Linux PC" title="Download the Flashing Tool">
-    Download and install the official **Raspberry Pi Imager** from [raspberrypi.com/software](https://www.raspberrypi.com/software/). Insert your storage media into your flashing computer.
-  </Step>
-  <Step subtitle="Do not use default Pi OS" title="Select the HAOS Image">
-    1. Launch the Imager tool.
-    2. Click **Choose Device** and select your model (e.g., Raspberry Pi 5).
-    3. Click **Choose OS**, scroll down to select **Other specific-purpose OS**, click **Home Assistant**, and choose **Home Assistant OS**.
-  </Step>
-  <Step subtitle="Crucial Step" title="Flash without OS Customization">
-    Select your target storage device and click **Next**. 
-    > ⚠️ **CRITICAL:** If the imager prompts you to apply OS customization settings (like setting up Wi-Fi or SSH), **select NO**. HAOS manages its own network initialization—applying custom configurations through the imager will corrupt the system container structure. Confirm and write the image.
-    ![Descriptive Alt Text For Accessibility](./images/Pi-imager.png)
-  </Step>
-  <Step subtitle="Takes 5-15 minutes" title="Headless Initial Boot">
-    Insert the flashed storage into your Raspberry Pi. Connect an **Ethernet cable** to your router, then plug in the power supply. The Pi will boot headlessly; give it up to 15 minutes to automatically provision, unpack the environment, and fetch system dependencies.
-  </Step>
-  <Step subtitle="Web Browser Setup" title="Complete Onboarding UI">
+> ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
+
+---
+
+### Step-by-Step Sequence
+
+<ul style="list-style: none; padding-left: 0;">
+
+  <!-- STEP 1 -->
+  <li style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+    <h3 style="margin-top: 0;">1. Download the Flashing Tool</h3>
+    <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Requires Mac, Windows, or Linux PC</em></p>
+    Download and install the official <strong>Raspberry Pi Imager</strong> from <a href="https://www.raspberrypi.com/software/">raspberrypi.com/software</a>. Insert your storage media into your flashing computer.
+  </li>
+
+  <!-- STEP 2 -->
+  <li style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+    <h3 style="margin-top: 0;">2. Select the HAOS Image</h3>
+    <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Do not use default Pi OS</em></p>
+    <ol>
+      <li>Launch the Imager tool.</li>
+      <li>Click <strong>Choose Device</strong> and select your model (e.g., Raspberry Pi 5).</li>
+      <li>Click <strong>Choose OS</strong>, scroll down to select <strong>Other specific-purpose OS</strong>, click <strong>Home Assistant</strong>, and choose <strong>Home Assistant OS</strong>.</li>
+    </ol>
+  </li>
+
+  <!-- STEP 3 (Includes critical warning and image) -->
+  <li style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+    <h3 style="margin-top: 0;">3. Flash without OS Customization</h3>
+    <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Crucial Step</em></p>
+    Select your target storage device and click <strong>Next</strong>.<br><br>
+    
+    > ⚠️ **CRITICAL:** If the imager prompts you to apply OS customization settings (like setting up Wi-Fi or SSH), **select NO**. HAOS manages its own network initialization—applying custom configurations through the imager will corrupt the system container structure. Confirm and write the image.<br><br>
+    
+    ![descriptive-alt-text-for-accessibility](./images/Pi-imager.png)
+  </li>
+
+  <!-- STEP 4 -->
+  <li style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+    <h3 style="margin-top: 0;">4. Headless Initial Boot</h3>
+    <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Takes 5-15 minutes</em></p>
+    Insert the flashed storage into your Raspberry Pi. Connect an <strong>Ethernet cable</strong> to your router, then plug in the power supply. The Pi will boot headlessly; give it up to 15 minutes to automatically provision, unpack the environment, and fetch system dependencies.
+  </li>
+
+  <!-- STEP 5 -->
+  <li style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 20px;">
+    <h3 style="margin-top: 0;">5. Complete Onboarding UI</h3>
+    <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Web Browser Setup</em></p>
     On a computer connected to the same local network, open a browser window and navigate to:
-    `http://homeassistant.local:8123`
-    *(If the hostname fails to resolve, check your router's DHCP client list to find the Pi's IP address and navigate to `http://YOUR_PI_IP:8123`).* Follow the prompts to create your local admin account.
-  </Step>
-</Sequence>
+    <code>http://homeassistant.local:8123</code>
+    *(If the hostname fails to resolve, check your router's DHCP client list to find the Pi's IP address and navigate to <code>http://YOUR_PI_IP:8123</code>).* Follow the prompts to create your local admin account.
+  </li>
+
+</ul>
 
 ---
 

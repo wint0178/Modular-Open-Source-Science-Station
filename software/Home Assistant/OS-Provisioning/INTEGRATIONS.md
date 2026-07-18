@@ -39,7 +39,7 @@ These integrations handle data parsing from your distributed field tracking arra
 *   **Function:** Captures hyper-local meteorological profiles directly from our on-site microclimate array via local network broadcasts, complemented by regional historical projections via the Weather.com API.
 *   **Data Pipeline:** Streams real-time rain accumulation rates and storm factors directly into our threshold matrices to correlate rainfall infiltration against immediate ground slope shift events.
 
-![Descriptive Alt Text For Accessibility](./images/HA-Clima.png)
+![Descriptive Alt Text For Accessibility](/images/HA-Clima.png)
 
 ---
 

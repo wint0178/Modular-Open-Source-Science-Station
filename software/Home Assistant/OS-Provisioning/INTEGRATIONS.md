@@ -2,7 +2,7 @@
 
 This document details the software application layer, community integrations, and network translators deployed within the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming environmental RF data into local vector matrices and safety alerts.
 
-![Descriptive Alt Text For Accessibility](/images/HA-Dessrumbes.png)
+![Image Missing](/images/HA-Integrations.png)
 ---
 
 ## ☁️ Remote Access & Network Architecture (Optional Fail-Safes)
@@ -24,7 +24,8 @@ These applications run as isolated system containers managed by the Home Assista
 
 *   **Mosquitto Broker:** Our high-performance, local MQTT message broker. It ingests data packets directly from our LoRaWAN network layout using the `databroker` M2M credentials and serves them to the automation engine.
 *   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
-
+*   
+![Image Missing](/images/HA-Dessrumbes.png)
 ---
 
 ## 📡 Telemetry & Network Translators (Custom Integrations)

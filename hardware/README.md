@@ -25,7 +25,7 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 | **Female Header Pins** | 3 | Soldered to PCB to accept boards | 40 pin, 2.54 mm pitch | $0.75 |
 | **Screw Terminal Block** | 2 | Solder to PCB for solar and tripwire | 2 pin, 5 mm | $0.25 |
 | **JST Battery Connector** | 1 | Solder to CN5065 for battery connection | 2 pin, 1.25 mm pitch | $0.30 |
-| **22 AWG Wire** | 1 | Solder to solar pannel | 2 Conductor, tinned, 10 meters | $10.00 |
+| [**22 AWG Wire**](https://www.amazon.com/Conductor-Electrical-Parallel-0-3mm%C2%B2%EF%BC%8C-Projects/dp/B0FH4YYJ3Y?crid=3QT0M60D67B4E&dib=eyJ2IjoiMSJ9.0is0xfeGIMj9TEgcksIBU9jsAL1q5Vx57pYKE14YckDleDBYIFI7YmWp75AmAnFpmhNzAiCzbE_lv2J9mnvaLvtJfnF-jJM8G21p2zr5qy0fYMAmTc8X8YaO5-getnl5uHYEra-iEg-brF4Vqh_3PJ0BE1F3n9XibU1BwurH9rvBKOMhWAL8F1ROHz2ICm2P5638ldoBP-kkmqtvCsTL03jxnpkQZKON0Vmyf70aEaBMSzhuacPHyIxjcvZY05p47eYJDBDm8HpxgFnxmMnFOKQwgYK_tfQFUfSRetDRSkU.p7654FxWbtkrRaYfAfKxP1rk2Yk3CtPmk9iSUuFXY8Y&dib_tag=se&keywords=22AWG&qid=1787005778&sprefix=22awg%2Caps%2C191&sr=8-9&th=1) | 1 | Solder to solar pannel | 2 Conductor, tinned, 10 meters | $10.00 |
 
 
 ### 2. Meteorological Subsystem (Per Site)

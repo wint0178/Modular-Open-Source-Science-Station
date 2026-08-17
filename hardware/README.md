@@ -33,16 +33,14 @@ Aggregates hyper-local microclimate profiles and storm cell attributes to correl
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| [**EcoWitt Weather Station**](https://www.amazon.com/ECOWITT-Ethernet-Humidity-Anemometer-Barometric/dp/B0DTPXKP8B?dib=eyJ2IjoiMSJ9.vmuq2wixRRtQ4HUwB4Tx1Cv_TuTXVxVoF8i1jnqL0hY6v-vdyNxGuueYBpybWMOQ7pM067amLJ9BFM5YXjrDcGb1jDSqgnFqU5l4anfboObyk_chcJk4R5FNT79abqa9jXNDUn0L6iitYGxAjOXJV8jEhw3KsAfgs-0m_hhKNmmcz0kyPy2I6bAZypTCu1t3_RYHbeSlg9fzPx3w6Qz-YuWK6RH7a0A1Kqw7eDLt2V40IfwUQ_ru4wMD6h6wkgLngRp28WIEKBUQFUupRkcYWamxl0MjnKqwsMa2gJEbXF0.90WJBZWs4VZ1ySQaDd7E71DnfBFPnfJ7x14SSzmTBJE&dib_tag=se&keywords=Ecowitt%2Bgw3001&qid=1787006353&sr=8-1&th=1) | Solid-state array tracking rainfall rate, wind vector, and humidity. | Wittboy (GW2001) or WS90 7-in-1 Sensor Array | $130.00 - $150.00 |
-| **EcoWitt Gateway** | Receives RF signals locally and passes customized data payloads to the hub. | GW1100, GW1200, or GW2000 Local Wi-Fi Gateway | $30.00 - $45.00 |
+| [**EcoWitt Weather Station**](https://www.amazon.com/ECOWITT-Ethernet-Humidity-Anemometer-Barometric/dp/B0DTPXKP8B?dib=eyJ2IjoiMSJ9.vmuq2wixRRtQ4HUwB4Tx1Cv_TuTXVxVoF8i1jnqL0hY6v-vdyNxGuueYBpybWMOQ7pM067amLJ9BFM5YXjrDcGb1jDSqgnFqU5l4anfboObyk_chcJk4R5FNT79abqa9jXNDUn0L6iitYGxAjOXJV8jEhw3KsAfgs-0m_hhKNmmcz0kyPy2I6bAZypTCu1t3_RYHbeSlg9fzPx3w6Qz-YuWK6RH7a0A1Kqw7eDLt2V40IfwUQ_ru4wMD6h6wkgLngRp28WIEKBUQFUupRkcYWamxl0MjnKqwsMa2gJEbXF0.90WJBZWs4VZ1ySQaDd7E71DnfBFPnfJ7x14SSzmTBJE&dib_tag=se&keywords=Ecowitt%2Bgw3001&qid=1787006353&sr=8-1&th=1) | Solid-state array and WiFi Gateway | GW3000 with WS90 7-in-1 Sensor Array | $200.00 |
 
 ### 3. Central Gateway Hub (Per Grid)
 The edge-computing collection facility that runs the vector evaluation code and processes emergency alerts locally.
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| [**Edge Server Platform**](https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9?crid=3RE7EDWUJJFS4&dib=eyJ2IjoiMSJ9.6RZammJY5JsyJpwezt2mnyqVgX0u7giYKyl3toVQa_qfXyYKEmozfs484V3nYWBadviMM-Fihl_1q04siCLseotSgPo7PCskGUcgw2kfHFgG3pcoxlilaZ1Gx43ArYVky8dleAZ8FKyzR6FazPpzjVF2K_Uidfhg8TQcJR8P6Dtg8MoMitGZb_tf2CleyYEozVCWUwwPhnCloAsni5mKy6rhD_tojl-sMCCjk602gqk.gLGW8RGSe0cYae2lPj4jXlbktZ_VHEJQwYcgpWmGtEQ&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1787006277&sprefix=Raspberry%2Caps%2C185&sr=8-3&th=1) | Dedicated machine executing the central operations stack. | Raspberry Pi 4/5 (4GB+), Home Assistant Green, or Mini PC | $80.00 - $160.00 |
-| **Storage Infrastructure** | High-write endurance platform storage for database protection. | High-Endurance MicroSD card (32GB+) or M.2 NVMe SSD | $15.00 - $30.00 |
+| [**Edge Server Platform**](https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9?crid=3RE7EDWUJJFS4&dib=eyJ2IjoiMSJ9.6RZammJY5JsyJpwezt2mnyqVgX0u7giYKyl3toVQa_qfXyYKEmozfs484V3nYWBadviMM-Fihl_1q04siCLseotSgPo7PCskGUcgw2kfHFgG3pcoxlilaZ1Gx43ArYVky8dleAZ8FKyzR6FazPpzjVF2K_Uidfhg8TQcJR8P6Dtg8MoMitGZb_tf2CleyYEozVCWUwwPhnCloAsni5mKy6rhD_tojl-sMCCjk602gqk.gLGW8RGSe0cYae2lPj4jXlbktZ_VHEJQwYcgpWmGtEQ&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1787006277&sprefix=Raspberry%2Caps%2C185&sr=8-3&th=1) | Dedicated machine executing the central operations stack. | Raspberry Pi 4 (4GB+)| $160.00 |
 | [**LoRaWAN Gateway**](https://www.amazon.com/dp/B0CG98XDLX?ref=nb_sb_ss_w_as-reorder_k0_1_11&amp=&crid=11M1J45DYKKXW&amp=&sprefix=sensecap+m2) | Acts as the local network concentrator to intercept WOILD node signals. | SenseCAP M2 indoor LoRa gateway or similar multichannnel gateway | $70.00 - $120.00 |
 
 ---

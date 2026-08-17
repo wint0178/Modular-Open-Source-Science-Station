@@ -40,7 +40,7 @@ If you are new to the repository, use this directory map to quickly find files f
 
 ## 🚀 Step-by-Step Deployment Roadmap
 
-To take a MOSSS station from raw parts to an active field deployment, execute these sequential steps:
+After [purchasing all necessary hardware,](/hardware/) to take a MOSSS station from raw parts to an active field deployment, execute these sequential steps:
 
 1. **Set-up Home Assistant Server (Provision Central Gateway):** Follow [`/software/Home-Assistant/`](./software/Home-Assistant/) to install HAOS, create the `databroker` M2M user account, and configure 30-day recorder filters before bringing field nodes online.
 2. **Integrate Commercial Smart Equipment:** Unbox, power up, and integrate off-the-shelf meteorological hardware—such as the **EcoWitt GW3001** weather station gateway—directly into Home Assistant to establish real-time microclimate baselines (rainfall, wind vectors, and barometric pressure).

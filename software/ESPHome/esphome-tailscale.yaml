@@ -1,14 +1,14 @@
 #####################################################################################
-# PROJECT NAME: ESP32 Tailscale
-# VERSION: 1.0.2 (Multi-Board Instance Template)
+# PROJECT NAME: ESP32 Tailscale + BME680
+# VERSION: 1.0.3 (Multi-Board Instance Template)
 # COLLABORATORS: Brandon J. Winters, Ph.D. & Gemini (AI Adaptive Collaborator)
 # REPOSITORY ORIGIN: Developed for secure remote ESP32-S3 sensor deployment via Tailscale.
 # DATE: June 2026
 #####################################################################################
 
 substitutions:
-  master_update_interval: "1min"
-  # 1. [CHANGE ME] Increment this ID for the new board (e.g., "evm04")
+  master_update_interval: "60s"
+  # Increment this ID for each new board instance
   device_id: "evm04" 
 
 esphome:
@@ -26,8 +26,7 @@ external_components:
 
 # VPN Tunneling configuration
 tailscale:
-  # 2. [CHANGE ME] Paste a BRAND NEW disposable/reusable auth key from your Tailscale console
-  auth_key: "tskey-auth-CHANGEME_NEW_UNIQUE_KEY_FROM_TAILSCALE"
+  auth_key: !secret tailscale_auth_key
   hostname: "${device_id}"    
 
 # Required switch for the Tailscale component to toggle debug info in logs
@@ -42,22 +41,19 @@ logger:
 # Home Assistant Native API
 api:
   encryption:
-    # 3. [CHANGE ME] Generate a completely fresh 32-byte Base64 key for this board instance
-    key: "CHANGEME_GENERATE_A_NEW_UNIQUE_BASE64_KEY="
+    key: !secret esphome_api_key
   reboot_timeout: 0s                
 
 # Wireless Update Security
 ota:
   - platform: esphome
-    # 4. [CHANGE ME] Create a fresh unique password string for secure wireless deployment
-    password: "CHANGEME_CREATE_A_NEW_OTA_PASSWORD"
+    password: !secret esphome_ota_password
 
 # Wireless Networking
 wifi:
-  ssid: "WintMesh"
-  password: "07312004"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
   
-  # Tracks dynamically via the updated substitution value
   use_address: "${device_id}"        
   reboot_timeout: 1min              
   power_save_mode: light      
@@ -65,7 +61,7 @@ wifi:
   # Fallback hotspot for local configuration
   ap:
     ssid: "${device_id}-AP"
-    password: "07312004"
+    password: !secret wifi_ap_password
 
 # --- INTERNAL RGB LED CONTROL ---
 light:
@@ -94,10 +90,10 @@ button:
 
 # MQTT Broker Communication
 mqtt:
-  broker: 100.112.149.104     
+  broker: !secret mqtt_broker_ip    
   port: 1883
   username: "databroker"      
-  password: "PaSsWoRd1234!"
+  password: !secret mqtt_password
   discovery: true             
   topic_prefix: esphome/${device_id}
 
@@ -120,45 +116,18 @@ i2c:
     sda: GPIO08
     scl: GPIO09
 
-# Sensor Data Definition
+# Sensor Data Definition (BME680 Only)
 sensor:
-  - platform: internal_temperature
-    name: "${device_id} Temperature"
-    device_class: "temperature"
-    state_class: "measurement"
+  - platform: bme680
+    i2c_id: bus_a
+    address: 0x77
     update_interval: ${master_update_interval}
-
-  - platform: wifi_signal
-    name: "${device_id} WiFi Signal"
-    device_class: "signal_strength"
-    state_class: "measurement"
-    update_interval: ${master_update_interval}
-
-  # Unified mathematical engine running clean and hidden
-  - platform: uptime
-    id: uptime_engine
-    update_interval: ${master_update_interval}
-    internal: true
-
-# Text Sensors Block
-text_sensor:
-  # Polished Human-Readable Dashboard Display
-  - platform: template
-    name: "${device_id} Formatted Uptime"
-    icon: "mdi:clock-start"
-    lambda: |-
-      int seconds = id(uptime_engine).state;
-      int days = seconds / 86400;
-      seconds %= 86400;
-      int hours = seconds / 3600;
-      seconds %= 3600;
-      int minutes = seconds / 60;
-      
-      char buffer[32];
-      if (days > 0) {
-        sprintf(buffer, "%dd, %02dh, %02dm", days, hours, minutes);
-      } else {
-        sprintf(buffer, "%02dh, %02dm", hours, minutes);
-      }
-      return {buffer};
-    update_interval: ${master_update_interval}
+    temperature: 
+      name: "${device_id} BME680 Temperature"
+      oversampling: 16x
+    pressure:
+      name: "${device_id} BME680 Pressure"
+    humidity: 
+      name: "${device_id} BME680 Humidity"
+    gas_resistance: 
+      name: "${device_id} BME680 Gas Resistance"

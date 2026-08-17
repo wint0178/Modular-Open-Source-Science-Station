@@ -1,0 +1,73 @@
+
+#####################################################################################
+# PROJECT NAME: ESPHome MQTT BME680
+# VERSION: 1.0.2 (Multi-Board Instance Template)
+# COLLABORATORS: Brandon J. Winters, Ph.D. & Gemini (AI Adaptive Collaborator)
+# REPOSITORY ORIGIN: Developed for secure remote ESP32-S3 sensor deployment via MQTT.
+# DATE: June 2026
+#####################################################################################
+
+esphome:
+  name: esphome-mqtt-bme680
+  friendly_name: ESPHOME MQTT BME680
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+status_led:
+  pin: GPIO48
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "YOUR_32_CHARACTER_ENCRYPTION_KEY_HERE"
+  reboot_timeout: 
+    minutes: 5
+
+ota:
+  - platform: esphome
+    password: "YOUR_32_CHARACTER_PASSWORD_HERE"
+
+wifi:
+  ssid: "YOUR_WIFI_SSID_HERE"
+  password: "YOUR_WIFI_PASSWORD_HERE"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "ESP32-AP"
+    password: "YOUR_PASSWORD_HERE"
+
+mqtt:
+  broker: "mqtt.yourdomain.com"  # Public Domain, DDNS, or Public IP
+  port: 8883                     # Standard SSL/TLS MQTT Port
+  username: "databroker"
+  password: !secret mqtt_password
+  ssl_fingerprint: "XX:XX:XX:..." # Or ca_certificate for secure verification
+  discovery: true
+
+captive_portal:
+
+i2c:
+  - id: bus_a
+    sda: GPIO08
+    scl: GPIO09
+
+sensor:
+  - platform:  bme680
+    i2c_id: bus_a
+    address: 0x77
+    update_interval: 60s
+    temperature: 
+      name: BME680 Temperature
+      oversampling: 16X
+    pressure:
+      name: BME680 Pressure
+    humidity: 
+      name: BME680 Humidity
+    gas_resistance: 
+      name: BME680 Gas Resistance    

@@ -32,7 +32,7 @@ If you are new to the repository, use this directory map to quickly find files f
 | :--- | :--- | :--- |
 | **Build & Wire Hardware** | [`/hardware`](./hardware/) | Schematics (`v3_circuit.png`), PCB Gerbers, and enclosure guidelines. |
 | **Flash Firmware & Add Payload Decoder** | [`/software`](./software/) | Arduino sketch for **WOILD v1.1.6** nodes, TTN JS decoder, and ESPHome YAMLs. |
-| **Configure Home Assistant & Alerts** | [`/software/Home Assistant`](./software/Home%20Assistant/) | HAOS deployment, `databroker` M2M user, template sensors, and recorder settings. |
+| **Configure Home Assistant & Alerts** | [`/software/Home-Assistant`](./software/Home-Assistant/) | HAOS deployment, `databroker` M2M user, template sensors, and recorder settings. |
 | **Read Notebooks & Field Research** | [`/docs`](./docs/) | Science Station Notebook, field logs, and research documentation. |
 | **View Diagrams & Photos** | [`/images`](./images/) | Wiring diagrams, circuit photos, and dashboard UI captures. |
 
@@ -42,13 +42,11 @@ If you are new to the repository, use this directory map to quickly find files f
 
 To take a MOSSS station from raw parts to an active field deployment, execute these sequential steps:
 
-[Stage 1: HAOS-Setup](./HAOS-Setup/)
-
-1. **Provision Central Gateway (Home Assistant):** Follow [`/software/Home Assistant/README.md`](./software/Home%20Assistant/README.md) to install HAOS, create the `databroker` M2M user account, and configure 30-day recorder filters before bringing field nodes online[cite: 1, 3].
+1. **Provision Central Gateway (Home Assistant):** Follow [`/software/Home-Assistant/README.md`](./software/Home-Assistant/README.md) to install HAOS, create the `databroker` M2M user account, and configure 30-day recorder filters before bringing field nodes online[cite: 1, 3].
 2. **Integrate Commercial Smart Equipment:** Unbox, power up, and integrate off-the-shelf meteorological hardware—such as the **EcoWitt GW3001** weather station gateway—directly into Home Assistant to establish real-time microclimate baselines (rainfall, wind vectors, and barometric pressure)[cite: 2, 3].
-3. **Configure Network Infrastructure & Payload Formatters:** Set up option-based Wi-Fi or Tailscale VPN nodes using [`/software/ESPHome/README.md`](./software/ESPHome/README.md)[cite: 1]. Then, open `WOILD_v1.1.6_payload_formatter.js` in [`/software/Landslide Detectors/README.md`](./software/Landslide%20Detectors/README.md) and paste the decoder script into your TTN or ChirpStack uplink payload formatter console[cite: 3].
+3. **Configure Network Infrastructure & Payload Formatters:** Set up option-based Wi-Fi or Tailscale VPN nodes using [`/software/ESPHome/README.md`](./software/ESPHome/README.md)[cite: 1]. Then, open `WOILD_v1.1.6_payload_formatter.js` in [`/software/Landslide-Detectors/README.md`](./software/Landslide-Detectors/README.md) and paste the decoder script into your TTN or ChirpStack uplink payload formatter console[cite: 3].
 4. **Hardware Assembly & Sensor Construction:** Refer to [`/hardware/README.md`](./hardware/README.md) and `images/v3_circuit.png` to build physical enclosures, wire your Heltec V3 board, and connect accelerometers and environmental sensors[cite: 2].
-5. **Flash WOILD v1.1.6 Firmware & Calibrate:** Navigate to [`/software/Landslide Detectors/README.md`](./software/Landslide%20Detectors/README.md), configure your LoRaWAN credentials (`DevEUI`, `AppEUI`, `AppKey`), assign unique node IDs (`NODE_ID`), set static baseline orientation angles, and flash the MCU via Arduino IDE or PlatformIO[cite: 3].
+5. **Flash WOILD v1.1.6 Firmware & Calibrate:** Navigate to [`/software/Landslide-Detectors/README.md`](./software/Landslide-Detectors/README.md), configure your LoRaWAN credentials (`DevEUI`, `AppEUI`, `AppKey`), assign unique node IDs (`NODE_ID`), set static baseline orientation angles, and flash the MCU via Arduino IDE or PlatformIO[cite: 3].
 6. **Field Installation & Alert Verification:** Mount hardware nodes at your field station, run physical tilt/motion interrupt tests, and verify real-time data ingestion and vector deviation matrix alerting on your Home Assistant dashboard[cite: 3].
 
 ---
@@ -72,4 +70,4 @@ To take a MOSSS station from raw parts to an active field deployment, execute th
 * **Visual Imagery:** Conceptual diagrams, branding icons, or repository header graphics were generated using AI imaging tools with human-directed engineering prompts. These assets are intended purely for illustrative, conceptual, and repository-visual enhancement purposes.
 
 ### Academic Citation Note
-If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript: 
+If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:

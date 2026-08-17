@@ -72,4 +72,4 @@ To take a MOSSS station from raw parts to an active field deployment, execute th
 * **Visual Imagery:** Conceptual diagrams, branding icons, or repository header graphics were generated using AI imaging tools with human-directed engineering prompts. These assets are intended purely for illustrative, conceptual, and repository-visual enhancement purposes.
 
 ### Academic Citation Note
-If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:
+If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript: 

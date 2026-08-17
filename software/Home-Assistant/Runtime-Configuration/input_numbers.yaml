@@ -1,7 +1,7 @@
 # input_numbers.yaml
 
 # ============================================================================
-# LANDSLIDE NODE X & Y BASELINE ANGLE HELPERS (LD01 - LD10) [TEXT BOX MODE]
+# LANDSLIDE NODE X & Y BASELINE ANGLE HELPERS (LD01) [TEXT BOX MODE]
 # ============================================================================
 
 # --- NODE 01 ---
@@ -22,196 +22,6 @@ ld01_y_baseline:
   mode: box
   unit_of_measurement: "°"
   icon: mdi:axis-y-arrow
-
-# --- NODE 02 ---
-ld02_x_baseline:
-  name: "LD02 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld02_y_baseline:
-  name: "LD02 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 03 ---
-ld03_x_baseline:
-  name: "LD03 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld03_y_baseline:
-  name: "LD03 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 04 ---
-ld04_x_baseline:
-  name: "LD04 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld04_y_baseline:
-  name: "LD04 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 05 ---
-ld05_x_baseline:
-  name: "LD05 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld05_y_baseline:
-  name: "LD05 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 06 ---
-ld06_x_baseline:
-  name: "LD06 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld06_y_baseline:
-  name: "LD06 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 07 ---
-ld07_x_baseline:
-  name: "LD07 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld07_y_baseline:
-  name: "LD07 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 08 ---
-ld08_x_baseline:
-  name: "LD08 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld08_y_baseline:
-  name: "LD08 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 09 ---
-ld09_x_baseline:
-  name: "LD09 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld09_y_baseline:
-  name: "LD09 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- NODE 10 ---
-ld10_x_baseline:
-  name: "LD10 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-ld10_y_baseline:
-  name: "LD10 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
-
-# --- Test-01 Node ---
-test01_x_baseline:
-  name: "Test01 X-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-x-arrow
-
-test01_y_baseline:
-  name: "Test01 Y-Axis Baseline Angle"
-  min: -180
-  max: 180
-  step: 0.01
-  mode: box
-  unit_of_measurement: "°"
-  icon: mdi:axis-y-arrow
   
 # --------------------------------------- #
 # Global Landslide Alert Thresholds
@@ -224,6 +34,14 @@ landslide_creep_threshold:
   unit_of_measurement: "°"
   icon: mdi:ruler
   mode: box
+
+landslide_creep_wait_time:
+  name: "Landslide Creep Wait Time"
+  min: 0
+  max: 120
+  step: 1
+  unit_of_measurement: "min"
+  icon: mdi:clock-alert-outline
 
 acceleration_wait_time:
   name: "Acceleration Sustained Wait Time"
@@ -241,55 +59,10 @@ tripwire_wait_time:
   unit_of_measurement: "s"
   icon: mdi:timer-outline
 
-landslide_creep_wait_time:
-  name: "Landslide Creep Wait Time"
-  min: 0
-  max: 120
-  step: 1
-  unit_of_measurement: "min"
-  icon: mdi:clock-alert-outline
-
-# --------------------------------------- #
-# Test Landslide Alert Thresholds
-# --------------------------------------- #
-test_creep_threshold:
-  name: "Test Creep Threshold Vector"
-  min: 0.0
-  max: 10.0
-  step: 0.1
-  unit_of_measurement: "°"
-  icon: mdi:ruler
-  mode: box
-
-test_creep_wait:
-  name: "Test Creep Wait"
-  min: 0
-  max: 120
-  step: 1
-  unit_of_measurement: "min"
-  icon: mdi:clock-alert-outline
-
-test_acceleration_wait:
-  name: "Test Acceleration Wait"
-  min: 0
-  max: 300
-  step: 5
-  unit_of_measurement: "s"
-  icon: mdi:timer-outline
-
-test_tripwire_wait:
-  name: "Test Tripwire Wait"
-  min: 0
-  max: 300
-  step: 5
-  unit_of_measurement: "s"
-  icon: mdi:timer-outline
-
-test_sensor_dead_time:
-  name: "Test Sensor Dead Time"
+landslide_sensor_dead_time:
+  name: "Landslide Sensor Dead Time"
   min: 0
   max: 2000
   step: 10
   unit_of_measurement: "min"
   icon: mdi:emoticon-dead
-  

@@ -10,6 +10,14 @@
 #    "landslide_01" inside your triggers, conditions, actions, and templates 
 #    to your target node index (e.g., "LD02", "ld02", "landslide_02").
 # ============================================================================
+- id: 'ha_healthchecks_heartbeat'
+  alias: 'System: Healthchecks Ping Heartbeat'
+  triggers:
+    - trigger: time_pattern
+      minutes: '/10'
+  actions:
+    - action: rest_command.healthchecks_ping
+  mode: single
 
 - id: '1781292117000'
   alias: 'LD01: Landslide Status Monitoring Alerts'

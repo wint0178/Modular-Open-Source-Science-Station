@@ -78,3 +78,5 @@ These integrations are natively provisioned by **Home Assistant OS (HAOS)** and 
 *   **Home Assistant Supervisor & Backup:** Manages local container health and automates daily system backups to safeguard historical sensor data.
 *   **Raspberry Pi Hardware & Power Supply Checker:** Monitors system metrics, device thermals, and alerts if undervoltage issues threaten edge calculation stability.
 *   **Local IP Address, Bluetooth, Meteorologisk institutt, Radio Browser, Shopping List, & Sun:** Tracks gateway network parameters, local weather projections, solar elevation vectors, and auxiliary system entities.
+
+👉 **Proceed to Stage 3:** [Go to Runtime-Configuration](../Runtime-Configuration/)

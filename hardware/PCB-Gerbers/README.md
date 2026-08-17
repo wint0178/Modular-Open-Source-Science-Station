@@ -1,4 +1,4 @@
-WOILD HARDWARE PCB MANUFACTURING & ORDERING GUIDE (V1.1.3)
+WOILD HARDWARE PCB MANUFACTURING & ORDERING GUIDE (V1.1.6)
 ==============================================================================
 
 This directory contains the production-ready Gerber files exported from KiCad 

@@ -70,3 +70,9 @@ The MAC address acts as the unique device ID for API query parameters. You can r
 2. Select your weather station dashboard.
 3. Open **Device Settings** (gear icon) to view the gateway details, including the registered MAC address.
 
+## 3. Add rest.yaml to Home Assistant
+1. Download the rest.yaml file.
+2. In Home Assistant, navigate to File Editor and create a new file in the same directory as your configuration.yaml file, named "rest.yaml"
+3. Copy the full contents of the downloaded rest.yaml file into your newly created rest file in Home Assistant. Save the file.
+4. Verify the yaml by navigating to Seetings->Developer Tools->YAML, Click "Check Configuration" and verify that it will not prevent HA from starting. If successful, click Restart and then select Quick Reload from the available options.
+    *Note: your configuration yaml must inlude the line "rest !include rest.ymal" or HA will not deploy these changes even after reloading.*

@@ -1,0 +1,218 @@
+- resource_template: "https://api.ecowitt.net/api/v3/device/real_time?application_key={{ secrets('ecowitt_app_key') }}&api_key={{ secrets('ecowitt_api_key') }}&mac={{ secrets('ecowitt_mac_addr') }}&call_back=all&temp_unitid=2&wind_speed_unitid=9&rainfall_unitid=12"
+  method: GET
+  scan_interval: 300
+  sensor:
+    # --- Outdoor ---
+    - name: "Temperatura Exterior"
+      unique_id: ecowitt_temperatura_exterior
+      value_template: "{{ '%.1f' | format(value_json.data.outdoor.temperature.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Humedad Exterior"
+      unique_id: ecowitt_humedad_exterior
+      value_template: "{{ '%.0f' | format(value_json.data.outdoor.humidity.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+
+    - name: "Punto de Rocío Exterior"
+      unique_id: ecowitt_punto_de_rocio_exterior
+      value_template: "{{ '%.1f' | format(value_json.data.outdoor.dew_point.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Sensación Térmica Exterior"
+      unique_id: ecowitt_sensacion_termica_exterior
+      value_template: "{{ '%.1f' | format(value_json.data.outdoor.feels_like.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Temperatura Aparente Exterior"
+      unique_id: ecowitt_temperatura_aparente_exterior
+      value_template: "{{ '%.1f' | format(value_json.data.outdoor.app_temp.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Déficit de Presión de Vapor"
+      unique_id: ecowitt_deficit_de_presion_de_vapor
+      value_template: "{{ '%.3f' | format(value_json.data.outdoor.vpd.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "inHg"
+      state_class: measurement
+
+    # --- Indoor ---
+    - name: "Temperatura Interior"
+      unique_id: ecowitt_temperatura_interior
+      value_template: "{{ '%.1f' | format(value_json.data.indoor.temperature.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Humedad Interior"
+      unique_id: ecowitt_humedad_interior
+      value_template: "{{ '%.0f' | format(value_json.data.indoor.humidity.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "%"
+      device_class: humidity
+      state_class: measurement
+
+    - name: "Punto de Rocío Interior"
+      unique_id: ecowitt_punto_de_rocio_interior
+      value_template: "{{ '%.1f' | format(value_json.data.indoor.dew_point.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Sensación Térmica Interior"
+      unique_id: ecowitt_sensacion_termica_interior
+      value_template: "{{ '%.1f' | format(value_json.data.indoor.feels_like.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    - name: "Temperatura Aparente Interior"
+      unique_id: ecowitt_temperatura_aparente_interior
+      value_template: "{{ '%.1f' | format(value_json.data.indoor.app_tempin.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°F"
+      device_class: temperature
+      state_class: measurement
+
+    # --- Solar & UV ---
+    - name: "Radiación Solar"
+      unique_id: ecowitt_radiacion_solar
+      value_template: "{{ '%.1f' | format(value_json.data.solar_and_uvi.solar.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "W/m²"
+      device_class: irradiance
+      state_class: measurement
+
+    - name: "Índice UV"
+      unique_id: ecowitt_indice_uv
+      value_template: "{{ '%.1f' | format(value_json.data.solar_and_uvi.uvi.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      state_class: measurement
+
+    # --- Wind ---
+    - name: "Velocidad del Viento"
+      unique_id: ecowitt_velocidad_del_viento
+      value_template: "{{ '%.1f' | format(value_json.data.wind.wind_speed.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mph"
+      device_class: wind_speed
+      state_class: measurement
+
+    - name: "Ráfaga de Viento"
+      unique_id: ecowitt_rafaga_de_viento
+      value_template: "{{ '%.1f' | format(value_json.data.wind.wind_gust.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mph"
+      device_class: wind_speed
+      state_class: measurement
+
+    - name: "Dirección del Viento"
+      unique_id: ecowitt_direccion_del_viento
+      value_template: "{{ '%.0f' | format(value_json.data.wind.wind_direction.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°"
+      state_class: measurement
+
+    - name: "Dirección del Viento Promedio 10 Min"
+      unique_id: ecowitt_direccion_del_viento_promedio_10_min
+      value_template: "{{ '%.0f' | format(value_json.data.wind['10_minute_average_wind_direction'].value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "°"
+      state_class: measurement
+
+    # --- Rain (Piezoelectric) ---
+    - name: "Tasa de Lluvia"
+      unique_id: ecowitt_tasa_de_lluvia
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.rain_rate.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm/h"
+      device_class: precipitation_intensity
+      state_class: measurement
+
+    - name: "Lluvia Diaria"
+      unique_id: ecowitt_lluvia_diaria
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.daily.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: total_increasing
+
+    - name: "Lluvia por Hora"
+      unique_id: ecowitt_lluvia_por_hora
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo['1_hour'].value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: measurement
+
+    - name: "Lluvia Semanal"
+      unique_id: ecowitt_lluvia_semanal
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.weekly.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: total_increasing
+
+    - name: "Lluvia Mensual"
+      unique_id: ecowitt_lluvia_mensual
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.monthly.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: total_increasing
+
+    - name: "Lluvia Anual"
+      unique_id: ecowitt_lluvia_anual
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.yearly.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: total_increasing
+
+    - name: "Lluvia del Evento"
+      unique_id: ecowitt_lluvia_del_evento
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo.event.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: total_increasing
+
+    - name: "Lluvia Últimas 24 Horas"
+      unique_id: ecowitt_lluvia_ultimas_24_horas
+      value_template: "{{ '%.2f' | format(value_json.data.rainfall_piezo['24_hours'].value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "mm"
+      device_class: precipitation
+      state_class: measurement
+
+    - name: "Estado de Lluvia"
+      unique_id: ecowitt_estado_de_lluvia
+      value_template: >-
+        {% if value_json is defined and value_json.code == 0 %}
+          {{ 'Lluvia' if value_json.data.rainfall_piezo.state.value | int > 0 else 'Seco' }}
+        {% else %}
+          unavailable
+        {% endif %}
+      icon: mdi:weather-pouring
+
+    # --- Pressure ---
+    - name: "Presión Relativa"
+      unique_id: ecowitt_presion_relativa
+      value_template: "{{ '%.2f' | format(value_json.data.pressure.relative.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "inHg"
+      device_class: atmospheric_pressure
+      state_class: measurement
+
+    - name: "Presión Absoluta"
+      unique_id: ecowitt_presion_absoluta
+      value_template: "{{ '%.2f' | format(value_json.data.pressure.absolute.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "inHg"
+      device_class: atmospheric_pressure
+      state_class: measurement
+
+    # --- Battery & Diagnostic ---
+    - name: "Batería del Sensor"
+      unique_id: ecowitt_bateria_del_sensor
+      value_template: "{{ '%.2f' | format(value_json.data.battery.haptic_array_battery.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "V"
+      device_class: voltage
+      state_class: measurement
+
+    - name: "Condensador del Sensor"
+      unique_id: ecowitt_condensador_del_sensor
+      value_template: "{{ '%.2f' | format(value_json.data.battery.haptic_array_capacitor.value | float) if value_json is defined and value_json.code == 0 else 'unavailable' }}"
+      unit_of_measurement: "V"
+      device_class: voltage
+      state_class: measurement

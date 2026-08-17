@@ -11,16 +11,21 @@ To deploy a standard operational tracking cell, you will need components for thr
 ### 1. WOILD Edge Nodes (Per Node)
 These low-power field units are custom-fabricated to monitor earth movement and acceleration over remote slopes.
 
-| Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
-|---|---|---|---|
-| **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $20.00 |
-| **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $4.00 |
-| **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See gerber files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $15.00 |
-| **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $10.00 |
-| **Solar Harvesting** | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 |
-| **Humidity Sensor** | Detects water in enclosure. | DHT22 breakout board | $2.00 |
-| **Solar Charger** | Manages solar power and battery charging. | CN3065 solar charge board | $2.00 |
-| **Enclosure** | Ruggedized environmental protection box. | IP67/IP68 weatherproof junction box with cable glands | $5.00 - $10.00 |
+| Component | Quantity | Description / Function | Key Specification | Est. Unit Cost (USD) |
+|---|---|---|---|---|
+| **MCU Development Board** | 1 | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $20.00 |
+| **Inclinometer / Accelerometer** | 1 | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $4.00 |
+| **Custom 2-Layer PCB** | 1 | Integrates MCU, power regulation, and sensor lines (See gerber files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $15.00 |
+| **Power Storage** | 1 | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $10.00 |
+| **Solar Harvesting** | 1 | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 |
+| **Humidity Sensor** | 1 | Detects water in enclosure. | DHT22 breakout board | $2.00 |
+| **Solar Charger** | 1 | Manages solar power and battery charging. | CN3065 solar charge board | $2.00 |
+| **Enclosure** | 1 | Ruggedized environmental protection box. | IP67/IP68 weatherproof junction box with cable glands | $5.00 - $10.00 |
+| **4.7 kOhm resistor** | 2 | Used to pull up SDA and SCL pins for I2C | Available in multipacks, must solder to through holes of PCB | $0.10 |
+| **Female Header Pins** | 3 | Soldered to PCB to accept boards | 2.54 mm pitch, available in multipack | $0.75 |
+| **Screw Terminal Block** | 2 | Solder to PCB for solar and tripwire | 2 pin, 5 mm, available in multipack | $0.25 |
+| **JST Battery Wire** | 1 | Solder to CN5065 for battery connection | 1.25 mm pitch | $0.30 |
+
 
 ### 2. Meteorological Subsystem (Per Site)
 Aggregates hyper-local microclimate profiles and storm cell attributes to correlate with ground data.

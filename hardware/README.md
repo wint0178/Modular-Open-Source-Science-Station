@@ -13,13 +13,13 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $4.00 - $6.00 |
-| **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $2.00 - $4.00 |
-| **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See gerber files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $2.00 |
-| **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $4.00 - $6.00 |
-| **Solar Harvesting** | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 - $5.00 |
-| **Humidity Sensor** | Detects water in enclosure. | DHT22 breakout board | $5.00 - $10.00 |
-| **Solar Charger** | Manages solar power and battery charging. | CN3065 solar charge board | $5.00 - $10.00 |
+| **MCU Development Board** | Core microprocessor processing telemetry and deep-sleep states. | Heltec WiFi LoRa 32 V3 (Must support external RTC GPIO interrupts) | $20.00 |
+| **Inclinometer / Accelerometer** | Senses ground acceleration and shifts; outputs low-pulse hardware interrupt. | MPU6050 breakout board | $4.00 |
+| **Custom 2-Layer PCB** | Integrates MCU, power regulation, and sensor lines (See gerber files). | FR-4 substrate, ENIG finish (highly recommended for high humidity) | $15.00 |
+| **Power Storage** | High-capacity outdoor power delivery. | 3.7V 18650 Li-ion battery (2500mAh+) | $10.00 |
+| **Solar Harvesting** | Charges internal cells under light canopy tracking conditions. | 5V 1W to 2W Monocrystalline solar panel | $3.00 |
+| **Humidity Sensor** | Detects water in enclosure. | DHT22 breakout board | $2.00 |
+| **Solar Charger** | Manages solar power and battery charging. | CN3065 solar charge board | $2.00 |
 | **Enclosure** | Ruggedized environmental protection box. | IP67/IP68 weatherproof junction box with cable glands | $5.00 - $10.00 |
 
 ### 2. Meteorological Subsystem (Per Site)
@@ -35,7 +35,7 @@ The edge-computing collection facility that runs the vector evaluation code and 
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| **Edge Server Platform** | Dedicated machine executing the central operations stack. | Raspberry Pi 4/5 (4GB+), Home Assistant Green, or Mini PC | $35.00 - $80.00 |
+| **Edge Server Platform** | Dedicated machine executing the central operations stack. | Raspberry Pi 4/5 (4GB+), Home Assistant Green, or Mini PC | $80.00 - $160.00 |
 | **Storage Infrastructure** | High-write endurance platform storage for database protection. | High-Endurance MicroSD card (32GB+) or M.2 NVMe SSD | $15.00 - $30.00 |
 | **LoRaWAN Gateway** | Acts as the local network concentrator to intercept WOILD node signals. | SenseCAP M2 indoor LoRa gateway or similar multichannnel gateway | $70.00 - $120.00 |
 

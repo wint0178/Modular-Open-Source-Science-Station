@@ -63,7 +63,7 @@ The MAC address acts as the unique device ID for API query parameters. You can r
 ### Method A: Via the WS View Plus App
 1. Connect your phone to the same local Wi-Fi network as your GW3001.
 2. Open the **WS View Plus** app and select **Device List**.
-3. Locate your GW3001 gateway. The 12-character MAC address (e.g., `D4:E9:F4:F6:45:FB`) will be displayed next to the device name.
+3. Locate your GW3001 gateway. The 12-character MAC address (e.g., `X1:X2:X3:X4:X5:X6`) will be displayed next to the device name.
 
 ### Method B: Via the EcoWitt Web Portal
 1. Log into **[ecowitt.net](https://www.ecowitt.net)**.
@@ -75,4 +75,4 @@ The MAC address acts as the unique device ID for API query parameters. You can r
 2. In Home Assistant, navigate to File Editor and create a new file in the same directory as your configuration.yaml file, named "rest.yaml"
 3. Copy the full contents of the downloaded rest.yaml file into your newly created rest file in Home Assistant. Save the file.
 4. Verify the yaml by navigating to Seetings->Developer Tools->YAML, Click "Check Configuration" and verify that it will not prevent HA from starting. If successful, click Restart and then select Quick Reload from the available options.
-    *Note: your configuration yaml must inlude the line "rest !include rest.ymal" or HA will not deploy these changes even after reloading.*
+    > 💡 *Note: your configuration yaml must inlude the line "rest !include rest.ymal" or HA will not deploy these changes even after reloading.*

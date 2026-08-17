@@ -9,7 +9,7 @@ To deploy a standard operational tracking cell, you will need components for thr
 ## 📋 Comprehensive Bill of Materials (BOM)
 
 ### 1. WOILD Edge Nodes (Per Node)
-These low-power field units are custom-fabricated to monitor earth movement and acceleration over remote slopes.
+These low-power field units are custom-fabricated to monitor earth movement and acceleration over remote slopes. Total cost per node is about $70.00.
 
 | Component | Quantity | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|---|

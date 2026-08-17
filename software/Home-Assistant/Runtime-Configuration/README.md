@@ -96,4 +96,6 @@ When deployment of additional monitoring hardware is required in the field:
 5. **Update Spatial Attributes:** Update the `baseline_x`/`baseline_y` coordinates in the Safety Matrix block and the physical `latitude`/`longitude` attributes in the Live Trackers block to match the specific, calibrated survey location of the new field hardware.
 6. Re-run **Step 3 (Validation & Reloading)** to bring your new node online instantly.
 
+---
+
 👉 **Proceed to:** [ESPHome Wifi Sensor Setup](/software/ESPHome/) (Optional) or [Sensor Hardware Assembly](/hardware/).

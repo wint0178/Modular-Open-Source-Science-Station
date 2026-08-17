@@ -59,3 +59,7 @@ mqtt_password: "YOUR_MQTT_PASSWORD"
 
 # Tailscale Auth Key (If using Option C)
 tailscale_auth_key: "tskey-auth-YOUR_REUSABLE_TAILSCALE_KEY"
+
+---
+
+👉 **Proceed to:** [Sensor Hardware Assembly](/hardware/).

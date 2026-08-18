@@ -10,7 +10,7 @@ The software ecosystem is split into three modular pillars: **Long-Range LoRaWAN
 
 *   **`./Home-Assistant/`**: Contains the central operating system guidelines, multi-tiered user privileges, custom template sensors, and data-logging optimizations required to process field inputs locally.
 *   **`./Landslide-Detectors/`**: Contains the firmware sketches, hardware interrupt configurations, and JavaScript payload decoders for the primary, field-deployed **WOILD v1.1.6** (Wake-On-Interrupt Landslide Detector) LoRaWAN arrays.
-*   **`./ESPHome/`: Contains production-ready YAML firmware templates for ESP32 and ESP8266 microcontrollers. Supports local Wi-Fi telemetry ingestion, remote connectivity via DDNS and port forwarding, and specialized ESP32-S3 builds compiling Tailscale client binaries (esphome-tailscale.yaml) to tunnel encrypted telemetry across networks without firewall modifications.
+*   **`./ESPHome/`**: Contains production-ready YAML firmware templates for ESP32 and ESP8266 microcontrollers. Supports local Wi-Fi telemetry ingestion, remote connectivity via DDNS and port forwarding, and specialized ESP32-S3 builds compiling Tailscale client binaries (esphome-tailscale.yaml) to tunnel encrypted telemetry across networks without firewall modifications.
 
 ---
 

@@ -1,5 +1,5 @@
 # Modular and Open-Source Science Station (MOSSS)
-> **Safe stones gather moss.**
+> **Ensuring safe stones gather moss.**
 
 ---
 

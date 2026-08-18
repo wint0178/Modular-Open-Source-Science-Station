@@ -15,7 +15,7 @@ To drastically reduce write amplification on the 32GB storage media, the sensor 
 | Sensor Array | Firmware/Protocol | Normal Transmission Cadence | Engineering Justification |
 | :--- | :--- | :--- | :--- |
 | **EcoWitt Array** | Local Net Broadcast | **Every 5 Minutes** | Captures fast-moving meteorological fronts and acute rainfall accumulation without flooding the database. |
-| **WOILD Nodes (v1.1.3)** | LoRaWAN / ESPHome | **Every 60 Minutes** | Establishes stable, ultra-low-power geological baselines. Provides early structural warning while keeping daily transaction writes minimal. |
+| **WOILD Nodes (v1.1.6)** | LoRaWAN / ESPHome | **Every 60 Minutes** | Establishes stable, ultra-low-power geological baselines. Provides early structural warning while keeping daily transaction writes minimal. |
 
 Because transactions are structured on 5-minute and 60-minute boundaries rather than sub-second intervals, the local SQLite database engine (`home-assistant_v2.db`) easily remains compact and lightweight over your 30-day retention envelope. Ensure the `recorder:` filter block provided in `configuration.yaml` is applied to lock in this protection layer.
 
@@ -31,7 +31,7 @@ graph LR
 
     subgraph Central Processing Core
         NodeB -->|External MQTT Bus| NodeE[Mosquitto Broker<br>databroker M2M Channel]
-        NodeD -->|Local Wi-Fi Push| NodeF[Home Assistant Core<br>Raspberry Pi 4 / 32GB mSD]
+        NodeD -->|Local or Remote Wi-Fi Push| NodeF[Home Assistant Core<br>Raspberry Pi 4 / 32GB mSD]
         
         NodeE -->|Raw Payload String| NodeG{2D Vector Deviation<br>Matrix Evaluation}
         NodeF -->|5-Min Rain Cadence| NodeG
@@ -48,8 +48,8 @@ graph LR
 
 ### Step 1: Access the Home Assistant Root Configuration Folder
 To deploy or modify these files, access the root directory where your primary `configuration.yaml` file is hosted on your Raspberry Pi. This can be accomplished via:
-* **The Studio Code Server Add-on** (Highly Recommended)
-* **The File Editor Add-on** via the Home Assistant sidebar
+* **The File Editor Add-on** via the Home Assistant sidebar (Highly Recommended)
+* **The Studio Code Server Add-on** 
 * **Samba share Add-on** utilizing a local network folder mapping
 
 ### Step 2: Apply Configuration Files
@@ -57,7 +57,7 @@ To deploy or modify these files, access the root directory where your primary `c
 #### [A] configuration.yaml
 1. Open your active local `configuration.yaml` file.
 2. Append or merge your current settings with the updated layout provided in our production file.
-3. Ensure that your core directory inclusion split lines look exactly like this:
+3. Ensure that your core directory inclusion split lines look exactly like this, though there may be more such as rest, input-numbers, compensations, script, and secrets :
     ```yaml
     automation: !include automations.yaml
     template: !include templates.yaml
@@ -66,11 +66,13 @@ To deploy or modify these files, access the root directory where your primary `c
 #### [B] templates.yaml
 1. Open `templates.yaml` (create it in the root folder if it does not exist).
 2. Overwrite the contents entirely with the sanitized `LD01` telemetry matrix code block provided.
+3. Duplicate the needed code blocks for every sensor you intend to install (See Grid Expansion below).
 
 #### [C] automations.yaml
 1. Open `automations.yaml`.
 2. Append or replace your active blocks with the updated `LD01` and `Heavy Rain` rules.
-3. ⚠️ **CRITICAL VISUAL EDITOR WARNING:** Both automations utilize `mode: queued` and custom templates. Modifying these rules inside the Home Assistant Visual UI Editor may strip out or break the raw YAML syntax. **Always edit alerts directly in code.**
+3. Duplicate the needed code blocks for every sensor you intend to install (See Grid Expansion below).
+4. ⚠️ **CRITICAL VISUAL EDITOR WARNING:** Both automations utilize `mode: queued` and custom templates. Modifying these rules inside the Home Assistant Visual UI Editor may strip out or break the raw YAML syntax. **Always edit alerts directly in code.**
 
 ### Step 3: System Validation & Reloading
 Before applying any configuration changes or restarting Home Assistant, you **MUST** validate the structural integrity of your YAML files:

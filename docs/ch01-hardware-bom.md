@@ -145,3 +145,5 @@ COMPONENT SOURCING (BOM & CPL)
     manufacturer with the Bill of Materials (BOM) and Component Placement List 
     (CPL / Centroid file) exported separately from the main design repository.
 ==============================================================================
+
+**Proceed to installing Home Assistant OS [Chapter 2](./ch02-home-assistant.md)**

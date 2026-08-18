@@ -1,0 +1,14 @@
+[book]
+title = "MOSSS Technical Manual & Field Guide"
+authors = ["Brandon J. Winters, Ph.D."]
+description = "Modular and Open-Source Science Station documentation."
+language = "en"
+src = "docs"
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/bjw58994/Science-Station"

@@ -1,6 +1,6 @@
 # 🛠️ MOSSS Hardware Deployment & Bill of Materials (BOM)
 
-This directory contains the physical infrastructure designs, schematic references, and hardware requirements for the **Modular and Open-Source Science Station (MOSSS)** framework. 
+This chapter contains the physical infrastructure designs, schematic references, and hardware requirements for the **Modular and Open-Source Science Station (MOSSS)** framework. 
 
 To deploy a standard operational tracking cell, you will need components for three distinct layers: the physical telemetry edge nodes (WOILD), the microclimate parsing node (EcoWitt), and the localized gateway hub.
 
@@ -30,18 +30,18 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 
 
 ### 2. Meteorological Subsystem (Per Site)
-Aggregates hyper-local microclimate profiles and storm cell attributes to correlate with ground data.
+Aggregates hyper-local microclimate data and makes them available online.
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
 | [**EcoWitt Weather Station**](https://www.amazon.com/ECOWITT-Ethernet-Humidity-Anemometer-Barometric/dp/B0DTPXKP8B?dib=eyJ2IjoiMSJ9.vmuq2wixRRtQ4HUwB4Tx1Cv_TuTXVxVoF8i1jnqL0hY6v-vdyNxGuueYBpybWMOQ7pM067amLJ9BFM5YXjrDcGb1jDSqgnFqU5l4anfboObyk_chcJk4R5FNT79abqa9jXNDUn0L6iitYGxAjOXJV8jEhw3KsAfgs-0m_hhKNmmcz0kyPy2I6bAZypTCu1t3_RYHbeSlg9fzPx3w6Qz-YuWK6RH7a0A1Kqw7eDLt2V40IfwUQ_ru4wMD6h6wkgLngRp28WIEKBUQFUupRkcYWamxl0MjnKqwsMa2gJEbXF0.90WJBZWs4VZ1ySQaDd7E71DnfBFPnfJ7x14SSzmTBJE&dib_tag=se&keywords=Ecowitt%2Bgw3001&qid=1787006353&sr=8-1&th=1) | Solid-state array and WiFi Gateway | GW3000 with WS90 7-in-1 Sensor Array | $200.00 |
 
 ### 3. Central Gateway Hub (Per Grid)
-The edge-computing collection facility that runs the vector evaluation code and processes emergency alerts locally.
+The edge-computing collection facility responsible for the GUI, data collection and distribution, LoRa transmission accumultion, and automated emergency alerts.
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
-| [**Edge Server Platform**](https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9?crid=3RE7EDWUJJFS4&dib=eyJ2IjoiMSJ9.6RZammJY5JsyJpwezt2mnyqVgX0u7giYKyl3toVQa_qfXyYKEmozfs484V3nYWBadviMM-Fihl_1q04siCLseotSgPo7PCskGUcgw2kfHFgG3pcoxlilaZ1Gx43ArYVky8dleAZ8FKyzR6FazPpzjVF2K_Uidfhg8TQcJR8P6Dtg8MoMitGZb_tf2CleyYEozVCWUwwPhnCloAsni5mKy6rhD_tojl-sMCCjk602gqk.gLGW8RGSe0cYae2lPj4jXlbktZ_VHEJQwYcgpWmGtEQ&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1787006277&sprefix=Raspberry%2Caps%2C185&sr=8-3&th=1) | Dedicated machine executing the central operations stack. | Raspberry Pi 4 (4GB+)| $160.00 |
+| [**Edge Server Platform**](https://www.amazon.com/CanaKit-Raspberry-4GB-Starter-Kit/dp/B07V5JTMV9?crid=3RE7EDWUJJFS4&dib=eyJ2IjoiMSJ9.6RZammJY5JsyJpwezt2mnyqVgX0u7giYKyl3toVQa_qfXyYKEmozfs484V3nYWBadviMM-Fihl_1q04siCLseotSgPo7PCskGUcgw2kfHFgG3pcoxlilaZ1Gx43ArYVky8dleAZ8FKyzR6FazPpzjVF2K_Uidfhg8TQcJR8P6Dtg8MoMitGZb_tf2CleyYEozVCWUwwPhnCloAsni5mKy6rhD_tojl-sMCCjk602gqk.gLGW8RGSe0cYae2lPj4jXlbktZ_VHEJQwYcgpWmGtEQ&dib_tag=se&keywords=raspberry%2Bpi%2B4&qid=1787006277&sprefix=Raspberry%2Caps%2C185&sr=8-3&th=1) | Dedicated machine running Home Assistant. | Raspberry Pi 4 (4GB+)| $160.00 |
 | [**LoRaWAN Gateway**](https://www.amazon.com/dp/B0CG98XDLX?ref=nb_sb_ss_w_as-reorder_k0_1_11&amp=&crid=11M1J45DYKKXW&amp=&sprefix=sensecap+m2) | Acts as the local network concentrator to intercept WOILD node signals. | SenseCAP M2 indoor LoRa gateway or similar multichannnel gateway | $70.00 - $120.00 |
 
 ---
@@ -54,10 +54,10 @@ To successfully leverage the ultra-low-power **Wake on Interrupt** performance c
 2. **I2C Interface:** Establish direct lines from `SDA` and `SCL` pins with appropriate $4.7\text{k}\Omega$ pull-up resistors to maintain baseline data stability when checking telemetry frames.
 3. **Power-Gating Transistors:** Implement a P-channel MOSFET network to cut off parasitic current leaking into the LoRa module during deep-sleep monitoring intervals.
 
-WOILD HARDWARE PCB MANUFACTURING & ORDERING GUIDE (V1.1.6)
+PCB MANUFACTURING & ORDERING GUIDE
 ==============================================================================
 
-This directory contains the production-ready Gerber files exported from KiCad 
+This [directory](../hardware/PCB-Gerbers/LD%20PCB%20V3/) contains the production-ready Gerber files exported from KiCad 
 for the Multi-Node Landslide Detection hardware. You can use the included 
 ZIP archive to order custom printed circuit boards from any standard quick-turn 
 PCB fabrication house.
@@ -103,8 +103,7 @@ STEP-BY-STEP ORDERING INSTRUCTIONS
 ------------------------------------------------------------------------------
 
   1. Locate the Archive:
-     * Find the bundled Gerber zip file in this directory (typically named 
-       something like 'woild_v1.1.3_gerbers.zip'). Do NOT unzip it. 
+     * Find and download the bundled Gerber zip file in this [directory](../hardware/PCB-Gerbers/LD%20PCB%20V3/v3%20gerbers.zip). Do NOT unzip it.
 
   2. Upload to the Fabricator:
      * Navigate to your chosen manufacturer's website and click on their 
@@ -116,7 +115,7 @@ STEP-BY-STEP ORDERING INSTRUCTIONS
      * Most modern fabricators will automatically parse the zip archive and 
        display a live visual preview of the top and bottom layers of the board.
      * Ensure the board dimensions are automatically and correctly detected 
-     * by the online system.
+       by the online system.
 
 ------------------------------------------------------------------------------
 RECOMMENDED FABRICATION SPECIFICATIONS (PRODUCTION SETTINGS)

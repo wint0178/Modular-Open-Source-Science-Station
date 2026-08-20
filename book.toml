@@ -1,6 +1,6 @@
 [book]
 title = "Modular and Open-Source Science Station (MOSSS)"
-authors = ["Brandon J. Winters, Ph.D."]
+ authors = ["Brandon J. Winters, Ph.D."]
 description = "MOSSS Edge Gateway & WOILD Field Node Documentation"
 language = "en"
 src = "docs"

@@ -44,6 +44,7 @@ Suggested native integrations include:
 * **MQTT (Mosquitto Broker):** [See chapter 4: MQTT](./ch04-MQTT.md) Bridges external data streams—such as LoRaWAN field node telemetry routed through The Things Network (TTN)—directly into Home Assistant.
 * **RESTful Sensor / API Framework:** Enables cloud-based data ingestion (`rest.yaml`) from off-grid gateways like the GW3001 when deployed outside the local network subnet.
 * **System Housekeeping Tools (Bluetooth, Local IP, Radio Browser, Shopping List):** System-level native components managing local connectivity, gateway network parameters, and auxiliary entities.
+* **The Things Network*** Used to connect TTN edge notes (eg. WOILD Sensors) to your Home Assistant Instance. Setup is addressed in [Chapter 4.3: TTN and LoRa](./ch04-TTN-LoRa.md).
 
 ---
 

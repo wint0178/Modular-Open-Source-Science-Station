@@ -1,4 +1,4 @@
-# Chapter 4.1: MQTT Integration & Payload Processing
+# 🦟 Chapter 4.1: MQTT Integration & Payload Processing
 
 MQTT (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe messaging protocol designed specifically for low-bandwidth, high-latency, or unreliable networks. It serves as the primary machine-to-machine (M2M) communication layer within the MOSSS infrastructure, bridging long-range LoRaWAN telemetry networks directly with the Home Assistant automation engine.
 
@@ -64,7 +64,13 @@ mqtt:
       value_template: "{{ value_json.tilt_x }}"
       unit_of_measurement: "°"
 ~~~
+---
+## ⚠️ Crucial MQTT Concepts for Beginners
 
+### The "Retain Flag" Trap
+* **What it is:** When an MQTT client publishes a payload with the `retain: true` flag, the broker stores that message permanently. Any new subscriber (or Home Assistant upon reboot) immediately receives that old message.
+* **The Pitfall:** Setting `retain: true` on rapid sensor telemetry can cause "ghost entities" or outdated data to re-populate long after a sensor has been taken offline.
+* **Best Practice:** Only set `retain: true` for state-change configurations or static switch states. Keep `retain: false` (default) for continuous sensor streams like battery voltage or tilt data.
 ---
 
 👉 **Proceed to [Chapter 4.2: ESPHome](./ch04-esphome.md)**

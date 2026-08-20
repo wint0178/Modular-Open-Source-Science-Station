@@ -9,7 +9,7 @@ At the core of the MOSSS physical tracking infrastructure is the **Wake on Inter
 
 All data streams converge on a centrally located, local Home Assistant Core gateway, which orchestrates automated mobile alerts via custom vector deviation matrices and bridges the network into broader commercial smart integrations.
 
-![MOSSS Topology](images/MOSSS_Topology.png)
+![MOSSS Topology](/Science-Station/images/MOSSS_Topology.png)
 
 ---
 

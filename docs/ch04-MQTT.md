@@ -64,6 +64,61 @@ mqtt:
       value_template: "{{ value_json.tilt_x }}"
       unit_of_measurement: "°"
 ~~~
+### 🖥️ GUI Alternatives to YAML Configuration
+
+If you prefer not to edit `configuration.yaml` directly, Home Assistant offers two graphical UI options to set up MQTT sensors.
+
+---
+
+#### Method 1: The Native MQTT "Add Device" UI Subentry
+
+Home Assistant allows you to add custom MQTT entities directly from the MQTT integration page without touching configuration files.
+
+1. Go to **Settings $\rightarrow$ Devices & Services**.
+2. Click on the **MQTT** integration card.
+3. Click **Add Entry** (or **Add MQTT Device** depending on your Home Assistant version).
+4. Fill out the device fields:
+   * **Device Name:** e.g., `Field Node 01`
+   * **State Topic:** `mosss/field/node01/telemetry`
+   * **Value Template:** `{{ value_json.battery_v }}`
+   * **Unit of Measurement:** `V`
+   * **Device Class:** `voltage`
+5. Click **Submit**. Home Assistant will generate the entity automatically.
+
+---
+
+#### Method 2: MQTT Auto-Discovery (Zero-Configuration GUI)
+
+Instead of manually defining sensors in Home Assistant, your field devices or script can publish a single JSON "discovery payload" to the broker when booting up. Home Assistant automatically picks this up and generates the GUI entities with zero user interaction.
+
+**How it works:**
+The device publishes a JSON configuration string to the prefix `homeassistant/sensor/[device_id]/config`.
+
+**Example Discovery Payload:**
+* **Topic:** `homeassistant/sensor/field_node_01_batt/config`
+* **Payload:**
+  ```json
+  {
+    "name": "Field Node 01 Battery Voltage",
+    "state_topic": "mosss/field/node01/telemetry",
+    "value_template": "{{ value_json.battery_v }}",
+    "unit_of_measurement": "V",
+    "device_class": "voltage",
+    "unique_id": "field_node_01_battery"
+  }
+  ```
+
+Once published, the entity `sensor.field_node_01_battery_voltage` instantly appears under **Settings $\rightarrow$ Devices & Services $\rightarrow$ MQTT**.
+
+---
+
+### 💡 Comparison: YAML vs. GUI Methods
+
+| Feature | `configuration.yaml` | Native MQTT UI Subentry | MQTT Auto-Discovery |
+| :--- | :--- | :--- | :--- |
+| **Ease of Setup** | Moderate (Requires file editor) | High (Form-based) | Highest (Fully automated) |
+| **Version Control** | Easy (Git/backup friendly) | Stored in internal HA database | Stored in internal HA database |
+| **Best For** | Static home networks | Quick manual additions | Scalable multi-node field deployments |
 ---
 ## ⚠️ Crucial MQTT Concepts for Beginners
 

@@ -2,13 +2,17 @@
 
 ESPHome is a system that lets you control your microcontroller boards (such as ESP32 and ESP8266) using simple, powerful YAML configuration files. In the MOSSS architecture, ESPHome allows field microcontrollers—like the ESP32-S3 paired with environmental sensors—to communicate back to Home Assistant seamlessly over local Wi-Fi, MQTT brokers, or encrypted remote mesh networks.
 
+The Home Assistant ESPHome App gives users access to an integrated development environment (IDE) within the HA user interface directly and provides a mechanism for over-the-air (OTA) firmware updates.
+
+![ESPHome Application](../images/HA-ESPHome.png)
+
 ---
 
 ## 📐 Deployment Architectures
 
 We provide three primary ESPHome deployment configurations based on an **ESP32-S3** microcontroller paired with a **BME680** environmental sensor (Temperature, Pressure, Humidity, Gas Resistance). Choose the architecture that aligns with your field network topology:
 
-| Feature | Option A (`esp32-wifi-bme680.yaml`) | Option B (`esphome-mqtt-bme680.yaml`) | Option C (`esp32-tailscale-bme680.yaml`) |
+| Feature | Option A (`esphome-wifi-bme680.yaml`) | Option B (`esphome-mqtt-bme680.yaml`) | Option C (`esphome-tailscale.yaml`) |
 | :--- | :--- | :--- | :--- |
 | **Primary Protocol** | Native Home Assistant API | MQTT Broker (`1883` / `8883`) | Native HA API over Tailscale VPN |
 | **Scope** | **Local Network Only** | **Local or Remote** | **Remote Multi-Site** |
@@ -21,22 +25,24 @@ We provide three primary ESPHome deployment configurations based on an **ESP32-S
 
 ## 🛠️ Configuration Breakdown & Use Cases
 
-### Option A: Standard Local Network Deployment (`esp32-wifi-bme680.yaml`)
+### Option A: Standard Local Network Deployment [`esphome-wifi-bme680.yaml`](../software/ESPHome/esphome-wifi-bme680.yaml)
 * **Best For:** Simple indoor or local outdoor setups where the ESP32 and Home Assistant reside on the exact same Wi-Fi subnet.
 * **Mechanism:** Uses Home Assistant’s native API over direct TCP sockets. Automatically discovered via mDNS.
 * **Requirements:** Home Assistant must be on the same local network subnet.
 
-### Option B: Decoupled / External Broker Deployment (`esphome-mqtt-bme680.yaml`)
+### Option B: Decoupled / External Broker Deployment [`esphome-mqtt-bme680.yaml`](../software/ESPHome/esphome-mqtt-bme680.yaml)
 * **Best For:** Environments without direct HA network access, multi-broker topologies, or cloud-hosted instances (e.g., AWS, DigitalOcean, or public MQTT relays).
 * **Mechanism:** Pushes sensor updates directly to an MQTT broker. Home Assistant reads data via the native MQTT Integration using Home Assistant MQTT Discovery.
 * **Requirements:** Requires a reachable MQTT broker IP/domain and valid authentication credentials.
 
-### Option C: Secure Remote Multi-Site Deployment (`esp32-tailscale-bme680.yaml`)
+### Option C: Secure Remote Multi-Site Deployment [`esphome-tailscale.yaml`](../software/ESPHome/esphome-tailscale.yaml)
 * **Best For:** Secure, off-site deployments (remote field stations, secondary properties, or cellular gateways) that need to communicate with Home Assistant securely across the public internet.
 * **Mechanism:** Compiles the `esphome-tailscale` component directly onto the ESP32-S3. On boot, the board joins your private Tailscale mesh network (`100.x.x.x` range), creating an encrypted WireGuard tunnel back to your Home Assistant gateway.
 * **Diagnostics:** Includes an onboard RGB LED "Identify" button sequence on GPIO48 to quickly locate physical hardware units in multi-node field fleets.
 
 ---
+
+![ESPHome IDE](../images/HA-ESPHome2.png)
 
 ## ⚙️ Step-by-Step Hardware Provisioning & Setup
 
@@ -63,7 +69,7 @@ tailscale_auth_key: "tskey-auth-YOUR_REUSABLE_TAILSCALE_KEY"
 
 ### Step 2: Provision & Flash Remote ESP32 Devices
 1. Navigate to your ESPHome dashboard or workspace directory (`../software/ESPHome/`).
-2. Open your targeted configuration file (e.g., `esphome-tailscale.yaml`) and ensure your `device_id` is updated along with fresh Base64 API keys and auth tokens.
+2. Open your targeted configuration file (e.g., `esphome-tailscale-bme680.yaml`) and update the `name` and `friendly_name` variables to match your deployment site. Ensure all secrets variables correctly reference your `secrets.yaml`.
 3. Compile and flash your ESP32-S3 board over USB or OTA.
 4. On initial boot, the board will attach to the local Wi-Fi, initialize the sensor pipeline, and automatically establish its communications link back to the central server.
 

@@ -2,8 +2,7 @@
 
 This chapter details the software application layer, native integrations, and community integrations of Home Assistant, which is responsible for running the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming data into local vector matrices and safety alerts.
 
-![HA Companion App](../images/app-screenshot.png)
-
+<img src="../images/app-screenshot.png" alt="HA Companion App" width="33%" />
 ---
 
 ## 📱 Layer 1: Home Assistant Mobile Companion App

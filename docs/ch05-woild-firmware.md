@@ -1,4 +1,4 @@
-# # 🌲 Chapter 5: WOILD Firmware Deployment & Payload Architecture
+# 🌲 Chapter 5: WOILD Firmware Deployment & Payload Architecture
 
 The WOILD (Wake On Interrupt Landslide Detector) firmware family is engineered for ultra-low-power edge nodes deployed in high-risk landslide zones. Operating primarily in a deep-sleep state, the microcontroller utilizes hardware interrupt mapping to wake instantly on motion threshold breaches or transmit periodic baseline telemetry over LoRaWAN.
 
@@ -52,34 +52,48 @@ Before compiling and flashing the WOILD firmware, configure your local developme
 Follow this step-by-step procedure to configure, compile, and flash WOILD field nodes.
 
 ### Step 1: Configure Node Network Identifiers
-Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketch file for your chosen version. Locate the global network configuration block at the top of the file:
+Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketch file for your chosen version.
 
-* **LoRaWAN Keys (OTAA):** Input your TTN application credentials (`DevEUI`, `AppEUI`, `AppKey`).
-* **Node Identifier:** Set the unique node integer:
-  ```cpp
-  #define NODE_ID 1    // Change to 2 for LD02, 3 for LD03, etc.
-  ```
-
-### Step 2: Establish Calibration & Static Baselines
-Secure your hardware node inside its static field tracking enclosure. Run the initial calibration test routine to calculate resting 2D surface angles. If onboard EEPROM auto-calibration is disabled, hardcode these baseline offsets directly into the global node configuration parameters.
-
-### Step 3: Compile & Flash Microcontroller
+### Step 2: Compile & Flash Microcontroller
 1. Connect the node to your workstation using a data-rated USB cable.
 2. Select your target board under **Tools $\rightarrow$ Board** and select the active port under **Tools $\rightarrow$ Port**.
-3. Click **Verify** (Checkmark icon) to confirm dependencies resolve cleanly.
-4. Click **Upload** (Right arrow icon) to write the compiled binary payload to node flash memory.
+3. In the **Tools** menu, enable **"Erase all flash before sketch upload"** and select your desired LoRa frequency (e.g., `US915`).
+4. Click **Verify** (Checkmark icon) to confirm dependencies resolve cleanly.
+5. Click **Upload** (Right arrow icon) to write the compiled binary payload to node flash memory.
+
+### Step 3: Node Provisioning in TTN
+1. In the TTN Console, select **Add** and then **Enter end device specifics manually**. Set the parameters as follows:
+   * **Frequency Plan:** United States 902-928 MHz, FSB 2
+   * **LoRaWAN Version:** 1.1.0
+   * **Regional Parameters Version:** 1.1 revision B
+   * **JoinEUI:** Enter all zeros (`00 00 00 00 00 00 00 00`).
+2. Select **Confirm** to proceed.
+3. Click **Generate** for `DevEUI`, `AppKey`, and `NwkKey`. Name your device using lowercase letters and hyphens with no spaces (e.g., `my-new-device`), then click **Register end device**.
+
+![TTN Node Provisioning](../images/TTN-new-node.png)
 
 ### Step 4: Deploy TTN / ChirpStack Payload Decoder
-1. Open `WOILD_v1.1.6_payload_formatter.js` located in `../software/Landslide-Detectors/`.
-2. Copy the entire JavaScript script.
-3. Log into your **The Things Network (TTN) Console** or ChirpStack server.
-4. Navigate to **Applications $\rightarrow$ [Your Application] $\rightarrow$ Payload Formatters $\rightarrow$ Uplink**.
-5. Select **Custom JavaScript**, paste the script, and click **Save Changes**.
+1. Open the [software directory](../software/Landslide-Detectors/) where your chosen firmware is located, open the `.js` payload formatter file, and copy the code.
+2. Log into your **The Things Network (TTN) Console** or ChirpStack server.
+3. Navigate to **Applications $\rightarrow$ [Your Application] $\rightarrow$ Payload Formatters $\rightarrow$ Uplink**.
+4. Select **Custom JavaScript**, paste the script, scroll to the bottom to locate where the node ID is established, change it to a unique value (e.g., `LD01`, `LD02`, `LD03`, etc.), and click **Save Changes**.
+5. Repeat this process with the downlink formatter if one is provided for your firmware version.
 
-### Step 5: Post-Deployment Verification
+### Step 5: Post-Flash Verification & Initial Join
 1. Open the Arduino **Serial Monitor** set to `115200` baud.
-2. Verify initialization messages for sensor checks (Inclinometer, Environmental array, Battery tracking) and LoRaWAN join sequence updates.
-3. Once verified, deploy the node to its physical field station.
+2. Verify initialization messages. The device will wait for the TTN provisioning IDs. Enter them when prompted:
+   * **Frequency:** `US915`
+   * **Subband:** `2`
+   * **DevEUI:** `0000000000000000`
+   * **AppKey:** `YOUR_APPKEY`
+   * **NwkKey:** `YOUR_NWKKEY`
+3. The node will attempt to join TTN and send its first transmission. Monitor and verify the join sequence in the Arduino Serial Monitor and in the TTN Live Data feed.
+
+### Step 6: Establish Calibration & Static Baselines
+1. Secure your hardware node inside its static field tracking enclosure.
+2. Run the initial calibration test routine to calculate resting 2D surface angles.
+3. If onboard EEPROM auto-calibration is disabled, hardcode these baseline offsets directly into the global node configuration parameters.
+4. Once verified, the node is ready for field mounting.
 
 ---
 
@@ -102,7 +116,7 @@ To maximize battery life and comply with LoRaWAN Fair Use airtime limits, WOILD 
 
 ## 📊 Home Assistant Sensor Templates (YAML)
 
-To render WOILD telemetry into active entities within Home Assistant, append these template definitions to your `configuration.yaml` or `templates.yaml` file:
+To render WOILD telemetry into active entities within Home Assistant, append some or all of the provided YAML configurations to your respective Home Assistant files using the File Editor add-on (e.g., adding these template definitions to `configuration.yaml` or `templates.yaml`). All provided YAML files are located in the [software directory](../software/Home-Assistant/Runtime-Configuration/).
 
 ~~~yaml
 template:

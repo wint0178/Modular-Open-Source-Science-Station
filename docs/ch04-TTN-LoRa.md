@@ -89,7 +89,7 @@ function decodeUplink(input) {
 
 ## ⚙️ Connecting TTN to Home Assistant
 
-You can integrate TTN into your Home Assistant environment using either a direct local MQTT bridge or the native GUI-based storage integration.
+You can integrate TTN into your Home Assistant environment using either a direct local MQTT bridge or the native GUI-based storage integration. Instructions for adding individual sensing notes to TTN are covered later, in [Chapter 5: WOILD Firmware](ch05-woild-firmware.md).
 
 ### Method 1: Local MQTT Broker Bridge (Recommended for Real-Time Pipelines)
 

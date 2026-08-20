@@ -1,4 +1,4 @@
-# 🛠️ MOSSS Hardware Deployment & Bill of Materials (BOM)
+# 🛠️ Chapter 1: MOSSS Hardware Deployment & Bill of Materials (BOM)
 
 This chapter contains the physical infrastructure designs, schematic references, and hardware requirements for the **Modular and Open-Source Science Station (MOSSS)** framework. 
 
@@ -145,4 +145,4 @@ COMPONENT SOURCING (BOM & CPL)
     (CPL / Centroid file) exported separately from the main design repository.
 ==============================================================================
 
-**Proceed to installing Home Assistant OS [Chapter 2](./ch02-home-assistant.md)**
+👉 **Proceed to installing Home Assistant OS [Chapter 2](./ch02-home-assistant.md)**

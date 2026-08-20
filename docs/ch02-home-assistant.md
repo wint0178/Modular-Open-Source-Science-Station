@@ -1,15 +1,22 @@
-### [Configure the Home Assistant Gateway](../software/Home-Assistant/)
-1. Navigate to `../software/Home-Assistant/` and review the installation guide to provision **Home Assistant OS (HAOS)** on a Raspberry Pi 4 or 5.
-2. Create a dedicated Machine-to-Machine (M2M) profile called `databroker` (login: `databroker`) under **Settings > People** to handle incoming data streams securely.
-3. Configure your local **Recorder** filter component using the provided template to restrict data-logging to a strict 30-day target, protecting your SD card from wear.
+# 🏠 Chapter 2: Home Assistant Setup
 
-## 🏠 Stage 1: Home Assistant OS Bare-Metal Installation
+## [Configure the Home Assistant Gateway](../software/Home-Assistant/)
+This chapter covers: 
+1. Installation of **Home Assistant OS (HAOS)** on a Raspberry Pi 4 or 5.
+2. Establishing two-tiered login access.
+3. Create a dedicated Machine-to-Machine (M2M) profile called `databroker` (login: `databroker`) under **Settings > People** to handle incoming data streams securely.
+
+![HAOS on R-Pi](../images/HAOS-install.png)
+
+### 🏠 Stage 1: Home Assistant OS Bare-Metal Installation
 
 This directory manages the initial physical provisioning and bare-metal OS installation for the central **Modular and Open-Source Science Station (MOSSS)** edge gateway.
 
+> ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
+
 ---
 
-## 📋 Prerequisites & Hardware Checklist
+ **📋 Prerequisites & Hardware Checklist**
 
 Before beginning, ensure your central hub hardware components match our verified specifications:
 
@@ -20,15 +27,9 @@ Before beginning, ensure your central hub hardware components match our verified
 
 ---
 
-## 💿 Installation Step-by-Step
+### 💿 Installation Step-by-Step
 
 Because the gateway needs to compute vector matrices locally without internet dependence, we utilize the bare-metal **Home Assistant Operating System (HAOS)**.
-
-> ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
-
----
-
-### Step-by-Step Sequence
 
 <ul style="list-style: none; padding-left: 0;">
 
@@ -44,9 +45,9 @@ Because the gateway needs to compute vector matrices locally without internet de
     <h3 style="margin-top: 0;">2. Select the HAOS Image</h3>
     <p style="color: #8b949e; margin-top: -10px; font-size: 14px;"><em>Do not use default Pi OS</em></p>
     <ol>
-      <li>Launch the Imager tool.</li>
-      <li>Click <strong>Choose Device</strong> and select your model (e.g., Raspberry Pi 5).</li>
-      <li>Click <strong>Choose OS</strong>, scroll down to select <strong>Other specific-purpose OS</strong>, click <strong>Home Assistant</strong>, and choose <strong>Home Assistant OS</strong>.</li>
+      <li>Launch the Imager tool. (note: formatting may be required to continue)</li>
+      <li>Click <strong>Choose Device</strong> and select your model (e.g., Raspberry Pi 4).</li>
+      <li>Click <strong>Choose OS</strong>, scroll down to select <strong>Other specific-purpose OS</strong>, click <strong>Home Automation</strong>, click <strong>Home Assistant</strong>, select <strong>Home Assistant OS</strong>.</li>
     </ol>
   </li>
 
@@ -85,16 +86,14 @@ Because the gateway needs to compute vector matrices locally without internet de
 
 ---
 
-## 🧭 Next Step
+## 🔐 Stage 2: Operational Security (OpSec) & Network Provisioning
 Once you have landed on your fresh home assistant dashboard and created your main owner account, advance to user provisioning and system networking:
 
-## 🔐 Stage 2: Operational Security (OpSec) & Network Provisioning
-
-This directory defines the access permissions, secure data pipelines, and remote connectivity meshes required to protect the MOSSS gateway hub from corruption while allowing open scientific collaboration.
+This section defines the access permissions, secure data pipelines, and remote connectivity meshes required to protect the MOSSS gateway hub from corruption while allowing open scientific collaboration.
 
 ---
 
-## 🛡️ Multi-Tiered User Access Tiers
+### 🛡️ Multi-Tiered User Access Tiers
 
 Configure these explicit profiles under **Settings > People** on your newly installed dashboard:
 
@@ -114,3 +113,5 @@ Configure these explicit profiles under **Settings > People** on your newly inst
 > ⚠️ **SECURITY COMPLIANCE WARNING:** Never reuse the credentials for `databroker` on human user profiles. Isolating your automated data pipeline ensures that even if an external field node is physically tampered with, your core gateway administration remains entirely secure.
 
 ---
+
+👉 **Proceed to Home Assistant Integrations[Chapter 3](./ch03-home-assistant-integrations.md)**

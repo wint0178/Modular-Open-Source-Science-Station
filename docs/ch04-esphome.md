@@ -1,4 +1,4 @@
-# Chapter 4.2: ESPHome
+# 🤖 Chapter 4.2: ESPHome IDE
 
 ESPHome is a system that lets you control your microcontroller boards (such as ESP32 and ESP8266) using simple, powerful YAML configuration files. In the MOSSS architecture, ESPHome allows field microcontrollers—like the ESP32-S3 paired with environmental sensors—to communicate back to Home Assistant seamlessly over local Wi-Fi, MQTT brokers, or encrypted remote mesh networks.
 

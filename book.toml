@@ -3,15 +3,13 @@ title = "Modular and Open-Source Science Station (MOSSS)"
 authors = ["Brandon J. Winters, Ph.D."]
 description = "MOSSS Edge Gateway & WOILD Field Node Documentation"
 language = "en"
-
-[src]
 src = "docs"
 
 [build]
 build-dir = "book"
 
 [output.html]
-git-repository-url = "https://github.com/wint0178/Modular-Open-Source-Science-Station"
+git-repository-url = "https://github.com/bjw58994/Science-Station"
 git-repository-icon = "fa-github"
 default-theme = "navy"
 preferred-dark-theme = "navy"

@@ -39,8 +39,8 @@ Several firmware builds are maintained under `https://github.com/wint0178/Modula
 Before compiling and flashing the WOILD firmware, configure your local development environment:
 
 * **IDE Requirement:** Arduino IDE v2.0+ or VS Code with the **PlatformIO** extension.
-* **Core Board Support:** Install your microcontroller target architecture via **Tools $\rightarrow$ Board $\rightarrow$ Boards Manager** (e.g., ESP32, SAMD21, STM32, or AVR depending on your hardware build).
-* **Required Libraries:** Install the following dependencies via **Tools $\rightarrow$ Manage Libraries**:
+* **Core Board Support:** Install your microcontroller target architecture via **Tools → Board → Boards Manager** (e.g., ESP32, SAMD21, STM32, or AVR depending on your hardware build).
+* **Required Libraries:** Install the following dependencies via **Tools → Manage Libraries**:
   * **Inclinometer / Accelerometer:** `ADXL345`, `LIS3DH`, or `MPU6050`
   * **Environmental Sensors:** `DHT`, `SHT3x`, or `BME280`
   * **LoRaWAN Communications:** `MCCI LoRaWAN LMIC library` or `RadioHead`
@@ -56,7 +56,7 @@ Navigate to `https://github.com/wint0178/Modular-Open-Source-Science-Station/tre
 
 ### Step 2: Compile & Flash Microcontroller
 1. Connect the node to your workstation using a data-rated USB cable.
-2. Select your target board under **Tools $\rightarrow$ Board** and select the active port under **Tools $\rightarrow$ Port**.
+2. Select your target board under **Tools → Board** and select the active port under **Tools → Port**.
 3. In the **Tools** menu, enable **"Erase all flash before sketch upload"** and select your desired LoRa frequency (e.g., `US915`).
 4. Click **Verify** (Checkmark icon) to confirm dependencies resolve cleanly.
 5. Click **Upload** (Right arrow icon) to write the compiled binary payload to node flash memory.
@@ -75,7 +75,7 @@ Navigate to `https://github.com/wint0178/Modular-Open-Source-Science-Station/tre
 ### Step 4: Deploy TTN / ChirpStack Payload Decoder
 1. Open the [software directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/) where your chosen firmware is located, open the `.js` payload formatter file, and copy the code.
 2. Log into your **The Things Network (TTN) Console** or ChirpStack server.
-3. Navigate to **Applications $\rightarrow$ [Your Application] $\rightarrow$ Payload Formatters $\rightarrow$ Uplink**.
+3. Navigate to **Applications → [Your Application] → Payload Formatters → Uplink**.
 4. Select **Custom JavaScript**, paste the script, scroll to the bottom to locate where the node ID is established, change it to a unique value (e.g., `LD01`, `LD02`, `LD03`, etc.), and click **Save Changes**.
 5. Repeat this process with the downlink formatter if one is provided for your firmware version.
 

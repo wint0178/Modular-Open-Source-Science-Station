@@ -48,20 +48,20 @@ graph TD
 
 ### Step 1: Create Application & Register Gateway
 1. Log into your **The Things Network (TTN) Console**.
-2. Navigate to **Gateways $\rightarrow$ Register Gateway** and input your gateway’s EUI (found on the physical sticker or gateway interface).
+2. Navigate to **Gateways → Register Gateway** and input your gateway’s EUI (found on the physical sticker or gateway interface).
 3. Select your region's frequency plan (e.g., `United States 902-928 MHz, FSB 2` or `Europe 863-870 MHz`).
-4. Navigate to **Applications $\rightarrow$ Add Application** and create a container (e.g., `mosss-landslide-monitoring`).
+4. Navigate to **Applications → Add Application** and create a container (e.g., `mosss-landslide-monitoring`).
 
 ### Step 2: Register Field Devices (OTAA)
 We strongly recommend **Over-The-Air Activation (OTAA)** for secure key negotiation:
-1. Inside your TTN Application, click **Devices $\rightarrow$ Register Device**.
+1. Inside your TTN Application, click **Devices → Register Device**.
 2. Input device identification parameters:
    * **DevEUI:** Unique 64-bit hardware ID burned into the node.
    * **AppEUI / JoinEUI:** Application ID identifier.
    * **AppKey:** 128-bit root key used to generate session keys.
 
 ### Step 3: Configure Payload Formatter (Uplink Decoder)
-LoRaWAN transmits raw byte arrays to minimize airtime. In the TTN Console under **Payload Formatters $\rightarrow$ Uplink**, add a JavaScript decoder to convert raw bytes to JSON before forwarding to Home Assistant. Pre-configured payload formatters in JS format are provided for each WOILD version in their respective [software folders](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/):
+LoRaWAN transmits raw byte arrays to minimize airtime. In the TTN Console under **Payload Formatters → Uplink**, add a JavaScript decoder to convert raw bytes to JSON before forwarding to Home Assistant. Pre-configured payload formatters in JS format are provided for each WOILD version in their respective [software folders](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/):
 
 ~~~javascript
 function decodeUplink(input) {
@@ -94,7 +94,7 @@ You can integrate TTN into your Home Assistant environment using either a direct
 ### Method 1: Local MQTT Broker Bridge (Recommended for Real-Time Pipelines)
 
 #### Option A: Direct TTN MQTT Subscription
-1. In TTN Console, go to **Integrations $\rightarrow$ MQTT**.
+1. In TTN Console, go to **Integrations → MQTT**.
 2. Note the **Public TLS Address** (e.g., `nam1.cloud.thethings.network:8883`) and generate an **API Key** with "Grant all rights" or "Read uplink traffic".
 3. Add a topic subscription in Home Assistant's native MQTT integration for your TTN application path:
    `v3/{application_id}@ttn/devices/{device_id}/up`
@@ -119,12 +119,12 @@ topic v3/+/devices/+/up in 0 mosss/field/ ttn/
 The official Home Assistant **The Things Network (TTN)** integration pulls decoded sensor payloads directly from TTN's Storage API using the native graphical interface without requiring custom broker bridge configurations.
 
 #### Prerequisites in TTN Console
-1. **Enable Storage Integration:** In TTN Console under your Application, go to **Integrations $\rightarrow$ Storage Integration** and click **Enable Storage Integration**.
+1. **Enable Storage Integration:** In TTN Console under your Application, go to **Integrations → Storage Integration** and click **Enable Storage Integration**.
 2. **Verify Uplink Formatter:** Confirm Step 3 above is active so `decoded_payload` dictionary items are exposed.
 3. **Generate API Key:** In TTN Console under **API Keys**, create a key with **Read application traffic (uplink and downlink)** permissions and copy the string (`NNSXS...`).
 
 #### Home Assistant GUI Configuration
-1. Navigate to **Settings $\rightarrow$ Devices & Services $\rightarrow$ Add Integration**.
+1. Navigate to **Settings → Devices & Services → Add Integration**.
 2. Search for **The Things Network**.
 3. Input your **Application ID** (`mosss-landslide-monitoring`) and your **API Key** (`NNSXS...`), which can be generated in **API keys** within the left-hand menu of your application. *Note: this API Key will not be saved or viewable after you set it up, copy and paste it to a secure notebook for access later.*  
 4. Click **Submit**. Home Assistant will auto-create entities (e.g., `sensor.woild_node_01_battery_v`) under the TTN integration card once your nodes transmit them.

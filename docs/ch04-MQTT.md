@@ -26,7 +26,7 @@ graph TD
 Setting up MQTT involves running the local broker container and linking it to Home Assistant.
 
 ### Step 1: Install Mosquitto Broker Add-on
-1. In Home Assistant, navigate to **Settings $\rightarrow$ Add-ons $\rightarrow$ Add-on Store**.
+1. In Home Assistant, navigate to **Settings → Add-ons → Add-on Store**.
 2. Search for **Mosquitto broker**.
 3. Click **Install**.
 4. In the **Info** tab, toggle **Start on boot** and **Watchdog** ON.
@@ -34,13 +34,13 @@ Setting up MQTT involves running the local broker container and linking it to Ho
 
 ### Step 2: Create an MQTT System User
 For security, MQTT clients must authenticate before publishing data to the broker:
-1. Go to **Settings $\rightarrow$ People $\rightarrow$ Users**. *(Note: If "Users" is hidden, enable **Advanced Mode** under your User Profile).*
+1. Go to **Settings → People → Users**. *(Note: If "Users" is hidden, enable **Advanced Mode** under your User Profile).*
 2. Click **Add User** in the bottom right.
 3. Enter a username (e.g., `mqtt-user` or `databroker`) and a secure password.
 4. Click **Create**.
 
 ### Step 3: Configure the Native Integration
-1. Go to **Settings $\rightarrow$ Devices & Services**.
+1. Go to **Settings → Devices & Services**.
 2. Click **Add Integration** and search for **MQTT**.
 3. Confirm the configuration—Home Assistant will automatically detect the local Mosquitto add-on and prompt you to enable it using the credentials created above.
 
@@ -74,7 +74,7 @@ If you prefer not to edit `configuration.yaml` directly, Home Assistant offers t
 
 Home Assistant allows you to add custom MQTT entities directly from the MQTT integration page without touching configuration files.
 
-1. Go to **Settings $\rightarrow$ Devices & Services**.
+1. Go to **Settings → Devices & Services**.
 2. Click on the **MQTT** integration card.
 3. Click **Add Entry** (or **Add MQTT Device** depending on your Home Assistant version).
 4. Fill out the device fields:
@@ -108,7 +108,7 @@ The device publishes a JSON configuration string to the prefix `homeassistant/se
   }
   ```
 
-Once published, the entity `sensor.field_node_01_battery_voltage` instantly appears under **Settings $\rightarrow$ Devices & Services $\rightarrow$ MQTT**.
+Once published, the entity `sensor.field_node_01_battery_voltage` instantly appears under **Settings → Devices & Services → MQTT**.
 
 ---
 

@@ -110,17 +110,19 @@ Use this method when the GW3001 is deployed at a remote, off-grid, or field stat
 > [!CAUTION]
 > **Operational Security (OpSec):** Never hardcode live API keys, application secrets, or MAC addresses directly in version-controlled `.yaml` files. Always store sensitive values in `secrets.yaml`.
 
-**2. Locate Your GW3001 MAC Address**
-* **Via WS View Plus App:** Open the app $\rightarrow$ **Device List** $\rightarrow$ locate GW3001 MAC address (`X1:X2:X3:X4:X5:X6`).
-* **Via EcoWitt Web Portal:** Log into **[ecowitt.net](https://www.ecowitt.net)** $\rightarrow$ **Device Settings** (gear icon) $\rightarrow$ view MAC address.
+2. **Locate Your GW3001 MAC Address**
 
-**3. Add `rest.yaml` to Home Assistant**
-1. Download or prepare your `rest.yaml` file.
-2. In Home Assistant, open **File Editor** and create a new file named `rest.yaml` in the root folder alongside `configuration.yaml`.
-3. Copy the full contents into your newly created `rest.yaml` file and save.
-4. Ensure your `configuration.yaml` includes the line: `rest: !include rest.yaml`.
-5. Verify via **Settings $\rightarrow$ Developer Tools $\rightarrow$ YAML $\rightarrow$ Check Configuration**.
-6. If valid, restart Home Assistant or perform a Quick Reload.
+   * **Via WS View Plus App:** Open the app → Device List → locate GW3001 MAC address (`X1:X2:X3:X4:X5:X6`).
+   * **Via EcoWitt Web Portal:** Log into ecowitt.net → Device Settings (gear icon) → view MAC address.
+
+3. **Add rest.yaml to Home Assistant**
+
+   * Download or prepare your `rest.yaml` file.
+   * In Home Assistant, open File Editor and create a new file named `rest.yaml` in the root folder alongside `configuration.yaml`.
+   * Copy the full contents into your newly created `rest.yaml` file and save.
+   * Ensure your `configuration.yaml` includes the line: `rest: !include rest.yaml`.
+   * Verify via **Settings** → **Developer Tools** → **YAML** → **Check Configuration**.
+   * If valid, restart Home Assistant or perform a **Quick Reload**.
 
 ---
 
@@ -174,7 +176,7 @@ Add-ons (also referred to as Apps in updated Home Assistant UI releases) are iso
 
 If an add-on is hosted outside the official store repositories:
 
-1. Go to **Settings** $\rightarrow$ **Apps** $\rightarrow$ **Add-on Store**.
+1. Go to **Settings** → **Apps** → **Add-on Store**.
 2. Click the **three dots menu** (`⋮`) in the top-right corner and select **Repositories**.
 3. Paste the URL of the third-party GitHub repository and click **Add**.
 4. The newly added tools will now appear at the bottom of the store list for installation.
@@ -189,7 +191,7 @@ Deploys as our secondary package manager to unlock community-driven custom cards
 * **Weather Radar Card:** Displays live, interactive radar precipitation scans alongside weather sensor metrics to track approaching storm cells.
 * **Clock Weather Card:** Integrates dynamic real-time clock displays alongside localized meteorological sensor readouts.
 * **Horizon Card:** Renders solar elevation vectors, dawn/dusk intervals, and astronomical metrics to analyze field node solar panel charging efficiency.
-* **Map Card:** Tracks spatial locations using geospatial coordinates ($X, Y$) for active WOILD nodes, automatically highlighting nodes in red when vector deviation thresholds trip.
+* **Map Card:** Tracks spatial locations using geospatial coordinates (X, Y) for active WOILD nodes, automatically highlighting nodes in red when vector deviation thresholds trip.
 * **Embedded Webpage Card (Windy.com):** Renders live wind vectors and barometric weather models directly inside the dashboard UI without requiring external API processing.
 
 ![HACS View](images/HA-HACS.png)
@@ -206,7 +208,7 @@ HACS serves as a community package manager to download custom integrations, them
 
 1. **Prerequisite:** Ensure you have a free [GitHub Account](https://github.com) ready for authentication.
 2. **Install HACS Integration:** 
-   * Navigate to **Settings** $\rightarrow$ **Devices & Services** $\rightarrow$ **Add Integration**.
+   * Navigate to **Settings** → **Devices & Services** → **Add Integration**.
    * Search for **HACS**.
    * Follow the prompt to copy the device activation code, open the provided GitHub authorization link (`github.com/login/device`), and authenticate the gateway.
 3. **Sidebar Access:** Once authorized, a dedicated **HACS** tab will appear in your Home Assistant main sidebar.
@@ -229,7 +231,7 @@ HACS serves as a community package manager to download custom integrations, them
 
 4. **Activate the Installed Resource:**
    * **For Frontend Cards & Themes:** Refresh your web browser (`Ctrl + F5` or `Cmd + Shift + R`) to force Home Assistant to load the new JavaScript resources.
-   * **For Custom Integrations:** Restart Home Assistant (**Settings** $\rightarrow$ **System** $\rightarrow$ **Restart**), then navigate to **Settings** $\rightarrow$ **Devices & Services** $\rightarrow$ **Add Integration** to finish setting up the newly installed integration.
+   * **For Custom Integrations:** Restart Home Assistant (**Settings** → **System** → **Restart**), then navigate to **Settings** → **Devices & Services** → **Add Integration** to finish setting up the newly installed integration.
 
 ---
 

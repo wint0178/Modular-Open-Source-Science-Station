@@ -1,6 +1,6 @@
 # 🏠 Chapter 2: Home Assistant Setup
 
-## [Configure the Home Assistant Gateway](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Home-Assistant/)
+## Configure the Home Assistant Gateway
 This chapter covers the initial physical provisioning and bare-metal OS installation for the central **Modular and Open-Source Science Station (MOSSS)** edge gateway. As such, it walks through:
 1. Installation of **Home Assistant OS (HAOS)** on a Raspberry Pi 4 or 5.
 2. Establishing two-tiered login access.

@@ -103,7 +103,7 @@ STEP-BY-STEP ORDERING INSTRUCTIONS
 ------------------------------------------------------------------------------
 
   1. Locate the Archive:
-     * Find and download the bundled Gerber zip file in this [directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/hardware/PCB-Gerbers/LD%20PCB%20V3/v3%20gerbers.zip). Do NOT unzip it.
+     * Find and download the bundled Gerber zip file in this [directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/hardware/PCB-Gerbers/). Do NOT unzip it.
 
   2. Upload to the Fabricator:
      * Navigate to your chosen manufacturer's website and click on their 

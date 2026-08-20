@@ -26,7 +26,7 @@ Rainfall intensity and cumulative soil saturation are the primary triggers for s
 The Ecowitt GW3001 piezo or tipping-bucket sensor allows manual calibration to ensure accurate local rainfall rates and total accumulation metrics:
 
 1. Connect to the GW3001 gateway web console or WS View Plus app.
-2. Navigate to **Sensor Settings $\rightarrow$ Calibration $\rightarrow$ Rain Gain**.
+2. Navigate to **Sensor Settings → Calibration → Rain Gain**.
 3. Measure actual accumulation using a standard high-precision reference rain gauge during local rain events.
 4. Apply the linear adjustment formula to refine the gain factor:
    $$\text{New Gain} = \text{Current Gain} \times \left( \frac{\text{Actual Rain Measured}}{\text{GW3001 Reported Rain}} \right)$$

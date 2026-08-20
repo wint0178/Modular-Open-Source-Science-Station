@@ -22,18 +22,18 @@ To ensure field technicians and operators can securely monitor landslide trackin
 Select and configure one of the following remote endpoint options based on your field site requirements:
 
 #### Option A: Home Assistant Cloud / Nabu Casa (Automated)
-1. Navigate to **Settings $\rightarrow$ Home Assistant Cloud** in the web UI and log in to your account.
+1. Navigate to **Settings** → **Home Assistant Cloud** in the web UI and log in to your account.
 2. The Home Assistant Companion App automatically ingests the encrypted Nabu Casa endpoint URL.
 3. The app dynamically routes traffic between the local IP and the remote cloud endpoint depending on connection state.
 
 #### Option B: Tailscale / WireGuard VPN (Encrypted Mesh)
-1. Navigate to **Settings $\rightarrow$ Add-ons** (or **Apps**) and install the **Tailscale** or **WireGuard** add-on.
+1. Navigate to **Settings** → **Add-ons** (or **Apps**) and install the **Tailscale** or **WireGuard** add-on.
 2. Install the matching client application on the mobile or field device.
 3. Authenticate the node to establish the encrypted mesh tunnel, enabling direct local HA IP access over cellular or satellite relays.
 
 #### Option C: Reverse Proxy / Dynamic DNS (Custom Endpoint)
 1. Establish a public domain entry using Cloudflare Tunnels, NGINX Reverse Proxy, or DuckDNS paired with SSL certificates.
-2. Open the mobile companion app and navigate to **Settings $\rightarrow$ Companion App $\rightarrow$ [Server Name]**.
+2. Open the mobile companion app and navigate to **Settings** → **Companion App** → **[Server Name]**.
 3. In the **External URL** field, input your public domain endpoint (e.g., `https://my-field-station.duckdns.org`).
 
 ---

@@ -1,10 +1,69 @@
-# Chapter 4.1: MQTT
+# Chapter 4.1: MQTT Integration & Payload Processing
 
-### 1. MQTT & The Things Network (TTN)
-*   **Mosquitto Broker:** Our high-performance, local MQTT message broker. It ingests data packets directly from our LoRaWAN network layout using the `databroker` M2M credentials and serves them to the automation engine.
+MQTT (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe messaging protocol designed specifically for low-bandwidth, high-latency, or unreliable networks. It serves as the primary machine-to-machine (M2M) communication layer within the MOSSS infrastructure, bridging long-range LoRaWAN telemetry networks directly with the Home Assistant automation engine.
 
-*   **Function:** Bridges the long-range LoRaWAN telemetry network with the Home Assistant automation bus.
-*   **Data Pipeline:** Physical WOILD landslide edge nodes blast packets via LoRaWAN $\rightarrow$ The Things Network processes the decentralized frames $\rightarrow$ Telemetry data is funneled locally via **MQTT** to update our tracking matrices instantly.
+---
+
+## 📡 Architecture & Telemetry Pipeline
+
+Rather than maintaining direct HTTP connections from distributed hardware, our system relies on a local Mosquitto MQTT broker to route telemetry asynchronously:
+
+~~~mermaid
+graph TD
+    A[WOILD Landslide Edge Nodes] -->|LoRaWAN Packets| B[The Things Network / LoRa Gateway]
+    B -->|MQTT Publish String| C[Mosquitto MQTT Broker]
+    C -->|Internal Subscriptions| D[Home Assistant Core]
+~~~
+
+* **LoRaWAN & The Things Network (TTN) Bridging:** Physical WOILD landslide edge nodes transmit telemetry packets via LoRaWAN to a local gateway/TTN. TTN then funnels these JSON payloads directly to our local Mosquitto broker using dedicated `databroker` M2M credentials to update tracking matrices instantly.
+* **Microcontroller Telemetry:** Standalone ESP32/ESP8266 boards or specialized field sensor kits publish readings directly to specific MQTT topics without requiring complex REST API handshakes.
+* **Decoupled Architecture:** Home Assistant subscribes to topics (e.g., `mosss/field/node01/telemetry`) to update internal sensor entities in real time without polling delays.
+
+---
+
+## ⚙️ Step-by-Step Mosquitto Broker Setup
+
+Setting up MQTT involves running the local broker container and linking it to Home Assistant.
+
+### Step 1: Install Mosquitto Broker Add-on
+1. In Home Assistant, navigate to **Settings $\rightarrow$ Add-ons $\rightarrow$ Add-on Store**.
+2. Search for **Mosquitto broker**.
+3. Click **Install**.
+4. In the **Info** tab, toggle **Start on boot** and **Watchdog** ON.
+5. Click **START** to initialize the container.
+
+### Step 2: Create an MQTT System User
+For security, MQTT clients must authenticate before publishing data to the broker:
+1. Go to **Settings $\rightarrow$ People $\rightarrow$ Users**. *(Note: If "Users" is hidden, enable **Advanced Mode** under your User Profile).*
+2. Click **Add User** in the bottom right.
+3. Enter a username (e.g., `mqtt-user` or `databroker`) and a secure password.
+4. Click **Create**.
+
+### Step 3: Configure the Native Integration
+1. Go to **Settings $\rightarrow$ Devices & Services**.
+2. Click **Add Integration** and search for **MQTT**.
+3. Confirm the configuration—Home Assistant will automatically detect the local Mosquitto add-on and prompt you to enable it using the credentials created above.
+
+---
+
+## 🛠️ Defining MQTT Sensors in YAML
+
+Once the broker is operational, define incoming telemetry endpoints in `configuration.yaml` or an included `mqtt.yaml` file:
+
+~~~yaml
+mqtt:
+  sensor:
+    - name: "Field Node 01 Battery Voltage"
+      state_topic: "mosss/field/node01/telemetry"
+      value_template: "{{ value_json.battery_v }}"
+      unit_of_measurement: "V"
+      device_class: "voltage"
+
+    - name: "Field Node 01 Tilt X-Axis"
+      state_topic: "mosss/field/node01/telemetry"
+      value_template: "{{ value_json.tilt_x }}"
+      unit_of_measurement: "°"
+~~~
 
 ---
 

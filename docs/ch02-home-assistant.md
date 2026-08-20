@@ -8,7 +8,7 @@ This chapter covers the initial physical provisioning and bare-metal OS installa
 
 > ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
 
-![HAOS on R-Pi](/docs/images/HAOS-install.png)
+![HAOS on R-Pi](/Science-Station/images/HAOS-install.png)
 
 ### 🏠 Stage 1: Home Assistant OS Bare-Metal Installation
 
@@ -59,7 +59,7 @@ Because the gateway needs to compute vector matrices locally without internet de
 </div>
     
 <!-- Native HTML Image Element -->
-<img src="/docs/images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
+<img src="/Science-Station/images/Pi-imager.png" alt="Raspberry Pi Imager Settings" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 10px;">
   </li>
 
   <!-- STEP 4 -->

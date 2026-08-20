@@ -4,7 +4,7 @@ ESPHome is a system that lets you control your microcontroller boards (such as E
 
 The Home Assistant ESPHome App gives users access to an integrated development environment (IDE) within the HA user interface directly and provides a mechanism for over-the-air (OTA) firmware updates.
 
-![ESPHome Application](/docs/images/HA-ESPHome.png)
+![ESPHome Application](/Science-Station/images/HA-ESPHome.png)
 
 ---
 
@@ -42,7 +42,7 @@ We provide three primary ESPHome deployment configurations based on an **ESP32-S
 
 ---
 
-![ESPHome IDE](/docs/images/HA-ESPHome2.png)
+![ESPHome IDE](/Science-Station/images/HA-ESPHome2.png)
 
 ## ⚙️ Step-by-Step Hardware Provisioning & Setup
 

@@ -1,197 +1,82 @@
-## 🧭 Next Step
-Review the full applications setup documentation located inside this folder for specific step-by-step installation instructions for Tailscale, HACS, and cloud sync options:
+# 🧩 Chapter 3.1: Home Assistant Integrations
 
-## 🔌 MOSSS Gateway: Software Integrations & Add-ons Blueprint
+This chapter details the software application layer, native integrations, and community integrations of Home Assistant, which is responsible for running the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming data into local vector matrices and safety alerts.
 
-This document details the software application layer, community integrations, and network translators deployed within the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming environmental RF data into local vector matrices and safety alerts.
-
-![Image Missing](../images/HA-Integrations.png)
----
-
-
-## 📦 Installed Add-ons (The Application Layer)
-These applications run as isolated system containers managed by the Home Assistant Supervisor to provide local backend utilities:
-
-*   **Mosquitto Broker:** Our high-performance, local MQTT message broker. It ingests data packets directly from our LoRaWAN network layout using the `databroker` M2M credentials and serves them to the automation engine.
-*   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
-*   
-![Image Missing](../images/HA-Dessrumbes.png)
----
-
-## 📡 Telemetry & Network Translators (Custom Integrations)
-
-These integrations handle data parsing from your distributed field tracking arrays:
-
-### 1. MQTT & The Things Network (TTN)
-*   **Function:** Bridges the long-range LoRaWAN telemetry network with the Home Assistant automation bus.
-*   **Data Pipeline:** Physical WOILD landslide edge nodes blast packets via LoRaWAN $\rightarrow$ The Things Network processes the decentralized frames $\rightarrow$ Telemetry data is funneled locally via **MQTT** to update our tracking matrices instantly.
-
-### 2. EcoWitt & Weather.com
-*   **Function:** Captures hyper-local meteorological profiles directly from our on-site microclimate array via local network broadcasts, complemented by regional historical projections via the Weather.com API.
-*   **Data Pipeline:** Streams real-time rain accumulation rates and storm factors directly into our threshold matrices to correlate rainfall infiltration against immediate ground slope shift events.
-
-![Descriptive Alt Text For Accessibility](../images/HA-Clima.png)
+![HA Integrations Overview](../images/HA-Integrations.png)
 
 ---
 
-## 🛠️ Power User Tools & Extended Frameworks
-
-*   **HACS (Home Assistant Community Store) & Get HACS:** Deployed as our secondary package manager to unlock community-driven custom cards, integrations, and advanced backend tools not available in the core distribution line.
-    > 🔐 **INSTALLATION PREREQUISITE:** To initialize the HACS environment on a fresh installation, you must have a valid **GitHub Account**. The setup process requires you to authenticate the local gateway using GitHub's secure OAuth device-pairing key protocol before the community repository manager can unlock.
-
----
-
-## 📊 Dashboard UI & Environmental Visualization (HACS Frontend Layer)
-To deliver a high-readability monitoring UI for emergency response teams and field technicians, our primary command dashboard leverages custom frontend assets installed via HACS:
-
-### 1. Layout & Styling Engines
-*   **UI eXtension (UIX) & card-mod:** Used to inject custom CSS styling variables across the frontend DOM. This enables advanced element customization required to dynamically alter card behaviors, backgrounds, and warning indicator colors.
-*   **visionOS & iOS Liquid Glass Theme:** Deployed as our primary visual theme wrapper, creating an exceptionally clean, modern glassmorphic interface that optimizes visual scanning in low-light command environments.
-
-### 2. Microclimate & Spatial Tracking Cards
-*   **Weather Radar Card & Weather.com Integration:** Displays live, interactive radar precipitation scans directly alongside our sensor readouts to map approaching storm cells before they cross our physical monitoring area.
-*   **Windy.com (Embedded Webpage Card Framework):** Bypasses the need for complex API keys or heavy code integrations. By dropping a standard Home Assistant **Webpage Card** onto the frontend layout, operators can embed live, interactive wind vector models and barometric tracking directly from Windy.com. This provides instant, resource-light visualization of real-time atmospheric patterns and incoming storm cells without putting extra processing strain on the Raspberry Pi's CPU.
-*   **Clock Weather Card & Horizon Card:** Renders critical astronomical, dawn/dusk, and sun elevation metrics—essential data points when analyzing real-time solar harvesting performance on our battery-powered field arrays.
-*   **Map Card:** Dynamically displays the precise geospatial coordinate markers ($X, Y$) of individual active WOILD nodes distributed across the hillsides, turning color-coded red if a vector deviation trigger trips.
-
----
-
-## 🔔 Emergency Alerting & Safety Channels
+## 📱 Layer 1: Home Assistant Mobile Companion App
 
 *   **Mobile App Integration:** Links localized system notifications directly to the **Home Assistant Companion App** on field-technician smartphones. This setup bypasses standard cloud delivery delays to fire **high-priority critical alerts** with custom alert sounds immediately upon matrix breach.
-*   **Google Translate Text-to-Speech (TTS):** Configured to broadcast voice alerts through local audio hardware connected to the gateway. If a slope matrix registers structural failure risks, the hub issues audible verbal emergency warnings locally alongside mobile push alerts.
+
+#### Step 1: Download the App
+* **iOS / iPadOS:** Search for **Home Assistant** in the Apple App Store.
+* **Android:** Search for **Home Assistant** in the Google Play Store.
 
 ---
 
-## 🏛️ System Housekeeping Integrations (Native)
-These integrations are natively provisioned by **Home Assistant OS (HAOS)** and handle foundational server parameters:
-*   **Home Assistant Supervisor & Backup:** Manages local container health and automates daily system backups to safeguard historical sensor data.
-*   **Raspberry Pi Hardware & Power Supply Checker:** Monitors system metrics, device thermals, and alerts if undervoltage issues threaten edge calculation stability.
-*   **Local IP Address, Bluetooth, Meteorologisk institutt, Radio Browser, Shopping List, & Sun:** Tracks gateway network parameters, local weather projections, solar elevation vectors, and auxiliary system entities.
+#### Step 2: Local Network Connection
+1. Connect your mobile device to the **same local Wi-Fi network** as your Home Assistant server.
+2. Launch the app. It will automatically scan your subnet and discover your gateway (e.g., `http://homeassistant.local:8123` or `http://192.168.x.x:8123`).
+3. Select your instance and authenticate with your administrator credentials.
+4. Enable requested permissions (**Notifications**, **Location**, and **Background Refresh**) so the app can register critical push alert channels and update presence sensors.
 
-## ⚙️ Stage 3: Runtime Database Optimization & Configuration Guide
-
-This directory houses the live production codebase running the MOSSS gateway. This includes your storage optimization matrices, mathematical template states, and active landslide threshold alert scripts.
+#### Remote Access will be covered later in [Chapter 3.2](./ch03-remote-access.md)
 
 ---
 
-## 💾 Database Optimization & MicroSD Storage Preservation
+---
 
-The gateway utilizes a **32GB high-endurance microSD card** to host the operating system and local database records. Because the `databroker` continuously ingests rapid telemetry updates, a default configuration will rapidly exhaust disk space or wear out the storage media through excessive write cycles.
+## 🔌 Layer 2: Home Assistant Integrations
 
-### ⏱️ Data Ingestion Cadence & Write Mitigation
+### 🔌 Finding and Installing Native Integrations in Home Assistant
 
-To drastically reduce write amplification on the 32GB storage media, the sensor array is tuned to discrete, physics-based reporting intervals rather than continuous streaming:
-
-| Sensor Array | Firmware/Protocol | Normal Transmission Cadence | Engineering Justification |
-| :--- | :--- | :--- | :--- |
-| **EcoWitt Array** | Local Net Broadcast | **Every 5 Minutes** | Captures fast-moving meteorological fronts and acute rainfall accumulation without flooding the database. |
-| **WOILD Nodes (v1.1.6)** | LoRaWAN / ESPHome | **Every 60 Minutes** | Establishes stable, ultra-low-power geological baselines. Provides early structural warning while keeping daily transaction writes minimal. |
-
-Because transactions are structured on 5-minute and 60-minute boundaries rather than sub-second intervals, the local SQLite database engine (`home-assistant_v2.db`) easily remains compact and lightweight over your 30-day retention envelope. Ensure the `recorder:` filter block provided in `configuration.yaml` is applied to lock in this protection layer.
-
-### 📡 End-to-End System Data Flow
-
-```mermaid
-graph LR
-    %% Define Layout and Node Connections
-    subgraph Edge Telemetry Layer
-        NodeA[WOILD Field Node<br>Heltec V3 / MPU6050] -->|LoRaWAN Up-link| NodeB[LoRa Gateway<br>SenseCAP M2 / TTN]
-        NodeC[Meteorology Array<br>EcoWitt WN90] -->|RF Broadcast| NodeD[EcoWitt Gateway<br>GW3001]
-    end
-
-    subgraph Central Processing Core
-        NodeB -->|External MQTT Bus| NodeE[Mosquitto Broker<br>databroker M2M Channel]
-        NodeD -->|Local or Remote Wi-Fi Push| NodeF[Home Assistant Core<br>Raspberry Pi 4 / 32GB mSD]
-        
-        NodeE -->|Raw Payload String| NodeG{2D Vector Deviation<br>Matrix Evaluation}
-        NodeF -->|5-Min Rain Cadence| NodeG
-    end
-
-    subgraph Emergency Action Layer
-        NodeG -->|Threshold Breach Trigger| NodeH[Automated Alerts<br>HA Companion App Push]
-    end
-```
+Native integrations are official components built directly into Home Assistant, requiring no third-party repositories or external store installations.
+Suggested native integrations include:
+* **EcoWitt:** Captures hyper-local meteorological data (temperature, humidity, rain rate, wind metrics) directly from local network broadcasts via the GW3001 gateway or local webhooks.
+* **Weather.com:** Pulls regional atmospheric data and historical forecasting projections to complement microclimate array readings.
+* **Home Assistant Supervisor & Backup:** Handles core OS container maintenance, system health, and automated daily database backups.
+* **Raspberry Pi Hardware & Power Supply Checker:** Monitors gateway hardware thermals, CPU metrics, and reports undervoltage issues to protect storage integrity.
+* **Sun:** Calculates solar elevation vectors, daylight hours, and astronomical data used to track field array solar harvesting performance.
+* **Meteorologisk Institutt:** Provides native local weather forecasting and ambient meteorological baseline tracking.
+* **MQTT (Mosquitto Broker):** [See chapter 4: MQTT](./ch04-MQTT.md) Bridges external data streams—such as LoRaWAN field node telemetry routed through The Things Network (TTN)—directly into Home Assistant.
+* **RESTful Sensor / API Framework:** Enables cloud-based data ingestion (`rest.yaml`) from off-grid gateways like the GW3001 when deployed outside the local network subnet.
+* **System Housekeeping Tools (Bluetooth, Local IP, Radio Browser, Shopping List):** System-level native components managing local connectivity, gateway network parameters, and auxiliary entities.
 
 ---
 
-## 🛠️ Step-by-Step Implementation
+#### Step-by-Step Installation
 
-### Step 1: Access the Home Assistant Root Configuration Folder
-To deploy or modify these files, access the root directory where your primary `configuration.yaml` file is hosted on your Raspberry Pi. This can be accomplished via:
-* **The File Editor Add-on** via the Home Assistant sidebar (Highly Recommended)
-* **The Studio Code Server Add-on** 
-* **Samba share Add-on** utilizing a local network folder mapping
+1. **Navigate to Integrations:**
+   In your Home Assistant sidebar, go to **Settings** $\rightarrow$ **Devices & Services**.
 
-### Step 2: Apply Configuration Files
+2. **Add New Integration:**
+   Click the **+ Add Integration** button in the bottom-right corner of the **Integrations** tab.
 
-#### [A] configuration.yaml
-1. Open your active local `configuration.yaml` file.
-2. Append or merge your current settings with the updated layout provided in our production file.
-3. Ensure that your core directory inclusion split lines look exactly like this, though there may be more such as rest, input-numbers, compensations, script, and secrets :
-    ```yaml
-    automation: !include automations.yaml
-    template: !include templates.yaml
-    ```
+3. **Search & Select:**
+   Type the name of the service, protocol, or device brand in the search bar (e.g., *Ecowitt*, *Weather.com*, *Sun*, or *MQTT*).
 
-#### [B] templates.yaml
-1. Open `templates.yaml` (create it in the root folder if it does not exist).
-2. Overwrite the contents entirely with the sanitized `LD01` telemetry matrix code block provided.
-3. Duplicate the needed code blocks for every sensor you intend to install (See Grid Expansion below).
+4. **Configure Credentials:**
+   Follow the on-screen wizard to input required authentication details (such as local IP addresses, API keys, or user login tokens).
 
-#### [C] automations.yaml
-1. Open `automations.yaml`.
-2. Append or replace your active blocks with the updated `LD01` and `Heavy Rain` rules.
-3. Duplicate the needed code blocks for every sensor you intend to install (See Grid Expansion below).
-4. ⚠️ **CRITICAL VISUAL EDITOR WARNING:** Both automations utilize `mode: queued` and custom templates. Modifying these rules inside the Home Assistant Visual UI Editor may strip out or break the raw YAML syntax. **Always edit alerts directly in code.**
-
-### Step 3: System Validation & Reloading
-Before applying any configuration changes or restarting Home Assistant, you **MUST** validate the structural integrity of your YAML files:
-
-1. In Home Assistant, navigate to: **Developer Tools > YAML**.
-2. Click the **Check Configuration** button.
-3. If any errors are flagged, double-check your spacing, indentation, and ensure no raw `<` or `>` characters are unquoted.
-4. Once configuration validation passes successfully, scroll down to "YAML Configuration Reloading" on the same page and click: **"Reload All YAML Configuration"**.
+5. **Assign Area (Optional):**
+   Once set up, Home Assistant will prompt you to assign the newly discovered entities or devices to a specific **Area** (e.g., *Outdoors* or *Gateway Station*).
 
 ---
 
-## 🚀 Grid Expansion (Adding Hardware Nodes LD02 Through LD10)
+> 💡 **Auto-Discovery Note:** Many local hardware devices (like HomeKit accessories, Philips Hue hubs, or local network gateways) will automatically trigger a notification card at the top of the **Devices & Services** page as soon as they join your local subnet—allowing one-click setup without manual searching.
 
-When deployment of additional monitoring hardware is required in the field:
-
-1. Open the target configuration file (`configuration.yaml`, `templates.yaml`, or `automations.yaml`).
-2. Review the structural *Automation Scaling Note* commented at the top of the file.
-3. Duplicate the relevant `LD01` code block.
-4. Perform a localized **Find & Replace** inside **ONLY** your newly duplicated block:
-   * Change all instances of `LD01` to your new index (e.g., `LD02`)
-   * Change all instances of `ld01` to your new index (e.g., `ld02`)
-   * Change all instances of `landslide_01` to your new index (e.g., `landslide_02`)
-5. **Update Spatial Attributes:** Update the `baseline_x`/`baseline_y` coordinates in the Safety Matrix block and the physical `latitude`/`longitude` attributes in the Live Trackers block to match the specific, calibrated survey location of the new field hardware.
-6. Re-run **Step 3 (Validation & Reloading)** to bring your new node online instantly.
+![HA Climate Overview](../images/HA-Clima.png)
 
 ---
 
-### [Map Inputs to Your Meteorological Sensors](../software/EcoWitt/)
-1. Ensure your local **EcoWitt** weather gateway is integrated with Home Assistant, calibrated to transmit wind, rain, and pressure data updates at a steady **5-minute ingestion cadence**.
-    > 💡 *Note: For deployments were your Home Assistant server and GW3000 gateway are not on the same network, an access token can be used to provide remote data streaming and intermitant HA pulldown requests.*
-2. Optional: Embed interactive vector models on your dashboard using a standard Webpage Card pointing to a customized Windy.com viewport string.
+### 🌦️ EcoWitt GW3001 Integration Setup
 
-## 🌦️ EcoWitt GW3001 Integration Guide
-
-This guide details two methods for integrating the **EcoWitt GW3001** gateway into Home Assistant: a low-latency, local network connection using Home Assistant's native integration, and a cloud-based RESTful API approach designed for remote off-grid deployments.
-
----
-
-> [!CAUTION]
-> **Operational Security (OpSec):** Never hardcode live API keys, application secrets, or MAC addresses directly in version-controlled `.yaml` files. Always store sensitive values in `secrets.yaml`.
-
----
-
-## 🏠 Method 1: Local Network Integration (Native Webhook)
-
+#### 🏠 Method 1: Local Network Integration (Native Webhook)
 Use this method when the EcoWitt GW3001 gateway and your Home Assistant server reside on the same local network subnet.
 
-### Step 1: Configure Custom Webhook in WS View Plus
+**Step 1: Configure Custom Webhook in WS View Plus**
 1. Open the **WS View Plus** (or EcoWitt) mobile app on a device connected to the local Wi-Fi network.
 2. Select your **GW3001** gateway device from the list.
 3. Navigate to **Menu** $\rightarrow$ **Customized** (or **Weather Services** $\rightarrow$ **Customized**).
@@ -203,28 +88,16 @@ Use this method when the EcoWitt GW3001 gateway and your Home Assistant server r
    * **Upload Interval:** `300` seconds
 5. Save and apply the configuration.
 
-### Step 2: Enable Integration in Home Assistant
+**Step 2: Enable Integration in Home Assistant**
 1. In Home Assistant, go to **Settings** $\rightarrow$ **Devices & Services**.
 2. Click **Add Integration** in the bottom right corner.
 3. Search for **Ecowitt** and select it.
 4. Confirm the prompt to complete setup. Home Assistant will begin auto-discovering sensor channels as the GW3001 sends webhook payloads.
 
----
+#### ☁️ Method 2: Remote Deployment (RESTful Cloud API)
+Use this method when the GW3001 is deployed at a remote, off-grid, or field station lacking a direct local network link back to Home Assistant. See Layer 3: Apps & File Editor for details about finding and editing YAML files.
 
-## ☁️ Method 2: Remote Deployment (RESTful Cloud API)
-
-Use this method when the GW3001 is deployed at a remote, off-grid, or field station lacking a direct local network link back to Home Assistant.
-
-## 🔑 Obtaining EcoWitt API Credentials & Hardware Identifiers
-
-This guide outlines how to generate your **Application Key** and **API Key** from the EcoWitt Cloud portal, as well as how to locate your GW3001 hardware **MAC Address** for REST integration.
-
----
-
-## 1. Generate Application Key & API Key
-
-Both keys are generated inside your user account settings on the official EcoWitt platform:
-
+**1. Generate Application Key & API Key**
 1. Log into your account at **[ecowitt.net](https://www.ecowitt.net)**.
 2. Click your profile icon/avatar in the top-right corner and select **User Center** (or **Profile**).
 3. Navigate to the **API Management** tab in the sidebar menu.
@@ -232,25 +105,144 @@ Both keys are generated inside your user account settings on the official EcoWit
 5. **API Key:** Click **Create API Key** to generate your personal data authorization token.
 6. Copy both generated strings and paste them securely into your deployment records or `secrets.yaml`.
 
+> [!CAUTION]
+> **Operational Security (OpSec):** Never hardcode live API keys, application secrets, or MAC addresses directly in version-controlled `.yaml` files. Always store sensitive values in `secrets.yaml`.
+
+**2. Locate Your GW3001 MAC Address**
+* **Via WS View Plus App:** Open the app $\rightarrow$ **Device List** $\rightarrow$ locate GW3001 MAC address (`X1:X2:X3:X4:X5:X6`).
+* **Via EcoWitt Web Portal:** Log into **[ecowitt.net](https://www.ecowitt.net)** $\rightarrow$ **Device Settings** (gear icon) $\rightarrow$ view MAC address.
+
+**3. Add `rest.yaml` to Home Assistant**
+1. Download or prepare your `rest.yaml` file.
+2. In Home Assistant, open **File Editor** and create a new file named `rest.yaml` in the root folder alongside `configuration.yaml`.
+3. Copy the full contents into your newly created `rest.yaml` file and save.
+4. Ensure your `configuration.yaml` includes the line: `rest: !include rest.yaml`.
+5. Verify via **Settings $\rightarrow$ Developer Tools $\rightarrow$ YAML $\rightarrow$ Check Configuration**.
+6. If valid, restart Home Assistant or perform a Quick Reload.
+
 ---
 
-## 2. Locate Your GW3001 MAC Address
+## 📦 Layer 3: Home Assistant Apps (Add-ons)
 
-The MAC address acts as the unique device ID for API query parameters. You can retrieve it using either method below:
+These applications run as isolated system containers managed by the Home Assistant Supervisor to provide local backend utilities. They inlcude the following possible installs:
+* **File Editor:** Provides a direct, lightweight web editor workspace to create, update, and manage your core configuration files (`configuration.yaml`, `rest.yaml`, `templates.yaml`, `automations.yaml`).
+* **Studio Code Server (VS Code):** Serves as an advanced, full-featured code editor add-on for editing YAML scripts, managing runtime directory structures, and debugging syntax directly within Home Assistant.
+* **Mosquitto Broker:** Runs an isolated local MQTT broker container to ingest raw telemetry payload strings (such as LoRaWAN data from TTN) and route them to Home Assistant's internal databroker M2M channel. More detailed information found in [Chapter 4: MQTT](./ch04-MQTT.md).
+* **Samba Share:** Exposes the Home Assistant root configuration folders over the local network, allowing technicians to map directory drives and manage system files securely from an external PC.
+* **Tailscale / WireGuard (VPN Add-ons):** Creates secure, encrypted mesh network tunnels to allow field technicians direct, remote access to the local Home Assistant instance from cellular or satellite networks. More detailed information found in [Chapter 3: Remote Access](./ch03-remote-access.md).
 
-### Method A: Via the WS View Plus App
-1. Connect your phone to the same local Wi-Fi network as your GW3001.
-2. Open the **WS View Plus** app and select **Device List**.
-3. Locate your GW3001 gateway. The 12-character MAC address (e.g., `X1:X2:X3:X4:X5:X6`) will be displayed next to the device name.
+*   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
 
-### Method B: Via the EcoWitt Web Portal
-1. Log into **[ecowitt.net](https://www.ecowitt.net)**.
-2. Select your weather station dashboard.
-3. Open **Device Settings** (gear icon) to view the gateway details, including the registered MAC address.
+### 📦 Finding and Installing Add-ons in Home Assistant
 
-## 3. Add rest.yaml to Home Assistant
-1. Download the rest.yaml file.
-2. In Home Assistant, navigate to File Editor and create a new file in the same directory as your configuration.yaml file, named "rest.yaml"
-3. Copy the full contents of the downloaded rest.yaml file into your newly created rest file in Home Assistant. Save the file.
-4. Verify the yaml by navigating to Seetings->Developer Tools->YAML, Click "Check Configuration" and verify that it will not prevent HA from starting. If successful, click Restart and then select Quick Reload from the available options.
-    > 💡 *Note: your configuration yaml must inlude the line "rest !include rest.ymal" or HA will not deploy these changes even after reloading.*
+Add-ons (also referred to as Apps in updated Home Assistant UI releases) are isolated Docker containers managed directly by the Home Assistant Supervisor. They run alongside Home Assistant Core to add system utilities, database brokers, and file management tools.
+
+> ⚠️ **Requirement:** Add-ons are only available on **Home Assistant OS (HAOS)** or **Home Assistant Supervised** installation types.
+
+---
+
+#### Step-by-Step Installation Guide
+
+1. **Access the Add-on Store:**
+   * In your Home Assistant sidebar, navigate to **Settings** $\rightarrow$ **Add-ons** (or **Apps**).
+   * Click the **Add-on Store** (or **Install App**) button in the bottom-right corner.
+
+2. **Search for the Application:**
+   * Browse through the default **Official** or **Community** repository lists, or use the search bar at the top to type the name of the tool (e.g., *Mosquitto broker*, *File editor*, *Samba share*, or *Studio Code Server*).
+
+3. **Install the Add-on:**
+   * Select the application card from the search results to open its information page.
+   * Click the **INSTALL** button.
+
+4. **Configure Settings:**
+   * Open the **Configuration** tab at the top of the add-on page to set required options (such as setting passwords for *Samba share* or defining ports for *Mosquitto*).
+   * Click **Save** to apply your parameters.
+
+5. **Start and Enable Options:**
+   * Return to the **Info** tab.
+   * Toggle **Show in sidebar** if you want direct access from the main navigation panel (recommended for *File Editor* and *Studio Code Server*).
+   * Toggle **Start on boot** and **Watchdog** so the container automatically runs and restarts if it crashes.
+   * Click **START** to launch the container.
+
+---
+
+#### Adding Custom Third-Party Repositories
+
+If an add-on is hosted outside the official store repositories:
+
+1. Go to **Settings** $\rightarrow$ **Add-ons** $\rightarrow$ **Add-on Store**.
+2. Click the **three dots menu** (`⋮`) in the top-right corner and select **Repositories**.
+3. Paste the URL of the third-party GitHub repository and click **Add**.
+4. The newly added tools will now appear at the bottom of the store list for installation.
+
+![HA Application Layer](../images/HA-Dessrumbes.png)
+
+---
+
+## 🧩 Layer 4: Home Assistant Community Store (HACS)
+
+Deploys as our secondary package manager to unlock community-driven custom cards, integrations, and advanced backend tools not available in the core distribution line. This includes:
+### 🧩 Suggested HACS Frontend & Community Integrations
+
+Based on your repository documentation up to this point, here are the community custom components, themes, and frontend cards installed via HACS:
+
+* **UI eXtension (UIX) & card-mod:** Injects custom CSS styling directly into the Home Assistant DOM to dynamically alter visual card elements, warning indicators, and background colors.
+* **visionOS & iOS Liquid Glass Theme:** Provides a high-readability visual wrapper with a transparent glassmorphic layout tailored for low-light command monitoring environments.
+* **Weather Radar Card:** Displays live, interactive radar precipitation scans alongside weather sensor metrics to track approaching storm cells.
+* **Clock Weather Card:** Integrates dynamic real-time clock displays alongside localized meteorological sensor readouts.
+* **Horizon Card:** Renders solar elevation vectors, dawn/dusk intervals, and astronomical metrics to analyze field node solar panel charging efficiency.
+* **Map Card:** Tracks spatial locations using geospatial coordinates ($X, Y$) for active WOILD nodes, automatically highlighting nodes in red when vector deviation thresholds trip.
+* **Embedded Webpage Card (Windy.com):** Renders live wind vectors and barometric weather models directly inside the dashboard UI without requiring external API processing.
+
+> 🔐 **INSTALLATION PREREQUISITE:** To initialize the HACS environment on a fresh installation, you must have a valid **GitHub Account**. The setup process requires you to authenticate the local gateway using GitHub's secure OAuth device-pairing key protocol before the community repository manager can unlock.
+
+### 🧩 Installing Custom Elements via HACS (Home Assistant Community Store)
+
+HACS serves as a community package manager to download custom integrations, themes, and frontend UI cards that are not available in the official Home Assistant Core distribution.
+
+---
+
+#### Initial Setup & Prerequisites
+
+1. **Prerequisite:** Ensure you have a free [GitHub Account](https://github.com) ready for authentication.
+2. **Install HACS Integration:** 
+   * Navigate to **Settings** $\rightarrow$ **Devices & Services** $\rightarrow$ **Add Integration**.
+   * Search for **HACS**.
+   * Follow the prompt to copy the device activation code, open the provided GitHub authorization link (`github.com/login/device`), and authenticate the gateway.
+3. **Sidebar Access:** Once authorized, a dedicated **HACS** tab will appear in your Home Assistant main sidebar.
+
+---
+
+#### Step-by-Step Installation of HACS Resources
+
+1. **Open the HACS Panel:**
+   Click **HACS** in your sidebar navigation panel.
+
+2. **Search for Elements:**
+   * Click the **Search** bar or select the filter category (e.g., *Integrations* or *Frontend*).
+   * Type the name of the desired resource (such as *card-mod*, *Weather Radar Card*, or *Clock Weather Card*).
+
+3. **Download Resource:**
+   * Select the resource card from the search results.
+   * Click **Download** (or **Download with HACS**) in the bottom right corner.
+   * Select the latest release version and confirm the download.
+
+4. **Activate the Installed Resource:**
+   * **For Frontend Cards & Themes:** Refresh your web browser (`Ctrl + F5` or `Cmd + Shift + R`) to force Home Assistant to load the new JavaScript resources.
+   * **For Custom Integrations:** Restart Home Assistant (**Settings** $\rightarrow$ **System** $\rightarrow$ **Restart**), then navigate to **Settings** $\rightarrow$ **Devices & Services** $\rightarrow$ **Add Integration** to finish setting up the newly installed integration.
+
+---
+
+#### Adding Unlisted Custom Repositories
+
+If a custom frontend card or integration is not listed in the default HACS store:
+
+1. Open **HACS** from the sidebar.
+2. Click the **three dots menu** (`⋮`) in the top-right corner and select **Custom repositories**.
+3. Paste the URL of the GitHub repository (e.g., `https://github.com/author/custom-card`).
+4. Select the category (**Integration** or **Dashboard / Lovelace**) and click **Add**.
+5. The resource will now appear in your HACS search results ready for download.
+
+---
+
+👉 **Proceed to [Chapter 3.2: Remote Access](./ch03-remote-access.md)**

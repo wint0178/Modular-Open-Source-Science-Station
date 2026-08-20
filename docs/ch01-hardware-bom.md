@@ -145,4 +145,4 @@ COMPONENT SOURCING (BOM & CPL)
     (CPL / Centroid file) exported separately from the main design repository.
 ==============================================================================
 
-👉 **Proceed to installing Home Assistant OS [Chapter 2](./ch02-home-assistant.md)**
+👉 **Proceed to [Chapter 2: Home Assistant Setup](./ch02-home-assistant.md)**

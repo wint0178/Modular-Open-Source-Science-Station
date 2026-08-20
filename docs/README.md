@@ -54,4 +54,4 @@ After purchasing all necessary hardware, assemble a MOSSS station from raw parts
 
 ---
 
-👉 **Let's get started! Proceed to [Chapter 1](./ch01-hardware-bom.md)**
+👉 **Let's get started! Proceed to [Chapter 1: Hardware and BoM](./ch01-hardware-bom.md)**

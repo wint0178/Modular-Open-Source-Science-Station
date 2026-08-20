@@ -1,3 +1,5 @@
+# Chapter 4.2: ESPHome
+
 ### Step 4.1: [Provision Your Remote ESP32/ESPHome Devices](../software/ESPHome/) (Optional)
 1. Navigate to `../software/ESPHome`.
 2. Open `esphome-tailscale.yaml` and update your `device_id`, generating a unique Base64 API key and fresh Tailscale auth token.
@@ -68,3 +70,5 @@ mqtt_password: "YOUR_MQTT_PASSWORD"
 tailscale_auth_key: "tskey-auth-YOUR_REUSABLE_TAILSCALE_KEY"
 ```
 ---
+
+👉 **Proceed to [Chapter 4.3: TTN LoRa](./ch04-TTN-LoRa.md)**

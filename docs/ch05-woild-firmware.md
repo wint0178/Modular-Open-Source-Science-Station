@@ -18,13 +18,13 @@ To maximize solar/battery longevity in field deployments, the WOILD firmware swi
 
 ## 📦 Firmware Version Comparison & Selection Guide
 
-Several firmware builds are maintained under `../software/Landslide-Detectors/`. Choose the version that best matches your deployment needs:
+Several firmware builds are maintained under `https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors`. Choose the version that best matches your deployment needs:
 
 | Version | Key Focus & Innovation | OTA Downlink Control | Dynamic Sleep Delays | Ideal Deployment Scenario |
 | :---: | :--- | :---: | :---: | :--- |
-| **[v1.1.3](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v113/)** | **Power Conservation Baseline**<br>Dual motion thresholds and low-voltage auto-recovery. | ❌ Static | ❌ Hardcoded | Simple, static field nodes with standard solar/battery hardware. |
-| **[v1.1.5](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v115/)** | **Dynamic NVS & Bitpacked Overhaul**<br>Dynamic NVS thresholds and bitpacked payload overhaul. | **Yes** (2-byte frame) | ❌ Hardcoded | Remote nodes needing dynamic threshold and motion tuning over-the-air. |
-| **[v1.1.6](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v116/)** *(Latest)* | **Full Remote Command & Control**<br>Dynamic sleep lookups, OTA tripwire toggling, and NVS persistence. | **Yes** (2-byte frame) | **Yes** (Lookup-based) | **Recommended for production.** Remote nodes where over-the-air parameter tuning is required. |
+| **[v1.1.3](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v113/)** | **Power Conservation Baseline**<br>Dual motion thresholds and low-voltage auto-recovery. | ❌ Static | ❌ Hardcoded | Simple, static field nodes with standard solar/battery hardware. |
+| **[v1.1.5](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v115/)** | **Dynamic NVS & Bitpacked Overhaul**<br>Dynamic NVS thresholds and bitpacked payload overhaul. | **Yes** (2-byte frame) | ❌ Hardcoded | Remote nodes needing dynamic threshold and motion tuning over-the-air. |
+| **[v1.1.6](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v116/)** *(Latest)* | **Full Remote Command & Control**<br>Dynamic sleep lookups, OTA tripwire toggling, and NVS persistence. | **Yes** (2-byte frame) | **Yes** (Lookup-based) | **Recommended for production.** Remote nodes where over-the-air parameter tuning is required. |
 
 ### Which Version Should You Implement?
 
@@ -52,7 +52,7 @@ Before compiling and flashing the WOILD firmware, configure your local developme
 Follow this step-by-step procedure to configure, compile, and flash WOILD field nodes.
 
 ### Step 1: Configure Node Network Identifiers
-Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketch file for your chosen version.
+Navigate to `https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/` and open the primary `.ino` sketch file for your chosen version.
 
 ### Step 2: Compile & Flash Microcontroller
 1. Connect the node to your workstation using a data-rated USB cable.
@@ -73,7 +73,7 @@ Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketc
 ![TTN Node Provisioning](images/TTN-new-node.png)
 
 ### Step 4: Deploy TTN / ChirpStack Payload Decoder
-1. Open the [software directory](../software/Landslide-Detectors/) where your chosen firmware is located, open the `.js` payload formatter file, and copy the code.
+1. Open the [software directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/) where your chosen firmware is located, open the `.js` payload formatter file, and copy the code.
 2. Log into your **The Things Network (TTN) Console** or ChirpStack server.
 3. Navigate to **Applications $\rightarrow$ [Your Application] $\rightarrow$ Payload Formatters $\rightarrow$ Uplink**.
 4. Select **Custom JavaScript**, paste the script, scroll to the bottom to locate where the node ID is established, change it to a unique value (e.g., `LD01`, `LD02`, `LD03`, etc.), and click **Save Changes**.
@@ -116,7 +116,7 @@ To maximize battery life and comply with LoRaWAN Fair Use airtime limits, WOILD 
 
 ## 📊 Home Assistant Sensor Templates (YAML)
 
-To render WOILD telemetry into active entities within Home Assistant, append some or all of the provided YAML configurations to your respective Home Assistant files using the File Editor add-on (e.g., adding these template definitions to `configuration.yaml` or `templates.yaml`). All provided YAML files are located in the [software directory](../software/Home-Assistant/Runtime-Configuration/).
+To render WOILD telemetry into active entities within Home Assistant, append some or all of the provided YAML configurations to your respective Home Assistant files using the File Editor add-on (e.g., adding these template definitions to `configuration.yaml` or `templates.yaml`). All provided YAML files are located in the [software directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Home-Assistant/Runtime-Configuration/).
 
 ~~~yaml
 template:

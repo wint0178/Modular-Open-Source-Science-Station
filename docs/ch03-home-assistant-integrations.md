@@ -42,7 +42,7 @@ Suggested native integrations include:
 * **Sun:** Calculates solar elevation vectors, daylight hours, and astronomical data used to track field array solar harvesting performance.
 * **Meteorologisk Institutt:** Provides native local weather forecasting and ambient meteorological baseline tracking.
 * **MQTT (Mosquitto Broker):** [See chapter 4: MQTT](./ch04-MQTT.md) Bridges external data streams—such as LoRaWAN field node telemetry routed through The Things Network (TTN)—directly into Home Assistant.
-* **RESTful Sensor / API Framework:** Enables cloud-based data ingestion (`rest.yaml`) from off-grid gateways like the GW3001 when deployed outside the local network subnet.
+* **RESTful Sensor / API Framework:** Enables cloud-based data ingestion ([`rest.yaml`](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/EcoWitt)) from off-grid gateways like the GW3001 when deployed outside the local network subnet.
 * **System Housekeeping Tools (Bluetooth, Local IP, Radio Browser, Shopping List):** System-level native components managing local connectivity, gateway network parameters, and auxiliary entities.
 * **The Things Network*** Used to connect TTN edge notes (eg. WOILD Sensors) to your Home Assistant Instance. Setup is addressed in [Chapter 4.3: TTN and LoRa](./ch04-TTN-LoRa.md).
 
@@ -127,13 +127,13 @@ Use this method when the GW3001 is deployed at a remote, off-grid, or field stat
 ## 📦 Layer 3: Home Assistant Apps (Add-ons)
 
 These applications run as isolated system containers managed by the Home Assistant Supervisor to provide local backend utilities. They inlcude the following possible installs:
-* **File Editor:** Provides a direct, lightweight web editor workspace to create, update, and manage your core configuration files (`configuration.yaml`, `rest.yaml`, `templates.yaml`, `automations.yaml`).
-* **Studio Code Server (VS Code):** Serves as an advanced, full-featured code editor add-on for editing YAML scripts, managing runtime directory structures, and debugging syntax directly within Home Assistant.
+* **File Editor:** Provides a direct, lightweight web editor workspace to create, update, and manage your core configuration files (`configuration.yaml`, `rest.yaml`, `templates.yaml`, `automations.yaml`). They can be copied [here](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Home-Assistant/Runtime-Configuration)
+* **Studio Code Server (VS Code):** Serves as an advanced, full-featured code editor add-on .for editing YAML scripts, managing runtime directory structures, and debugging syntax directly within Home Assistant.
 * **Mosquitto Broker:** Runs an isolated local MQTT broker container to ingest raw telemetry payload strings (such as LoRaWAN data from TTN) and route them to Home Assistant's internal databroker M2M channel. More detailed information found in [Chapter 4: MQTT](./ch04-MQTT.md).
 * **Samba Share:** Exposes the Home Assistant root configuration folders over the local network, allowing technicians to map directory drives and manage system files securely from an external PC.
 * **Tailscale / WireGuard (VPN Add-ons):** Creates secure, encrypted mesh network tunnels to allow field technicians direct, remote access to the local Home Assistant instance from cellular or satellite networks. More detailed information found in [Chapter 3: Remote Access](./ch03-remote-access.md).
 
-*   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
+*   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the [`software/Home-Assistant/Runtime-Configuration`](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Home-Assistant/Runtime-Configuration) directory.
 
 ![HA Apps](images/HA-Apps.png)
 

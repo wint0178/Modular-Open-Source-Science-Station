@@ -61,7 +61,7 @@ We strongly recommend **Over-The-Air Activation (OTAA)** for secure key negotiat
    * **AppKey:** 128-bit root key used to generate session keys.
 
 ### Step 3: Configure Payload Formatter (Uplink Decoder)
-LoRaWAN transmits raw byte arrays to minimize airtime. In the TTN Console under **Payload Formatters $\rightarrow$ Uplink**, add a JavaScript decoder to convert raw bytes to JSON before forwarding to Home Assistant. Pre-configured payload formatters in JS format are provided for each WOILD version in their respective [software folders](../software/Landslide-Detectors/):
+LoRaWAN transmits raw byte arrays to minimize airtime. In the TTN Console under **Payload Formatters $\rightarrow$ Uplink**, add a JavaScript decoder to convert raw bytes to JSON before forwarding to Home Assistant. Pre-configured payload formatters in JS format are provided for each WOILD version in their respective [software folders](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/Landslide-Detectors/):
 
 ~~~javascript
 function decodeUplink(input) {

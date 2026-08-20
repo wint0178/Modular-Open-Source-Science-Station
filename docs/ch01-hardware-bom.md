@@ -57,7 +57,7 @@ To successfully leverage the ultra-low-power **Wake on Interrupt** performance c
 PCB MANUFACTURING & ORDERING GUIDE
 ==============================================================================
 
-This [directory](../hardware/PCB-Gerbers/LD%20PCB%20V3/) contains the production-ready Gerber files exported from KiCad 
+This [directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/hardware/PCB-Gerbers/LD%20PCB%20V3/) contains the production-ready Gerber files exported from KiCad 
 for the Multi-Node Landslide Detection hardware. You can use the included 
 ZIP archive to order custom printed circuit boards from any standard quick-turn 
 PCB fabrication house.
@@ -103,7 +103,7 @@ STEP-BY-STEP ORDERING INSTRUCTIONS
 ------------------------------------------------------------------------------
 
   1. Locate the Archive:
-     * Find and download the bundled Gerber zip file in this [directory](../hardware/PCB-Gerbers/LD%20PCB%20V3/v3%20gerbers.zip). Do NOT unzip it.
+     * Find and download the bundled Gerber zip file in this [directory](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/hardware/PCB-Gerbers/LD%20PCB%20V3/v3%20gerbers.zip). Do NOT unzip it.
 
   2. Upload to the Fabricator:
      * Navigate to your chosen manufacturer's website and click on their 

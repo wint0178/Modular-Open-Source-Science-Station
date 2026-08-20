@@ -28,14 +28,7 @@ LoRaWAN end-devices operate under three distinct behavioral classes depending on
 
 Field telemetry traverses a multi-stage pipeline from physical sensor actuation to Home Assistant dashboard display:
 
-```mermaid
-graph TD
-    A[WOILD Landslide Edge Nodes] -->|LoRaWAN 915/868 MHz RF| B[LoRaWAN Field Gateway]
-    B -->|Encrypted IP Stream| C[The Things Network v3 Core]
-    C -->|Uplink Payload Formatter| D[TTN Integration / Bridge]
-    D -->|Port 8883/1883 Publish or API| E[Mosquitto Broker / Home Assistant]
-    E -->|Home Assistant Sensor Entities| F[MOSSS HA Automation Engine]
-```
+<img src="images/ttn-flowchart.png" alt="HA Companion App" width="33%" />
 
 * **Edge Nodes (WOILD):** Battery/solar-powered microcontrollers equipped with tilt sensors, soil moisture probes, and battery monitors transmitting at sub-GHz frequencies (e.g., US915 / EU868).
 * **LoRaWAN Gateway:** Ingests long-range radio packets within a 2–10 km line-of-sight radius and forwards them via Ethernet, Wi-Fi, or Cellular backhaul to TTN.

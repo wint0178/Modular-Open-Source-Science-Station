@@ -8,12 +8,7 @@ MQTT (Message Queuing Telemetry Transport) is a lightweight, publish-subscribe m
 
 Rather than maintaining direct HTTP connections from distributed hardware, our system relies on a local Mosquitto MQTT broker to route telemetry asynchronously:
 
-```mermaid
-graph TD
-    A[WOILD Landslide Edge Nodes] -->|LoRaWAN Packets| B[The Things Network / LoRa Gateway]
-    B -->|MQTT Publish String| C[Mosquitto MQTT Broker]
-    C -->|Internal Subscriptions| D[Home Assistant Core]
-```
+<img src="images/mqtt-flowchart.png" alt="HA Companion App" width="33%" />
 
 * **LoRaWAN & The Things Network (TTN) Bridging:** Physical WOILD landslide edge nodes transmit telemetry packets via LoRaWAN to a local gateway/TTN. TTN then funnels these JSON payloads directly to our local Mosquitto broker using dedicated `databroker` M2M credentials to update tracking matrices instantly.
 * **Microcontroller Telemetry:** Standalone ESP32/ESP8266 boards or specialized field sensor kits publish readings directly to specific MQTT topics without requiring complex REST API handshakes.

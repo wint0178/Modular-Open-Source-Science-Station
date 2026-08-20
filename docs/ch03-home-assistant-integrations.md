@@ -2,12 +2,13 @@
 
 This chapter details the software application layer, native integrations, and community integrations of Home Assistant, which is responsible for running the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming data into local vector matrices and safety alerts.
 
-<img src="../images/app-screenshot.png" alt="HA Companion App" width="33%" />
 ---
 
 ## 📱 Layer 1: Home Assistant Mobile Companion App
 
 *   **Mobile App Integration:** Links localized system notifications directly to the **Home Assistant Companion App** on field-technician smartphones. This setup bypasses standard cloud delivery delays to fire **high-priority critical alerts** with custom alert sounds immediately upon matrix breach.
+
+<img src="../images/app-screenshot.png" alt="HA Companion App" width="33%" />
 
 #### Step 1: Download the App
 * **iOS / iPadOS:** Search for **Home Assistant** in the Apple App Store.
@@ -27,7 +28,7 @@ This chapter details the software application layer, native integrations, and co
 
 ## 🔌 Layer 2: Home Assistant Integrations
 
-### 🔌 Finding and Installing Native Integrations in Home Assistant
+### Finding and Installing Native Integrations in Home Assistant
 
 Native integrations are official components built directly into Home Assistant, requiring no third-party repositories or external store installations.
 
@@ -67,11 +68,11 @@ Suggested native integrations include:
 
 > 💡 **Auto-Discovery Note:** Many local hardware devices (like HomeKit accessories, Philips Hue hubs, or local network gateways) will automatically trigger a notification card at the top of the **Devices & Services** page as soon as they join your local subnet—allowing one-click setup without manual searching.
 
-![HA Climate Overview](../images/HA-Clima.png)
-
 ---
 
 ### 🌦️ EcoWitt GW3001 Integration Setup
+
+![HA Climate Overview](../images/weather-view.png)
 
 #### 🏠 Method 1: Local Network Integration (Native Webhook)
 Use this method when the EcoWitt GW3001 gateway and your Home Assistant server reside on the same local network subnet.
@@ -133,6 +134,8 @@ These applications run as isolated system containers managed by the Home Assista
 
 *   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
 
+![HA Apps](../images/HA-Apps.png)
+
 ### 📦 Finding and Installing Add-ons in Home Assistant
 
 Add-ons (also referred to as Apps in updated Home Assistant UI releases) are isolated Docker containers managed directly by the Home Assistant Supervisor. They run alongside Home Assistant Core to add system utilities, database brokers, and file management tools.
@@ -170,22 +173,16 @@ Add-ons (also referred to as Apps in updated Home Assistant UI releases) are iso
 
 If an add-on is hosted outside the official store repositories:
 
-1. Go to **Settings** $\rightarrow$ **Add-ons** $\rightarrow$ **Add-on Store**.
+1. Go to **Settings** $\rightarrow$ **Apps** $\rightarrow$ **Add-on Store**.
 2. Click the **three dots menu** (`⋮`) in the top-right corner and select **Repositories**.
 3. Paste the URL of the third-party GitHub repository and click **Add**.
 4. The newly added tools will now appear at the bottom of the store list for installation.
-
-![HA Application Layer](../images/HA-Dessrumbes.png)
 
 ---
 
 ## 🧩 Layer 4: Home Assistant Community Store (HACS)
 
 Deploys as our secondary package manager to unlock community-driven custom cards, integrations, and advanced backend tools not available in the core distribution line. This includes:
-### 🧩 Suggested HACS Frontend & Community Integrations
-
-Based on your repository documentation up to this point, here are the community custom components, themes, and frontend cards installed via HACS:
-
 * **UI eXtension (UIX) & card-mod:** Injects custom CSS styling directly into the Home Assistant DOM to dynamically alter visual card elements, warning indicators, and background colors.
 * **visionOS & iOS Liquid Glass Theme:** Provides a high-readability visual wrapper with a transparent glassmorphic layout tailored for low-light command monitoring environments.
 * **Weather Radar Card:** Displays live, interactive radar precipitation scans alongside weather sensor metrics to track approaching storm cells.
@@ -193,6 +190,8 @@ Based on your repository documentation up to this point, here are the community 
 * **Horizon Card:** Renders solar elevation vectors, dawn/dusk intervals, and astronomical metrics to analyze field node solar panel charging efficiency.
 * **Map Card:** Tracks spatial locations using geospatial coordinates ($X, Y$) for active WOILD nodes, automatically highlighting nodes in red when vector deviation thresholds trip.
 * **Embedded Webpage Card (Windy.com):** Renders live wind vectors and barometric weather models directly inside the dashboard UI without requiring external API processing.
+
+![HACS View](../images/HA-HACS.png)
 
 > 🔐 **INSTALLATION PREREQUISITE:** To initialize the HACS environment on a fresh installation, you must have a valid **GitHub Account**. The setup process requires you to authenticate the local gateway using GitHub's secure OAuth device-pairing key protocol before the community repository manager can unlock.
 

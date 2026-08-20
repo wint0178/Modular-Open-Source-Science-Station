@@ -70,7 +70,7 @@ Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketc
 2. Select **Confirm** to proceed.
 3. Click **Generate** for `DevEUI`, `AppKey`, and `NwkKey`. Name your device using lowercase letters and hyphens with no spaces (e.g., `my-new-device`), then click **Register end device**.
 
-![TTN Node Provisioning](/Science-Station/images/TTN-new-node.png)
+![TTN Node Provisioning](images/TTN-new-node.png)
 
 ### Step 4: Deploy TTN / ChirpStack Payload Decoder
 1. Open the [software directory](../software/Landslide-Detectors/) where your chosen firmware is located, open the `.js` payload formatter file, and copy the code.

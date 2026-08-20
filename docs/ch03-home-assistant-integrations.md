@@ -8,7 +8,7 @@ This chapter details the software application layer, native integrations, and co
 
 *   **Mobile App Integration:** Links localized system notifications directly to the **Home Assistant Companion App** on field-technician smartphones. This setup bypasses standard cloud delivery delays to fire **high-priority critical alerts** with custom alert sounds immediately upon matrix breach.
 
-<img src="/Science-Station/images/app-screenshot.png" alt="HA Companion App" width="33%" />
+<img src="images/app-screenshot.png" alt="HA Companion App" width="33%" />
 
 #### Step 1: Download the App
 * **iOS / iPadOS:** Search for **Home Assistant** in the Apple App Store.
@@ -32,7 +32,7 @@ This chapter details the software application layer, native integrations, and co
 
 Native integrations are official components built directly into Home Assistant, requiring no third-party repositories or external store installations.
 
-![HA Integrations Overview](/Science-Station/images/HA-Integrations.png)
+![HA Integrations Overview](images/HA-Integrations.png)
 
 Suggested native integrations include:
 * **EcoWitt:** Captures hyper-local meteorological data (temperature, humidity, rain rate, wind metrics) directly from local network broadcasts via the GW3001 gateway or local webhooks.
@@ -73,7 +73,7 @@ Suggested native integrations include:
 
 ### 🌦️ EcoWitt GW3001 Integration Setup
 
-![HA Climate Overview](/Science-Station/images/weather-view.png)
+![HA Climate Overview](images/weather-view.png)
 
 #### 🏠 Method 1: Local Network Integration (Native Webhook)
 Use this method when the EcoWitt GW3001 gateway and your Home Assistant server reside on the same local network subnet.
@@ -135,7 +135,7 @@ These applications run as isolated system containers managed by the Home Assista
 
 *   **File Editor / Studio Code Server:** Provides a direct editor workspace to securely update configuration scripts and manage local asset logs inside the `3-Runtime-Configuration` directory.
 
-![HA Apps](/Science-Station/images/HA-Apps.png)
+![HA Apps](images/HA-Apps.png)
 
 ### 📦 Finding and Installing Add-ons in Home Assistant
 
@@ -192,7 +192,7 @@ Deploys as our secondary package manager to unlock community-driven custom cards
 * **Map Card:** Tracks spatial locations using geospatial coordinates ($X, Y$) for active WOILD nodes, automatically highlighting nodes in red when vector deviation thresholds trip.
 * **Embedded Webpage Card (Windy.com):** Renders live wind vectors and barometric weather models directly inside the dashboard UI without requiring external API processing.
 
-![HACS View](/Science-Station/images/HA-HACS.png)
+![HACS View](images/HA-HACS.png)
 
 > 🔐 **INSTALLATION PREREQUISITE:** To initialize the HACS environment on a fresh installation, you must have a valid **GitHub Account**. The setup process requires you to authenticate the local gateway using GitHub's secure OAuth device-pairing key protocol before the community repository manager can unlock.
 

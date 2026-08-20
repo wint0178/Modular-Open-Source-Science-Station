@@ -126,8 +126,8 @@ The official Home Assistant **The Things Network (TTN)** integration pulls decod
 #### Home Assistant GUI Configuration
 1. Navigate to **Settings $\rightarrow$ Devices & Services $\rightarrow$ Add Integration**.
 2. Search for **The Things Network**.
-3. Input your **Application ID** (`mosss-landslide-monitoring`) and your **API Key** (`NNSXS...`).
-4. Click **Submit**. Home Assistant will auto-create entities (e.g., `sensor.woild_node_01_battery_v`) under the TTN integration card.
+3. Input your **Application ID** (`mosss-landslide-monitoring`) and your **API Key** (`NNSXS...`), which can be generated in **API keys** within the left-hand menu of your application. *Note: this API Key will not be saved or viewable after you set it up, copy and paste it to a secure notebook for access later.*  
+4. Click **Submit**. Home Assistant will auto-create entities (e.g., `sensor.woild_node_01_battery_v`) under the TTN integration card once your nodes transmit them.
 
 ---
 

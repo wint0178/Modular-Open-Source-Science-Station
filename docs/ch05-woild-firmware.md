@@ -85,8 +85,8 @@ Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketc
    * **Frequency:** `US915`
    * **Subband:** `2`
    * **DevEUI:** `0000000000000000`
-   * **AppKey:** `YOUR_APPKEY`
-   * **NwkKey:** `YOUR_NWKKEY`
+   * **AppKey:** `YOUR_APPKEY` formatted as `12345678910112131415161718192021`
+   * **NwkKey:** `YOUR_NWKKEY` formatted as `12345678910112131415161718192021`
 3. The node will attempt to join TTN and send its first transmission. Monitor and verify the join sequence in the Arduino Serial Monitor and in the TTN Live Data feed.
 
 ### Step 6: Establish Calibration & Static Baselines

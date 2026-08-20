@@ -1,18 +1,36 @@
-# 🌲 Chapter 5: WOILD Firmware Deployment & Payload Architecture
+# # 🌲 Chapter 5: WOILD Firmware Deployment & Payload Architecture
 
-The WOILD (Wireless Off-grid Inclinometer & Landslide Detector) v1.1.6 firmware is engineered for ultra-low-power edge nodes deployed in high-risk landslide zones. Operating primarily in a deep-sleep state, the microcontroller utilizes hardware interrupt mapping to wake instantly on motion threshold breaches or transmit periodic baseline telemetry over LoRaWAN.
+The WOILD (Wake On Interrupt Landslide Detector) firmware family is engineered for ultra-low-power edge nodes deployed in high-risk landslide zones. Operating primarily in a deep-sleep state, the microcontroller utilizes hardware interrupt mapping to wake instantly on motion threshold breaches or transmit periodic baseline telemetry over LoRaWAN.
 
 ---
 
 ## ⚡ Power Management & Operational Modes
 
-To maximize solar/battery longevity in field deployments, the WOILD v1.1.6 firmware switches between three operational modes governed by onboard hardware interrupts:
+To maximize solar/battery longevity in field deployments, the WOILD firmware switches between three operational modes governed by onboard hardware interrupts:
 
 | Mode ID | Mode Name | Behavior & Power Draw | Transmission Trigger |
 | :---: | :--- | :--- | :--- |
 | **`0`** | **Timed Baseline** | MCU remains in Deep Sleep (~15µA draw). Wakes briefly via internal RTC timer. | Scheduled heartbeat uplink (e.g., every 60 mins). |
 | **`1`** | **Alert (Threshold)** | Accelerometer interrupt fires on motion ($>32\text{ mg}$ threshold). Node enters high-frequency sampling. | Immediate event-driven packet publish. |
 | **`2`** | **Tripwire Interlock** | External physical continuity circuit (e.g., breakaway ground cable) snaps or breaks connection. | Instant emergency priority uplink with hardware flag bit set. |
+
+---
+
+## 📦 Firmware Version Comparison & Selection Guide
+
+Several firmware builds are maintained under `../software/Landslide-Detectors/`. Choose the version that best matches your deployment needs:
+
+| Version | Key Focus & Innovation | OTA Downlink Control | Dynamic Sleep Delays | Ideal Deployment Scenario |
+| :---: | :--- | :---: | :---: | :--- |
+| **[v1.1.3](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v113/)** | **Power Conservation Baseline**<br>Dual motion thresholds and low-voltage auto-recovery. | ❌ Static | ❌ Hardcoded | Simple, static field nodes with standard solar/battery hardware. |
+| **[v1.1.5](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v115/)** | **Dynamic NVS & Bitpacked Overhaul**<br>Dynamic NVS thresholds and bitpacked payload overhaul. | **Yes** (2-byte frame) | ❌ Hardcoded | Remote nodes needing dynamic threshold and motion tuning over-the-air. |
+| **[v1.1.6](../software/Landslide-Detectors/Wake_On_Interrupt_Landslide_Detector_v116/)** *(Latest)* | **Full Remote Command & Control**<br>Dynamic sleep lookups, OTA tripwire toggling, and NVS persistence. | **Yes** (2-byte frame) | **Yes** (Lookup-based) | **Recommended for production.** Remote nodes where over-the-air parameter tuning is required. |
+
+### Which Version Should You Implement?
+
+* **Choose WOILD v1.1.6 (Recommended for Production):** Represents the cumulative production release. It adds **bi-directional LoRaWAN downlinks**, allowing operators to remotely adjust sleep/wake delays (`MINIMUM_DELAY_LOOKUP_SEC` and `TRIP_ALERT_LOOKUP_SEC`) and toggle the physical tripwire interlock on/off via TTN without climbing up the mountain to re-flash the MCU. All configuration states are persisted across deep sleep cycles in non-volatile storage (NVS) via the ESP32 Preferences API.
+* **Choose WOILD v1.1.5 (Dynamic Threshold Tuning):** Adds NVS flash persistence (`Preferences` API) to store dynamic motion settings across sleep cycles and processes 2-byte LoRaWAN downlinks to dynamically update Motion Threshold ($0–224\text{ mg}$), Software Gate ($0–224\text{ mg}$), and Duration Index ($10–2000\text{ ms}$).
+* **Choose WOILD v1.1.3 (Minimalist Baseline):** Offers a lightweight, non-configurable baseline. It introduces two separate gravitational thresholds (wake-on-interrupt vs. transmit-on-motion) and enters an automatic **20-hour low-voltage hibernation mode** if the battery drops below $3.0\text{V}$, giving small solar panels time to recharge the cell without brownout loops.
 
 ---
 
@@ -34,7 +52,7 @@ Before compiling and flashing the WOILD firmware, configure your local developme
 Follow this step-by-step procedure to configure, compile, and flash WOILD field nodes.
 
 ### Step 1: Configure Node Network Identifiers
-Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketch file. Locate the global network configuration block at the top of the file:
+Navigate to `../software/Landslide-Detectors/` and open the primary `.ino` sketch file for your chosen version. Locate the global network configuration block at the top of the file:
 
 * **LoRaWAN Keys (OTAA):** Input your TTN application credentials (`DevEUI`, `AppEUI`, `AppKey`).
 * **Node Identifier:** Set the unique node integer:
@@ -98,12 +116,12 @@ template:
       - name: "Node 01 Tilt X-Axis"
         unique_id: "woild_node_01_tilt_x"
         unit_of_measurement: "°"
-        state: "{{ state_attr('sensor.woild_node_01_telemetry', 'tilt_x') }}"
+        state: "{{ state_attr('sensor.woild_node_01_tilt_x') }}"
 
       - name: "Node 01 Tilt Y-Axis"
         unique_id: "woild_node_01_tilt_y"
         unit_of_measurement: "°"
-        state: "{{ state_attr('sensor.woild_node_01_telemetry', 'tilt_y') }}"
+        state: "{{ state_attr('sensor.woild_node_01_tilt_y') }}"
 
       - name: "Node 01 System Mode"
         unique_id: "woild_node_01_mode"

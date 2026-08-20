@@ -2,7 +2,7 @@
 
 This chapter details the software application layer, native integrations, and community integrations of Home Assistant, which is responsible for running the **Modular and Open-Source Science Station (MOSSS)** central gateway ecosystem. This configuration translates incoming data into local vector matrices and safety alerts.
 
-![HA Integrations Overview](../images/HA-Integrations.png)
+![HA Companion App](../images/app-screenshot.png)
 
 ---
 
@@ -26,13 +26,14 @@ This chapter details the software application layer, native integrations, and co
 
 ---
 
----
-
 ## 🔌 Layer 2: Home Assistant Integrations
 
 ### 🔌 Finding and Installing Native Integrations in Home Assistant
 
 Native integrations are official components built directly into Home Assistant, requiring no third-party repositories or external store installations.
+
+![HA Integrations Overview](../images/HA-Integrations.png)
+
 Suggested native integrations include:
 * **EcoWitt:** Captures hyper-local meteorological data (temperature, humidity, rain rate, wind metrics) directly from local network broadcasts via the GW3001 gateway or local webhooks.
 * **Weather.com:** Pulls regional atmospheric data and historical forecasting projections to complement microclimate array readings.

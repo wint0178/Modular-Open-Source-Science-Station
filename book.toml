@@ -1,14 +1,19 @@
 [book]
-title = "MOSSS Technical Manual & Field Guide"
+title = "Modular and Open-Source Science Station (MOSSS)"
 authors = ["Brandon J. Winters, Ph.D."]
-description = "Modular and Open-Source Science Station documentation."
+description = "MOSSS Edge Gateway & WOILD Field Node Documentation"
 language = "en"
+multilingual = false
+
+[src]
 src = "docs"
 
 [build]
 build-dir = "book"
 
 [output.html]
-default-theme = "light"
+git-repository-url = "https://github.com/wint0178/Modular-Open-Source-Science-Station"
+git-repository-icon = "fa-github"
+default-theme = "navy"
 preferred-dark-theme = "navy"
-git-repository-url = "https://github.com/bjw58994/Science-Station"
+mathjax-support = true

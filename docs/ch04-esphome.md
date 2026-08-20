@@ -68,7 +68,7 @@ tailscale_auth_key: "tskey-auth-YOUR_REUSABLE_TAILSCALE_KEY"
 ~~~
 
 ### Step 2: Provision & Flash Remote ESP32 Devices
-1. Navigate to your ESPHome dashboard or workspace directory (`https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/ESPHome/`).
+1. Navigate to your ESPHome dashboard or workspace directory ([`https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/ESPHome/`](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/ESPHome/)).
 2. Open your targeted configuration file (e.g., `esphome-tailscale-bme680.yaml`) and update the `name` and `friendly_name` variables to match your deployment site. Ensure all secrets variables correctly reference your `secrets.yaml`.
 3. Compile and flash your ESP32-S3 board over USB or OTA.
 4. On initial boot, the board will attach to the local Wi-Fi, initialize the sensor pipeline, and automatically establish its communications link back to the central server.

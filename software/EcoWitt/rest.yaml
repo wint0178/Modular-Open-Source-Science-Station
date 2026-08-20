@@ -1,4 +1,4 @@
-- resource_template: "https://api.ecowitt.net/api/v3/device/real_time?application_key={{ secrets('ecowitt_app_key') }}&api_key={{ secrets('ecowitt_api_key') }}&mac={{ secrets('ecowitt_mac_addr') }}&call_back=all&temp_unitid=2&wind_speed_unitid=9&rainfall_unitid=12"
+- resource_template: "https://api.ecowitt.net/api/v3/device/real_time?application_key=YOUR_APP_KEY&api_key=YOUR_API_KEY&mac=YOUR_MAC_ADDRESS&call_back=all&temp_unitid=2&wind_speed_unitid=9&rainfall_unitid=12"
   method: GET
   scan_interval: 300
   sensor:

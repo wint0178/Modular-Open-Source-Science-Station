@@ -51,7 +51,7 @@ Suggested native integrations include:
 #### Step-by-Step Installation
 
 1. **Navigate to Integrations:**
-   In your Home Assistant sidebar, go to **Settings** $\rightarrow$ **Devices & Services**.
+   In your Home Assistant sidebar, go to **Settings** → **Devices & Services**.
 
 2. **Add New Integration:**
    Click the **+ Add Integration** button in the bottom-right corner of the **Integrations** tab.
@@ -81,7 +81,7 @@ Use this method when the EcoWitt GW3001 gateway and your Home Assistant server r
 **Step 1: Configure Custom Webhook in WS View Plus**
 1. Open the **WS View Plus** (or EcoWitt) mobile app on a device connected to the local Wi-Fi network.
 2. Select your **GW3001** gateway device from the list.
-3. Navigate to **Menu** $\rightarrow$ **Customized** (or **Weather Services** $\rightarrow$ **Customized**).
+3. Navigate to **Menu** → **Customized** (or **Weather Services** → **Customized**).
 4. Enable the custom upload service and enter the following settings:
    * **Protocol Type:** `Ecowitt`
    * **Server IP / Hostname:** `<YOUR_HOME_ASSISTANT_LOCAL_IP>` (e.g., `192.168.1.100`)
@@ -91,7 +91,7 @@ Use this method when the EcoWitt GW3001 gateway and your Home Assistant server r
 5. Save and apply the configuration.
 
 **Step 2: Enable Integration in Home Assistant**
-1. In Home Assistant, go to **Settings** $\rightarrow$ **Devices & Services**.
+1. In Home Assistant, go to **Settings** → **Devices & Services**.
 2. Click **Add Integration** in the bottom right corner.
 3. Search for **Ecowitt** and select it.
 4. Confirm the prompt to complete setup. Home Assistant will begin auto-discovering sensor channels as the GW3001 sends webhook payloads.
@@ -105,10 +105,6 @@ Use this method when the GW3001 is deployed at a remote, off-grid, or field stat
 3. Navigate to the **API Management** tab in the sidebar menu.
 4. **Application Key:** Click **Create Application Key** to generate a client identifier string.
 5. **API Key:** Click **Create API Key** to generate your personal data authorization token.
-6. Copy both generated strings and paste them securely into your deployment records or `secrets.yaml`.
-
-> [!CAUTION]
-> **Operational Security (OpSec):** Never hardcode live API keys, application secrets, or MAC addresses directly in version-controlled `.yaml` files. Always store sensitive values in `secrets.yaml`.
 
 2. **Locate Your GW3001 MAC Address**
 
@@ -117,7 +113,7 @@ Use this method when the GW3001 is deployed at a remote, off-grid, or field stat
 
 3. **Add rest.yaml to Home Assistant**
 
-   * Download or prepare your `rest.yaml` file.
+   * Download or prepare your `rest.yaml` file. Copy ours [here](https://github.com/wint0178/Modular-Open-Source-Science-Station/tree/main/software/EcoWitt/rest.yaml/), but make sure you replace YOUR_APP_KEY, YOUR_API_KEY, and YOUR_MAC_ADDRESS with your actual values.
    * In Home Assistant, open File Editor and create a new file named `rest.yaml` in the root folder alongside `configuration.yaml`.
    * Copy the full contents into your newly created `rest.yaml` file and save.
    * Ensure your `configuration.yaml` includes the line: `rest: !include rest.yaml`.
@@ -150,7 +146,7 @@ Add-ons (also referred to as Apps in updated Home Assistant UI releases) are iso
 #### Step-by-Step Installation Guide
 
 1. **Access the Add-on Store:**
-   * In your Home Assistant sidebar, navigate to **Settings** $\rightarrow$ **Add-ons** (or **Apps**).
+   * In your Home Assistant sidebar, navigate to **Settings** → **Add-ons** (or **Apps**).
    * Click the **Add-on Store** (or **Install App**) button in the bottom-right corner.
 
 2. **Search for the Application:**

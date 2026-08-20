@@ -8,7 +8,7 @@ This chapter covers the initial physical provisioning and bare-metal OS installa
 
 > ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
 
-![HAOS on R-Pi](/Science-Station/images/HAOS-install.png)
+![HAOS on R-Pi](images/HAOS-install.png)
 
 ### 🏠 Stage 1: Home Assistant OS Bare-Metal Installation
 

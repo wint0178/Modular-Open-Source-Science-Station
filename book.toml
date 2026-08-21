@@ -10,7 +10,7 @@ build-dir = "book"
 
 [output.html]
 git-repository-url = "https://github.com/bjw58994/Science-Station"
-default-theme = "light"
-preferred-dark-theme = "light"
+default-theme = "rust"
+preferred-dark-theme = "rust"
 mathjax-support = true
 no-section-label = true

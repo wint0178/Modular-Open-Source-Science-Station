@@ -26,7 +26,7 @@ All technical guides, hardware schematics, firmware source code explanations, an
 5. **[Chapter 5: WOILD Edge Node Firmware](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch05-woild-firmware.html)** – Wake-on-Interrupt Landslide Detector configuration and JavaScript payload decoders.
 6. **[Chapter 6: Field Deployment](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch06-field-deployment.html)** – Physical installation, tilt verification, and weather station calibration.
 7. **[Chapter 7: Troubleshooting & Maintenance](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch07-troubleshooting.html)**
-8. **[Appendix]((https://wint0178.github.io/Modular-Open-Source-Science-Station/appendix.html))** - Credits, AI disclaimers, Copyright. 
+8. **[Appendix](https://wint0178.github.io/Modular-Open-Source-Science-Station/appendix.html)** - Credits, AI disclaimers, Copyright. 
 
 ---
 

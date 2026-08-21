@@ -79,4 +79,4 @@ If you are utilizing the WOILD framework, hardware PCB configurations, or the Ho
 ---
 
 ## 📄 License
-This project is open-source under the [MIT License](LICENSE). Contributions, issues, and field feedback are welcome!
+This project is open-source under the [Creative Commons - Attribution - Share Alike 4.0 ](https://creativecommons.org/licenses/by-sa/4.0/). Contributions, issues, and field feedback are welcome!

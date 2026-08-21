@@ -10,3 +10,6 @@
 
 ### Academic Citation Note
 If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:
+
+## 📄 License
+This project is open-source under the [Creative Commons - Attribution - Share Alike 4.0 ](https://creativecommons.org/licenses/by-sa/4.0/). Contributions, issues, and field feedback are welcome!

@@ -1,4 +1,4 @@
-# 🛠️ Chapter 1: MOSSS Hardware Deployment & Bill of Materials (BOM)
+# 🛠️ Chapter 1: MOSSS Hardware Deployment & Bill of Materials (BoM)
 
 This chapter contains the physical infrastructure designs, schematic references, and hardware requirements for the **Modular and Open-Source Science Station (MOSSS)** framework. 
 
@@ -6,7 +6,7 @@ To deploy a standard operational tracking cell, you will need components for thr
 
 ---
 
-## 📋 Comprehensive Bill of Materials (BOM)
+## 📋 Comprehensive Bill of Materials (BoM)
 
 ### 1. WOILD Edge Nodes (Per Node)
 These low-power field units are custom-fabricated to monitor earth movement and acceleration over remote slopes. Total cost per node is about $70.00.

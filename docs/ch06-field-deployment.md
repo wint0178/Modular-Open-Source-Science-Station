@@ -40,7 +40,7 @@ To capture structural land motion accurately without measuring enclosure wobble,
 
 ### Anchoring Options by Terrain
 * **Bedrock / Hard Rock:** Drill using a masonry bit ($10\text{ mm}$), insert stainless steel expansion anchor bolts, and torque the base plate down directly.
-* **Soil / Loose Debris:** Drive $1\text{ m}$ galvanised steel ground stakes into the earth. Secure the node enclosure near the top of the stake using heavy-duty U-bolts.
+* **Soil / Loose Debris:** Drive $1\text{ m}$ galvanized steel ground stakes into the earth. Secure the node enclosure near the top of the stake using heavy-duty U-bolts.
 * **Structural Poles / Trees:** Use wide, weather-resistant stainless steel hose clamps or tree straps. *Note: Tree mounting should be avoided for primary accelerometers due to wind-induced trunk swaying.*
 
 ---

@@ -4,7 +4,7 @@
 This chapter covers the initial physical provisioning and bare-metal OS installation for the central **Modular and Open-Source Science Station (MOSSS)** edge gateway. As such, it walks through:
 1. Installation of **Home Assistant OS (HAOS)** on a Raspberry Pi 4 or 5.
 2. Establishing two-tiered login access.
-3. Create a dedicated Machine-to-Machine (M2M) profile called `Data Broker` (login: `databroker`) under **Settings > People** to handle incoming data streams securely.
+3. Creating a dedicated Machine-to-Machine (M2M) profile called `Data Broker` (login: `databroker`) under **Settings > People** to handle incoming data streams securely.
 
 > ⚠️ **CRITICAL ORDERING:** Adhere strictly to the sequence below. Misordering these setup steps will result in a failed headless boot or network mismatch.
 
@@ -83,7 +83,7 @@ Because the gateway needs to compute vector matrices locally without internet de
 ---
 
 ## 🔐 Stage 2: Operational Security (OpSec) & Network Provisioning
-Once you have landed on your fresh home assistant dashboard and created your main owner account, advance to user provisioning and system networking:
+Once you have landed on your fresh Home Assistant dashboard and created your main owner account, advance to user provisioning and system networking:
 
 This section defines the access permissions, secure data pipelines, and remote connectivity meshes required to protect the MOSSS gateway hub from corruption while allowing open scientific collaboration.
 

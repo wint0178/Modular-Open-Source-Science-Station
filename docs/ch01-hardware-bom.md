@@ -24,9 +24,9 @@ These low-power field units are custom-fabricated to monitor earth movement and 
 | [**4.7 kOhm resistor**](https://www.amazon.com/EDGELEC-Resistor-Tolerance-Resistance-Optional/dp/B07HDFHPP3?crid=39OREMR6K56Y1&dib=eyJ2IjoiMSJ9.edd2pFVhHikqXpztWdQtGtDwpTH0BGScqY4L1ad6n52--SGaljJmEu7QXAIKvut1-wna-pp2BYMzbozMBx2Z87PCTyR6p4In5xel9Vg4CMAKAhvRPINHRYF9i1VvAU6OGrJnc1duage4dnPN1iZ5ympWgToTYIBAXsi3chiGFn_9GObHj1rAkR6pjXnKDQCBSWYtFCFM5hC9Wk5sSkJ9TJgnasL630ZkUIjDR7bCHAY.WnSVYU3rWhqa4dyXLfypAtD9uVJaRf3YDekzxPyuEYM&dib_tag=se&keywords=4.7%2Bkohm%2Bresistor&qid=1787006429&sprefix=4.7%2Caps%2C223&sr=8-6&th=1) | 2 | Used to pull up SDA and SCL pins for I2C | Must solder to through holes of PCB | $0.10 |
 | [**Female Header Pins**](https://www.amazon.com/Ferwooh-Single-Straight-Connector-Spacing/dp/B0CZ6X313F?crid=3L8G0KER3SFF1&dib=eyJ2IjoiMSJ9.my1z_XJlQFrNgZNH_tsevyGhxeroAV_GrkD1v3mq-l9dyyje6eiinpb0p_JQzLmhXdIePUepf0lC8ycCltD-Ybp25BiqOSz6OpdOA4sehbD3QIq5peeGfLpEsG1gStQ9mTIRdXB_0KEnmCQnf08Pc0uMwHj7DNciKfTcAxVD5hEUOQFOpmMffCzO66eBDddxwUQEccVPXAEXfTLQxQrU6Yy8GRb0MxB1DtpMYnL-BPQ.bDSGFc_iuabnWINR_RO7qYJnKs-FYnhYyr2ZiOFen-I&dib_tag=se&keywords=female+header+pins&qid=1787005507&sprefix=female+hea%2Caps%2C202&sr=8-4) | 3 | Soldered to PCB to accept boards | 40 pin, 2.54 mm pitch | $0.75 |
 | [**Screw Terminal Block**](https://www.amazon.com/Screw-Terminal-Block-Circuit-Connectors/dp/B0FNQX9MMT?crid=L74EXI3ADYGX&dib=eyJ2IjoiMSJ9.QEweruKTRzxZydbykf9Db6AT5yVFkqIA9c7NnGsjIiPnPDkH2MjGUbh0tBMRXZ4gB0RgmkpHCpPMbYdBaLRGAYcXIKBoiJmE1bDzMHA_LyB6drJFPCBgZDccLs-wUNMROosOlKAqbk5r3UbhvQdvNA2OL_MpWeYnXxYYm7m0ayBLH9qtkvmhg1IeuEOZbtY9b8m_GLVnna8FJ9N1FCDCyvpfoSKAeUOqaeCApEsRhBk.H8cjzpXM-J1EdbWwba6Af3TfGFI0JsY6Lbck_Jdarv0&dib_tag=se&keywords=screw+terminal&qid=1787006038&sprefix=screw+terminal%2Caps%2C259&sr=8-3) | 2 | Solder to PCB for solar and tripwire | 2 pin, 5 mm | $0.25 |
-| [**JST Battery Connector**](https://www.amazon.com/Letool%C2%AE30-1-25mm-Female-Connector-Cables/dp/B013JRWCBU?crid=2U4VSS5VKCL6E&dib=eyJ2IjoiMSJ9.nmGCDJaX0FLDAuihcI3ef8Rk0WGTrwwYICDUYRWNCze9xJRFltDaH7-k1QA2imxBM7iJfV5Tgp9_FQa4OEb_oZ2MaGoN6jle1UJEKnU3fcVi9KRVFWZLZl6trQvZNk2BCZ5r-DlCGFWP47qKIAPZkmw_naZP9DZ35nKCHtHRnqA7FPqOX1mFn1cj0t-RL7FS7AfkG2bgNwGZRMRmHGK5FSGxtGwau_qvCEP-a-te7ag.4fa_cj-chPjZVDUZa2G4lxMpiDG8cwlEN5znyQ5m47o&dib_tag=se&keywords=jst+1.25+connector+kit&qid=1787006403&sprefix=jst+1.25%2Caps%2C221&sr=8-4) | 1 | Solder to CN5065 for battery connection | 2 pin, 1.25 mm pitch | $0.30 |
+| [**JST Battery Connector**](https://www.amazon.com/Letool%C2%AE30-1-25mm-Female-Connector-Cables/dp/B013JRWCBU?crid=2U4VSS5VKCL6E&dib=eyJ2IjoiMSJ9.nmGCDJaX0FLDAuihcI3ef8Rk0WGTrwwYICDUYRWNCze9xJRFltDaH7-k1QA2imxBM7iJfV5Tgp9_FQa4OEb_oZ2MaGoN6jle1UJEKnU3fcVi9KRVFWZLZl6trQvZNk2BCZ5r-DlCGFWP47qKIAPZkmw_naZP9DZ35nKCHtHRnqA7FPqOX1mFn1cj0t-RL7FS7AfkG2bgNwGZRMRmHGK5FSGxtGwau_qvCEP-a-te7ag.4fa_cj-chPjZVDUZa2G4lxMpiDG8cwlEN5znyQ5m47o&dib_tag=se&keywords=jst+1.25+connector+kit&qid=1787006403&sprefix=jst+1.25%2Caps%2C221&sr=8-4) | 1 | Solder to CN3065 for battery connection | 2 pin, 1.25 mm pitch | $0.30 |
 | [**22 AWG Wire**](https://www.amazon.com/Conductor-Electrical-Parallel-0-3mm%C2%B2%EF%BC%8C-Projects/dp/B0FH4YYJ3Y?crid=3QT0M60D67B4E&dib=eyJ2IjoiMSJ9.0is0xfeGIMj9TEgcksIBU9jsAL1q5Vx57pYKE14YckDleDBYIFI7YmWp75AmAnFpmhNzAiCzbE_lv2J9mnvaLvtJfnF-jJM8G21p2zr5qy0fYMAmTc8X8YaO5-getnl5uHYEra-iEg-brF4Vqh_3PJ0BE1F3n9XibU1BwurH9rvBKOMhWAL8F1ROHz2ICm2P5638ldoBP-kkmqtvCsTL03jxnpkQZKON0Vmyf70aEaBMSzhuacPHyIxjcvZY05p47eYJDBDm8HpxgFnxmMnFOKQwgYK_tfQFUfSRetDRSkU.p7654FxWbtkrRaYfAfKxP1rk2Yk3CtPmk9iSUuFXY8Y&dib_tag=se&keywords=22AWG&qid=1787005778&sprefix=22awg%2Caps%2C191&sr=8-9&th=1) | 1 | Solder to solar pannel | 2 Conductor, tinned, 10 meters | $10.00 |
-| [**Tripwire**](https://www.amazon.com/dp/B003NN1XZM?th=1) | 1 | Disconnected audio port Will serve as tripwire | 1/8" audio TRS extender, 6 ft | $2.00 |
+| [**Tripwire**](https://www.amazon.com/dp/B003NN1XZM?th=1) | 1 | Disconnected audio port serves as tripwire | 1/8" audio TRS extender, 6 ft | $2.00 |
 
 
 ### 2. Meteorological Subsystem (Per Site)
@@ -37,7 +37,7 @@ Aggregates hyper-local microclimate data and makes them available online.
 | [**EcoWitt Weather Station**](https://www.amazon.com/ECOWITT-Ethernet-Humidity-Anemometer-Barometric/dp/B0DTPXKP8B?dib=eyJ2IjoiMSJ9.vmuq2wixRRtQ4HUwB4Tx1Cv_TuTXVxVoF8i1jnqL0hY6v-vdyNxGuueYBpybWMOQ7pM067amLJ9BFM5YXjrDcGb1jDSqgnFqU5l4anfboObyk_chcJk4R5FNT79abqa9jXNDUn0L6iitYGxAjOXJV8jEhw3KsAfgs-0m_hhKNmmcz0kyPy2I6bAZypTCu1t3_RYHbeSlg9fzPx3w6Qz-YuWK6RH7a0A1Kqw7eDLt2V40IfwUQ_ru4wMD6h6wkgLngRp28WIEKBUQFUupRkcYWamxl0MjnKqwsMa2gJEbXF0.90WJBZWs4VZ1ySQaDd7E71DnfBFPnfJ7x14SSzmTBJE&dib_tag=se&keywords=Ecowitt%2Bgw3001&qid=1787006353&sr=8-1&th=1) | Solid-state array and WiFi Gateway | GW3000 with WS90 7-in-1 Sensor Array | $200.00 |
 
 ### 3. Central Gateway Hub (Per Grid)
-The edge-computing collection facility responsible for the GUI, data collection and distribution, LoRa transmission accumultion, and automated emergency alerts.
+The edge-computing collection facility responsible for the GUI, data collection and distribution, LoRa transmission accumulation, and automated emergency alerts.
 
 | Component | Description / Function | Key Specification | Est. Unit Cost (USD) |
 |---|---|---|---|
@@ -65,7 +65,7 @@ PCB fabrication house.
 ------------------------------------------------------------------------------
 RECOMMENDED FABRICATION HOUSES
 ------------------------------------------------------------------------------
-The exported files use standard RS-274X/X2 formats compatible with all major 
+The exported files use standard RS-274X/X2 formats, compatible with all major 
 global manufacturers. Popular high-quality options include:
   * JLCPCB (jlcpcb.com)
   * PCBWay (pcbway.com)
@@ -88,11 +88,11 @@ The hardware subsystem is engineered to bridge abstract telemetry logic with res
   </tr>
   <tr>
     <td>
-      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff; margin-top: 10px; margin-bottom: 4px;">3. PCB Top Side</div>
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; margin-top: 10px; margin-bottom: 4px;">3. PCB Top Side</div>
       <img src="images/v3_front.png" alt="PCB Front Layer Layout" width="320">
     </td>
     <td>
-      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; color: #52a3ff; margin-top: 10px; margin-bottom: 4px;">4. PCB Bottom Side</div>
+      <div style="font-weight: bold; font-size: 12px; text-transform: uppercase; font-family: sans-serif; margin-top: 10px; margin-bottom: 4px;">4. PCB Bottom Side</div>
       <img src="images/v3_back.png" alt="PCB Back Layer Layout" width="320">
     </td>
   </tr>
@@ -135,13 +135,13 @@ following baseline settings to ensure physical reliability in outdoor terrain:
   * Silkscreen Color: White (Or contrasting color for component label readability)
 
 ------------------------------------------------------------------------------
-COMPONENT SOURCING (BOM & CPL)
+COMPONENT SOURCING (BoM & CPL)
 ------------------------------------------------------------------------------
   * Component Placement: The board layout utilizes clear silkscreen labeling 
     identifying resistor, capacitor, microcontroller, and sensor pinouts.
   * Assembly: This board is optimized for hand-soldering. If you intend to use 
     an automated turn-key assembly service (PCBA), you will need to provide the 
-    manufacturer with the Bill of Materials (BOM) and Component Placement List 
+    manufacturer with the Bill of Materials (BoM) and Component Placement List 
     (CPL / Centroid file) exported separately from the main design repository.
 ==============================================================================
 

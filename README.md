@@ -66,7 +66,7 @@ If you are browsing the repository directly on GitHub, use this directory map to
 ## ⚖️ Credits and Disclaimers
 
 ### Project Credits
-* **System Design & Architecture:** Developed by Brandon J. Winters, Ph.D., Murphy O'Malley, and Evan Streeter
+* **System Design & Architecture:** Developed by Brandon J. Winters, Ph.D., Murphy O'Malley, and Evan Streeter.
 * **Firmware & Core Logic:** Built on the WOILD v1.1.6 framework.
 
 ### AI Transparency & Media Disclosure

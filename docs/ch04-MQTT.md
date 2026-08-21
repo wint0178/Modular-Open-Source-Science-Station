@@ -65,7 +65,7 @@ If you prefer not to edit `configuration.yaml` directly, Home Assistant offers t
 
 ---
 
-#### Method 1: The Native MQTT "Add Device" UI Subentry
+#### Method 1: The Native MQTT 'Add Device' UI Subentry
 
 Home Assistant allows you to add custom MQTT entities directly from the MQTT integration page without touching configuration files.
 

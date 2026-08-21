@@ -1,32 +1,36 @@
-# Modular and Open-Source Science Station (MOSSS)
+# 🌿 Modular and Open-Source Science Station (MOSSS)
+
 > **Ensuring safe stones gather moss.**
 
----
-
-The Modular and Open-Source Science Station (MOSSS) features a decentralized environmental monitoring network designed for rugged, remote terrain. Utilizing a localized LoRaWAN mesh alongside EcoWitt meteorological sensors, the system aggregates real-time microclimate data, barometric pressure, and physical movement tracking.
+An open-source, decentralized environmental monitoring and slope-stability tracking network designed for remote, rugged terrain. Utilizing localized LoRaWAN mesh communication alongside EcoWitt meteorological sensors, the system aggregates real-time microclimate data, barometric pressure, and physical movement tracking.
 
 At the core of the MOSSS physical tracking infrastructure is the **Wake on Interrupt Landslide Detector (WOILD)** subsystem—an open-source hardware and telemetry framework specifically engineered to monitor slope stability and ground acceleration.
 
 All data streams converge on a centrally located, local Home Assistant Core gateway, which orchestrates automated mobile alerts via custom vector deviation matrices and bridges the network into broader commercial smart integrations.
 
-![MOSSS Topology](./images/MOSSS_Topology.png)
+![MOSSS Topology](/MOSSS_Topology.png)
 
 ---
 
-## 🛠️ Hardware Stack
+## 📚 Official Project Book & Documentation
 
-| Layer | Device | Sensors / Specs |
-| :--- | :--- | :--- |
-| **Field Nodes** | Heltec WiFi LoRa 32 V3 | MPU6050 Accelerometer, DHT22, 1W Solar |
-| **Weather** | EcoWitt WN90 Array | Piezo Rain, Anemometer, Temp/Humid/Pres |
-| **Gateways** | SenseCAP M2 & EcoWitt GW3001 | LoRaWAN (TTN), WiFi |
-| **Core Gateway**| Raspberry Pi 4 / 5 | 32GB mSD, Home Assistant Core, Nabu Casa |
+All technical guides, hardware schematics, firmware source code explanations, and step-by-step deployment instructions are hosted in our interactive **mdBook**:
+
+👉 **[Read the full Documentation: Modular and Open-Source Science Station (MOSSS)](https://wint0178.github.io/Modular-Open-Source-Science-Station/)**
+
+### 📑 Book Chapters
+1. **[Chapter 1: Hardware & Bill of Materials](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch01-hardware-bom.html)** – Component lists, enclosure assemblies, and pinouts.
+2. **[Chapter 2: Home Assistant Setup](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch02-home-assistant.html)** – Central gateway provisioning and data retention rules.
+3. **[Chapter 3: Integrations & Remote Access](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch03-home-assistant-integrations.html)** – EcoWitt webhooks/REST APIs, Tailscale VPN, and ESPHome nodes.
+4. **[Chapter 4: TTN & LoRaWAN Backhaul](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch04-TTN-LoRa.html)** – SenseCAP gateway setup, TTN application routing, and MQTT bridges.
+5. **[Chapter 5: WOILD Firmware & Calibration](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch05-woild-firmware.html)** – Wake-on-Interrupt Landslide Detector configuration and JavaScript payload decoders.
+6. **[Chapter 6: Field Deployment & Alerts](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch06-field-deployment.html)** – Physical installation, tilt verification, and vector deviation matrix testing.
 
 ---
 
 ## 🗺️ Quick-Start Navigation Guide
 
-If you are new to the repository, use this directory map to quickly find files for your current build phase:
+If you are browsing the repository directly on GitHub, use this directory map to quickly find files for your current build phase:
 
 | What you want to do | Go to Directory | Description & Key Files |
 | :--- | :--- | :--- |
@@ -38,17 +42,14 @@ If you are new to the repository, use this directory map to quickly find files f
 
 ---
 
-## 🚀 Step-by-Step Deployment Roadmap
+## 🛠️ Hardware Stack Overview
 
-After [purchasing all necessary hardware,](/hardware/) assemble a MOSSS station from raw parts and field deploy it following these these sequential steps:
-
-1. **Set-up Home Assistant Server (Provision Central Gateway):** Follow [`/software/Home-Assistant/`](./software/Home-Assistant/) to install HAOS, create the `databroker` M2M user account, and configure 30-day recorder filters before bringing field nodes online.
-2. **Integrate Commercial Smart Equipment:** Unbox, power up, and integrate off-the-shelf meteorological, agricultural, or scientific hardware—such as the **EcoWitt GW3001** weather station gateway—directly into Home Assistant to establish real-time microlocal metrics (rainfall, wind vectors, barometric pressure, ...).
-3. **Add WiFi sensors with ESPHome (Optional):** Set up option-based Wi-Fi or Tailscale VPN nodes using [`/software/ESPHome/`](./software/ESPHome/).
-4. **Hardware Assembly & Sensor Construction:** Refer to [`/hardware/`](./hardware/) and `images/v3_circuit.png` to build physical enclosures, wire your Heltec V3 board, and connect accelerometers and environmental sensors.
-5. **Setup TTN and LoRa transmissions:** Navigate to https://nam1.cloud.thethings.network and create an account. If no public gateway is available, setup your TTN LoRa gateway. Create an application and link it to the HA TTN integration using the application id, API Key, and TTN server address.
-6. **Flash WOILD v1.1.6 Firmware & Calibrate:** Navigate to [`/software/Landslide-Detectors/`](./software/Landslide-Detectors/), configure your LoRaWAN credentials (`DevEUI`, `AppEUI`, `AppKey`), assign unique node IDs (`NODE_ID`), set static baseline orientation angles, and flash the MCU via Arduino IDE or PlatformIO. Then, open `WOILD_v1.1.6_payload_formatter.js` in [`/software/Landslide-Detectors/`](./software/Landslide-Detectors/) and paste the decoder script into your TTN or ChirpStack uplink payload formatter console.
-7. **Field Installation & Alert Verification:** Mount hardware nodes at your field station, run physical tilt/motion interrupt tests, and verify real-time data ingestion and vector deviation matrix alerting on your Home Assistant dashboard.
+| Layer | Component / Device | Function / Specs |
+| :--- | :--- | :--- |
+| **Field Nodes** | Heltec WiFi LoRa 32 V3 | MPU6050 Accelerometer, DHT22, 1W Solar |
+| **Weather Array** | EcoWitt WN90 & GW3001 | Piezo Rain, Anemometer, Temp/Humid/Pres |
+| **Gateways** | SenseCAP M2 & EcoWitt | LoRaWAN (TTN), Local Webhooks / Wi-Fi |
+| **Core Gateway** | Raspberry Pi 4 / 5 | Local Home Assistant Core server, Nabu Casa |
 
 ---
 
@@ -67,8 +68,13 @@ After [purchasing all necessary hardware,](/hardware/) assemble a MOSSS station 
 * **Firmware & Core Logic:** Built on the WOILD v1.1.6 framework.
 
 ### AI Transparency & Media Disclosure
-* **Documentation & Asset Assistance:** Portions of the configuration optimization, code documentation, and README organization were refined with the assistance of large language models (Gemini/ChatGPT).
-* **Visual Imagery:** Conceptual diagrams, branding icons, or repository header graphics were generated using AI imaging tools with human-directed engineering prompts. These assets are intended purely for illustrative, conceptual, and repository-visual enhancement purposes.
+* **Documentation & Asset Assistance:** Portions of the configuration optimization, code documentation, and README organization were refined with the assistance of large language models.
+* **Visual Imagery:** Conceptual diagrams, branding icons, or repository header graphics were generated using AI imaging tools for illustrative and repository-visual enhancement purposes.
 
 ### Academic Citation Note
-If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript:
+If you are utilizing the WOILD framework, hardware PCB configurations, or the Home Assistant automation matrix in academic research, please cite the primary manuscript.
+
+---
+
+## 📄 License
+This project is open-source under the [MIT License](LICENSE). Contributions, issues, and field feedback are welcome!

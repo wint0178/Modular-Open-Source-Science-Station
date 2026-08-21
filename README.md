@@ -21,10 +21,12 @@ All technical guides, hardware schematics, firmware source code explanations, an
 ### 📑 Book Chapters
 1. **[Chapter 1: Hardware & Bill of Materials](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch01-hardware-bom.html)** – Component lists, enclosure assemblies, and pinouts.
 2. **[Chapter 2: Home Assistant Setup](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch02-home-assistant.html)** – Central gateway provisioning and data retention rules.
-3. **[Chapter 3: Integrations & Remote Access](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch03-home-assistant-integrations.html)** – EcoWitt webhooks/REST APIs, Tailscale VPN, and ESPHome nodes.
-4. **[Chapter 4: TTN & LoRaWAN Backhaul](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch04-TTN-LoRa.html)** – SenseCAP gateway setup, TTN application routing, and MQTT bridges.
-5. **[Chapter 5: WOILD Firmware & Calibration](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch05-woild-firmware.html)** – Wake-on-Interrupt Landslide Detector configuration and JavaScript payload decoders.
-6. **[Chapter 6: Field Deployment & Alerts](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch06-field-deployment.html)** – Physical installation, tilt verification, and vector deviation matrix testing.
+3. **[Chapter 3: Home Assistant Integrations](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch03-home-assistant-integrations.html)** – HA Companion App, Native Integrations, Apps (Add-ons), HACS, and remote access options.
+4. **[Chapter 4: TTN, LoRa, and MQTT Data Transmission](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch04-TTN-LoRa.html)** – SenseCAP gateway setup, TTN application routing, and MQTT bridges.
+5. **[Chapter 5: WOILD Edge Node Firmware](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch05-woild-firmware.html)** – Wake-on-Interrupt Landslide Detector configuration and JavaScript payload decoders.
+6. **[Chapter 6: Field Deployment](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch06-field-deployment.html)** – Physical installation, tilt verification, and weather station calibration.
+7. **[Chapter 7: Troubleshooting & Maintenance](https://wint0178.github.io/Modular-Open-Source-Science-Station/ch07-troubleshooting.html)**
+8. **[Appendix]((https://wint0178.github.io/Modular-Open-Source-Science-Station/appendix.html))** - Credits, AI disclaimers, Copyright. 
 
 ---
 
@@ -64,7 +66,7 @@ If you are browsing the repository directly on GitHub, use this directory map to
 ## ⚖️ Credits and Disclaimers
 
 ### Project Credits
-* **System Design & Architecture:** Developed by Brandon J. Winters, Ph.D.
+* **System Design & Architecture:** Developed by Brandon J. Winters, Ph.D., Murphy O'Malley, and Evan Streeter
 * **Firmware & Core Logic:** Built on the WOILD v1.1.6 framework.
 
 ### AI Transparency & Media Disclosure

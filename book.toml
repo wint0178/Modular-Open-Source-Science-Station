@@ -9,7 +9,7 @@ src = "docs"
 build-dir = "book"
 
 [output.html]
-git-repository-url = "https://github.com/bjw58994/Science-Station"
+git-repository-url = "https://github.com/wint0178/Modular-Open-Source-Science-Station"
 default-theme = "rust"
 preferred-dark-theme = "rust"
 mathjax-support = true

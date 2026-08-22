@@ -44,8 +44,8 @@
         {% endif %}
       unit_of_measurement: "min"
       attributes:
-        latitude: -1.4035346887246196
-        longitude: -78.3138942718506
+        latitude: 45.0542164498
+        longitude: -93.1568827058
         icon_color: >
           {% set last_check = states('sensor.ld01_absolute_check_in_timestamp') %}
           {% if last_check in ['unknown', 'unavailable'] %} grey
